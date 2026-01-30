@@ -1,0 +1,361 @@
+/* pages/recipe-detail/recipe-detail.wxss */
+
+.container {
+  padding: 0;
+  padding-bottom: 150rpx;
+}
+
+/* 头部图片 */
+.header-image-wrap {
+  position: relative;
+  width: 100%;
+  height: 400rpx;
+  background-color: var(--color-primary-light);
+}
+
+.header-image {
+  width: 100%;
+  height: 100%;
+}
+
+.header-image-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 120rpx;
+  background: linear-gradient(135deg, rgba(143, 185, 150, 0.3) 0%, rgba(74, 124, 89, 0.3) 100%);
+}
+
+.header-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 40rpx 30rpx;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
+}
+
+.recipe-title {
+  font-size: 40rpx;
+  font-weight: 600;
+  color: #fff;
+  margin-bottom: 8rpx;
+}
+
+.recipe-subtitle {
+  font-size: 26rpx;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+/* 信息卡片 */
+.info-cards {
+  display: flex;
+  margin: -40rpx 30rpx 20rpx;
+  position: relative;
+  z-index: 10;
+}
+
+.info-card {
+  flex: 1;
+  background-color: var(--color-white);
+  border-radius: 16rpx;
+  padding: 20rpx;
+  text-align: center;
+  margin: 0 8rpx;
+  box-shadow: 0 4rpx 16rpx rgba(0, 0, 0, 0.1);
+}
+
+.info-value {
+  font-size: 26rpx;
+  font-weight: 600;
+  color: var(--color-primary);
+  margin-bottom: 4rpx;
+}
+
+.info-label {
+  font-size: 22rpx;
+  color: var(--color-text-lighter);
+}
+
+/* 适用说明 */
+.suitable-section {
+  margin: 0 30rpx 20rpx;
+}
+
+.suitable-title {
+  font-size: 26rpx;
+  color: var(--color-text-light);
+  margin-bottom: 12rpx;
+}
+
+.suitable-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12rpx;
+}
+
+.suitable-tag {
+  padding: 8rpx 20rpx;
+  background-color: rgba(129, 178, 154, 0.2);
+  color: var(--color-success);
+  border-radius: 20rpx;
+  font-size: 26rpx;
+}
+
+/* 标签页 */
+.tabs {
+  display: flex;
+  background-color: var(--color-white);
+  margin: 0 30rpx;
+  border-radius: 16rpx;
+  padding: 8rpx;
+}
+
+.tab {
+  flex: 1;
+  text-align: center;
+  padding: 20rpx;
+  font-size: 28rpx;
+  color: var(--color-text-light);
+  border-radius: 12rpx;
+}
+
+.tab.active {
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  font-weight: 500;
+}
+
+/* 标签内容 */
+.tab-content {
+  margin: 20rpx 30rpx;
+}
+
+/* 食材清单 */
+.ingredient-list {
+  margin-bottom: 20rpx;
+}
+
+.ingredient-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20rpx 0;
+  border-bottom: 2rpx solid var(--color-border);
+}
+
+.ingredient-item:last-child {
+  border-bottom: none;
+}
+
+.ingredient-name {
+  font-size: 30rpx;
+  color: var(--color-text);
+}
+
+.ingredient-right {
+  text-align: right;
+}
+
+.ingredient-amount {
+  font-size: 28rpx;
+  color: var(--color-primary);
+  font-weight: 500;
+}
+
+.ingredient-note {
+  display: block;
+  font-size: 24rpx;
+  color: var(--color-text-lighter);
+  margin-top: 4rpx;
+}
+
+.servings-note {
+  font-size: 26rpx;
+  color: var(--color-text-lighter);
+  padding-top: 16rpx;
+  border-top: 2rpx dashed var(--color-border);
+}
+
+/* 制作步骤 */
+.step-list {
+  padding: 0;
+}
+
+.step-item {
+  display: flex;
+  margin-bottom: 24rpx;
+}
+
+.step-item:last-child {
+  margin-bottom: 0;
+}
+
+.step-number {
+  width: 48rpx;
+  height: 48rpx;
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+  color: var(--color-white);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 26rpx;
+  font-weight: 600;
+  flex-shrink: 0;
+  margin-right: 16rpx;
+  margin-top: 4rpx;
+}
+
+.step-content {
+  flex: 1;
+  font-size: 30rpx;
+  color: var(--color-text);
+  line-height: 1.8;
+}
+
+/* 营养说明 */
+.nutrition-grid {
+  display: flex;
+  gap: 16rpx;
+  margin-bottom: 24rpx;
+}
+
+.nutrition-item {
+  flex: 1;
+  background-color: var(--color-background);
+  border-radius: 12rpx;
+  padding: 20rpx;
+  text-align: center;
+}
+
+.nutrition-label {
+  font-size: 24rpx;
+  color: var(--color-text-lighter);
+  margin-bottom: 8rpx;
+}
+
+.nutrition-value {
+  font-size: 26rpx;
+  color: var(--color-text);
+}
+
+.nutrition-special {
+  background-color: rgba(74, 124, 89, 0.05);
+  border-radius: 12rpx;
+  padding: 20rpx;
+}
+
+.special-title {
+  font-size: 26rpx;
+  color: var(--color-primary);
+  font-weight: 500;
+  margin-bottom: 8rpx;
+}
+
+.special-content {
+  font-size: 28rpx;
+  color: var(--color-text);
+  line-height: 1.6;
+}
+
+/* 小贴士 */
+.tips-section, .warnings-section {
+  margin: 0 30rpx 20rpx;
+}
+
+.tips-title, .warnings-title {
+  display: flex;
+  align-items: center;
+  margin-bottom: 16rpx;
+  border-left: none;
+  padding-left: 0;
+}
+
+.tips-icon, .warnings-icon {
+  margin-right: 8rpx;
+}
+
+.tips-list, .warnings-list {
+  padding-left: 8rpx;
+}
+
+.tip-item, .warning-item {
+  position: relative;
+  padding-left: 20rpx;
+  margin-bottom: 12rpx;
+  font-size: 28rpx;
+  line-height: 1.6;
+}
+
+.tip-item::before {
+  content: '•';
+  position: absolute;
+  left: 0;
+  color: var(--color-primary);
+}
+
+.tip-item {
+  color: var(--color-text);
+}
+
+.warning-item::before {
+  content: '•';
+  position: absolute;
+  left: 0;
+  color: var(--color-error);
+}
+
+.warning-item {
+  color: var(--color-error);
+}
+
+/* 底部操作栏 */
+.bottom-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  gap: 20rpx;
+  padding: 20rpx 30rpx;
+  background-color: var(--color-white);
+  box-shadow: 0 -4rpx 20rpx rgba(0, 0, 0, 0.05);
+}
+
+.action-btn {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 88rpx;
+  background-color: var(--color-background);
+  border: none;
+  border-radius: 44rpx;
+  font-size: 30rpx;
+  color: var(--color-text);
+}
+
+.action-btn::after {
+  border: none;
+}
+
+.action-btn.share-btn {
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+  color: var(--color-white);
+}
+
+.btn-icon {
+  margin-right: 8rpx;
+}
+
+/* 加载状态 */
+.loading-state {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  color: var(--color-text-lighter);
+}

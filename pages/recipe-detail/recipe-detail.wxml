@@ -1,0 +1,153 @@
+<!--pages/recipe-detail/recipe-detail.wxml-->
+<view class="container" wx:if="{{recipe}}">
+  <!-- 头部图片 -->
+  <view class="header-image-wrap">
+    <image 
+      class="header-image" 
+      src="{{recipe.image}}" 
+      mode="aspectFill"
+      wx:if="{{recipe.image}}"
+    />
+    <view class="header-image-placeholder" wx:else>🍲</view>
+    <view class="header-overlay">
+      <view class="recipe-title">{{recipe.name}}</view>
+      <view class="recipe-subtitle">{{recipe.description}}</view>
+    </view>
+  </view>
+
+  <!-- 基本信息 -->
+  <view class="info-cards">
+    <view class="info-card">
+      <view class="info-value">{{recipe.prepTime}}</view>
+      <view class="info-label">制作时间</view>
+    </view>
+    <view class="info-card">
+      <view class="info-value">{{recipe.difficulty}}</view>
+      <view class="info-label">难度</view>
+    </view>
+    <view class="info-card">
+      <view class="info-value">{{recipe.calories}}</view>
+      <view class="info-label">热量</view>
+    </view>
+  </view>
+
+  <!-- 适用说明 -->
+  <view class="suitable-section card" wx:if="{{recipe.suitableFor.length > 0}}">
+    <view class="suitable-title">适用于</view>
+    <view class="suitable-tags">
+      <view class="suitable-tag" wx:for="{{recipe.suitableFor}}" wx:key="*this">
+        {{item}}
+      </view>
+    </view>
+  </view>
+
+  <!-- 标签页 -->
+  <view class="tabs">
+    <view 
+      class="tab {{activeTab === 'ingredients' ? 'active' : ''}}" 
+      data-tab="ingredients"
+      bindtap="onTabChange"
+    >食材清单</view>
+    <view 
+      class="tab {{activeTab === 'steps' ? 'active' : ''}}" 
+      data-tab="steps"
+      bindtap="onTabChange"
+    >制作步骤</view>
+    <view 
+      class="tab {{activeTab === 'nutrition' ? 'active' : ''}}" 
+      data-tab="nutrition"
+      bindtap="onTabChange"
+    >营养说明</view>
+  </view>
+
+  <!-- 食材清单 -->
+  <view class="tab-content card" wx:if="{{activeTab === 'ingredients'}}">
+    <view class="ingredient-list">
+      <view class="ingredient-item" wx:for="{{recipe.ingredients}}" wx:key="name">
+        <view class="ingredient-name">{{item.name}}</view>
+        <view class="ingredient-right">
+          <text class="ingredient-amount">{{item.amount}}</text>
+          <text class="ingredient-note" wx:if="{{item.note}}">{{item.note}}</text>
+        </view>
+      </view>
+    </view>
+    <view class="servings-note">
+      份量说明：{{recipe.servings}}
+    </view>
+  </view>
+
+  <!-- 制作步骤 -->
+  <view class="tab-content card" wx:if="{{activeTab === 'steps'}}">
+    <view class="step-list">
+      <view class="step-item" wx:for="{{recipe.steps}}" wx:key="*this">
+        <view class="step-number">{{index + 1}}</view>
+        <view class="step-content">{{item}}</view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 营养说明 -->
+  <view class="tab-content card" wx:if="{{activeTab === 'nutrition'}}">
+    <view class="nutrition-grid">
+      <view class="nutrition-item">
+        <view class="nutrition-label">蛋白质</view>
+        <view class="nutrition-value">{{recipe.nutrition.protein}}</view>
+      </view>
+      <view class="nutrition-item">
+        <view class="nutrition-label">脂肪</view>
+        <view class="nutrition-value">{{recipe.nutrition.fat}}</view>
+      </view>
+      <view class="nutrition-item">
+        <view class="nutrition-label">纤维素</view>
+        <view class="nutrition-value">{{recipe.nutrition.fiber}}</view>
+      </view>
+    </view>
+    <view class="nutrition-special" wx:if="{{recipe.nutrition.special}}">
+      <view class="special-title">特别说明</view>
+      <view class="special-content">{{recipe.nutrition.special}}</view>
+    </view>
+  </view>
+
+  <!-- 小贴士 -->
+  <view class="tips-section card" wx:if="{{recipe.tips.length > 0}}">
+    <view class="section-title tips-title">
+      <text class="tips-icon">💡</text>
+      <text>小贴士</text>
+    </view>
+    <view class="tips-list">
+      <view class="tip-item" wx:for="{{recipe.tips}}" wx:key="*this">
+        {{item}}
+      </view>
+    </view>
+  </view>
+
+  <!-- 注意事项 -->
+  <view class="warnings-section card" wx:if="{{recipe.warnings.length > 0}}">
+    <view class="section-title warnings-title">
+      <text class="warnings-icon">⚠️</text>
+      <text>注意事项</text>
+    </view>
+    <view class="warnings-list">
+      <view class="warning-item" wx:for="{{recipe.warnings}}" wx:key="*this">
+        {{item}}
+      </view>
+    </view>
+  </view>
+
+  <!-- 底部操作栏 -->
+  <view class="bottom-bar safe-bottom">
+    <button class="action-btn" bindtap="onCollect">
+      <text class="btn-icon">❤️</text>
+      <text>收藏</text>
+    </button>
+    <button class="action-btn share-btn" open-type="share">
+      <text class="btn-icon">↗️</text>
+      <text>分享</text>
+    </button>
+  </view>
+</view>
+
+<!-- 加载状态 -->
+<view class="loading-state" wx:if="{{!recipe}}">
+  <text>加载中...</text>
+</view>

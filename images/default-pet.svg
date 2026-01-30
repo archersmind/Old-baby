@@ -1,0 +1,11 @@
+<!-- SVG placeholder for default pet image -->
+<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 200 200">
+  <rect fill="#F5F1E8" width="200" height="200"/>
+  <circle fill="#8FB996" cx="100" cy="85" r="45"/>
+  <ellipse fill="#8FB996" cx="65" cy="50" rx="15" ry="20"/>
+  <ellipse fill="#8FB996" cx="135" cy="50" rx="15" ry="20"/>
+  <circle fill="#4A7C59" cx="85" cy="80" r="6"/>
+  <circle fill="#4A7C59" cx="115" cy="80" r="6"/>
+  <ellipse fill="#4A7C59" cx="100" cy="95" rx="10" ry="7"/>
+  <path fill="none" stroke="#4A7C59" stroke-width="3" stroke-linecap="round" d="M85 110 Q100 125 115 110"/>
+</svg>

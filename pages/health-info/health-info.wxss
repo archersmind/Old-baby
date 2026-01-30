@@ -1,0 +1,202 @@
+/* pages/health-info/health-info.wxss */
+
+.page-hint {
+  text-align: center;
+  padding: 20rpx;
+  font-size: 28rpx;
+  color: var(--color-text-light);
+}
+
+.pet-name {
+  color: var(--color-primary);
+  font-weight: 500;
+}
+
+.section {
+  margin-bottom: 24rpx;
+}
+
+.section-title {
+  font-size: 32rpx;
+  font-weight: 600;
+  color: var(--color-text);
+  margin-bottom: 12rpx;
+  padding-left: 16rpx;
+  border-left: 6rpx solid var(--color-primary);
+}
+
+.section-desc {
+  font-size: 26rpx;
+  color: var(--color-text-lighter);
+  margin-bottom: 24rpx;
+}
+
+/* 疾病选择 */
+.disease-category {
+  margin-bottom: 24rpx;
+}
+
+.category-name {
+  font-size: 26rpx;
+  color: var(--color-text-light);
+  margin-bottom: 12rpx;
+  font-weight: 500;
+}
+
+.disease-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16rpx;
+}
+
+.disease-tag {
+  padding: 14rpx 24rpx;
+  background-color: var(--color-background);
+  border: 2rpx solid var(--color-border);
+  border-radius: 30rpx;
+  font-size: 26rpx;
+  color: var(--color-text);
+}
+
+.disease-tag.active {
+  background-color: rgba(224, 122, 95, 0.15);
+  border-color: var(--color-error);
+  color: var(--color-error);
+}
+
+/* 活动能力选项 */
+.activity-options {
+  display: flex;
+  gap: 16rpx;
+}
+
+.activity-option {
+  flex: 1;
+  padding: 20rpx;
+  background-color: var(--color-background);
+  border: 2rpx solid var(--color-border);
+  border-radius: 16rpx;
+  text-align: center;
+}
+
+.activity-option.active {
+  background-color: rgba(74, 124, 89, 0.1);
+  border-color: var(--color-primary);
+}
+
+.activity-label {
+  font-size: 28rpx;
+  font-weight: 500;
+  color: var(--color-text);
+  margin-bottom: 6rpx;
+}
+
+.activity-option.active .activity-label {
+  color: var(--color-primary);
+}
+
+.activity-desc {
+  font-size: 22rpx;
+  color: var(--color-text-lighter);
+}
+
+/* 子区块 */
+.subsection {
+  margin-bottom: 30rpx;
+}
+
+.subsection:last-child {
+  margin-bottom: 0;
+}
+
+.subsection-title {
+  font-size: 28rpx;
+  color: var(--color-text);
+  margin-bottom: 16rpx;
+  font-weight: 500;
+}
+
+/* 过敏原标签 */
+.allergen-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16rpx;
+}
+
+.allergen-tag {
+  padding: 12rpx 24rpx;
+  background-color: var(--color-background);
+  border: 2rpx solid var(--color-border);
+  border-radius: 30rpx;
+  font-size: 26rpx;
+  color: var(--color-text);
+}
+
+.allergen-tag.active {
+  background-color: rgba(212, 165, 116, 0.2);
+  border-color: var(--color-accent);
+  color: var(--color-accent);
+}
+
+/* 体检报告 */
+.report-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16rpx;
+}
+
+.report-item {
+  position: relative;
+  width: 200rpx;
+  height: 200rpx;
+}
+
+.report-image {
+  width: 100%;
+  height: 100%;
+  border-radius: 16rpx;
+}
+
+.report-delete {
+  position: absolute;
+  top: -10rpx;
+  right: -10rpx;
+  width: 40rpx;
+  height: 40rpx;
+  background-color: var(--color-error);
+  color: var(--color-white);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24rpx;
+}
+
+.report-add {
+  width: 200rpx;
+  height: 200rpx;
+  background-color: var(--color-background);
+  border: 2rpx dashed var(--color-border);
+  border-radius: 16rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.report-add .add-icon {
+  font-size: 48rpx;
+  color: var(--color-text-lighter);
+  margin-bottom: 8rpx;
+}
+
+.report-add .add-text {
+  font-size: 24rpx;
+  color: var(--color-text-lighter);
+}
+
+/* 操作按钮 */
+.action-buttons {
+  margin-top: 40rpx;
+  padding: 0 0 40rpx;
+}

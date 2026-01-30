@@ -1,0 +1,70 @@
+<!--pages/index/index.wxml-->
+<view class="container">
+  <!-- 页面标题 -->
+  <view class="page-header">
+    <view class="header-title">我的老宝贝</view>
+    <view class="header-subtitle">用爱守护每一天</view>
+  </view>
+
+  <!-- 宠物列表 -->
+  <view class="pet-list" wx:if="{{!isEmpty}}">
+    <view class="pet-card" wx:for="{{pets}}" wx:key="id" bindtap="onPetTap" data-id="{{item.id}}">
+      <!-- 宠物头像 -->
+      <view class="pet-avatar-wrap">
+        <image 
+          class="pet-avatar" 
+          src="{{item.avatar}}" 
+          mode="aspectFill"
+          wx:if="{{item.avatar}}"
+        />
+        <view class="pet-avatar-placeholder" wx:else>🐕</view>
+        <view class="pet-age-tag">{{item.age}}岁</view>
+      </view>
+      
+      <!-- 宠物信息 -->
+      <view class="pet-info">
+        <view class="pet-name">{{item.name || '未命名'}}</view>
+        <view class="pet-breed">{{item.breedName || '未知品种'}}</view>
+        <view class="pet-weight">{{item.weight}}kg · {{item.gender === 'male' ? '公' : item.gender === 'female' ? '母' : '未知'}}</view>
+        
+        <!-- 健康标签 -->
+        <view class="pet-tags" wx:if="{{item.diseases && item.diseases.length > 0}}">
+          <view class="health-tag" wx:for="{{item.diseases}}" wx:for-item="disease" wx:key="*this" wx:if="{{index < 2}}">
+            {{disease}}
+          </view>
+          <view class="health-tag more" wx:if="{{item.diseases.length > 2}}">+{{item.diseases.length - 2}}</view>
+        </view>
+        <view class="pet-tags" wx:else>
+          <view class="health-tag healthy">健康状态良好</view>
+        </view>
+      </view>
+
+      <!-- 操作按钮 -->
+      <view class="pet-actions" catchtap="">
+        <view class="action-btn" catchtap="onViewRecipes" data-id="{{item.id}}">
+          <text class="action-icon-emoji">🍲</text>
+          <text>食谱</text>
+        </view>
+        <view class="action-btn" catchtap="onEditHealth" data-id="{{item.id}}">
+          <text class="action-icon-emoji">💊</text>
+          <text>健康</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 空状态 -->
+  <view class="empty-state" wx:else>
+    <view class="empty-icon-emoji">🐕</view>
+    <view class="empty-text">还没有添加宠物</view>
+    <view class="empty-hint">添加你的老宝贝，获取专属食谱推荐</view>
+  </view>
+
+  <!-- 添加按钮 -->
+  <view class="add-btn-wrap">
+    <button class="add-btn" bindtap="onAddPet">
+      <text class="add-icon">+</text>
+      <text>添加宠物</text>
+    </button>
+  </view>
+</view>

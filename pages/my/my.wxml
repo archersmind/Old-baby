@@ -1,0 +1,69 @@
+<!--pages/my/my.wxml-->
+<view class="container">
+  <!-- 用户信息区域 -->
+  <view class="user-section card">
+    <button class="avatar-btn" open-type="chooseAvatar" bindchooseavatar="onChooseAvatar">
+      <image 
+        class="user-avatar" 
+        src="{{userInfo.avatarUrl}}" 
+        mode="aspectFill"
+        wx:if="{{userInfo.avatarUrl}}"
+      />
+      <view class="user-avatar-placeholder" wx:else>👤</view>
+    </button>
+    <view class="user-info">
+      <input 
+        class="nickname-input" 
+        type="nickname"
+        placeholder="点击设置昵称"
+        value="{{userInfo.nickName}}"
+        bindblur="onInputNickname"
+      />
+      <view class="user-stat">
+        已添加 <text class="stat-num">{{petsCount}}</text> 只宠物
+      </view>
+    </view>
+  </view>
+
+  <!-- 功能菜单 -->
+  <view class="menu-section card">
+    <view class="menu-item" bindtap="onManagePets">
+      <view class="menu-icon">🐕</view>
+      <view class="menu-text">管理我的宠物</view>
+      <view class="menu-arrow">›</view>
+    </view>
+    
+    <view class="menu-item" bindtap="onAbout">
+      <view class="menu-icon">ℹ️</view>
+      <view class="menu-text">关于我们</view>
+      <view class="menu-arrow">›</view>
+    </view>
+    
+    <view class="menu-item" bindtap="onFeedback">
+      <view class="menu-icon">💬</view>
+      <view class="menu-text">意见反馈</view>
+      <view class="menu-arrow">›</view>
+    </view>
+
+    <button class="menu-item share-item" open-type="share">
+      <view class="menu-icon">↗️</view>
+      <view class="menu-text">分享给朋友</view>
+      <view class="menu-arrow">›</view>
+    </button>
+  </view>
+
+  <!-- 数据管理 -->
+  <view class="menu-section card">
+    <view class="menu-item danger" bindtap="onClearCache">
+      <view class="menu-icon">🗑️</view>
+      <view class="menu-text">清除本地数据</view>
+      <view class="menu-arrow">›</view>
+    </view>
+  </view>
+
+  <!-- 底部说明 -->
+  <view class="footer">
+    <view class="footer-text">老宝贝护理 v1.0.0</view>
+    <view class="footer-text">用爱守护每一天 🌿</view>
+  </view>
+</view>

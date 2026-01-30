@@ -1,0 +1,132 @@
+/* pages/my/my.wxss */
+
+.container {
+  padding-bottom: 50rpx;
+}
+
+/* 用户信息区域 */
+.user-section {
+  display: flex;
+  align-items: center;
+  padding: 40rpx 30rpx;
+}
+
+.avatar-btn {
+  padding: 0;
+  margin: 0;
+  background: transparent;
+  border: none;
+  line-height: 1;
+}
+
+.avatar-btn::after {
+  border: none;
+}
+
+.user-avatar {
+  width: 120rpx;
+  height: 120rpx;
+  border-radius: 50%;
+  background-color: var(--color-background);
+}
+
+.user-avatar-placeholder {
+  width: 120rpx;
+  height: 120rpx;
+  border-radius: 50%;
+  background-color: var(--color-background);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 60rpx;
+}
+
+.user-info {
+  margin-left: 24rpx;
+  flex: 1;
+}
+
+.nickname-input {
+  font-size: 36rpx;
+  font-weight: 600;
+  color: var(--color-text);
+  margin-bottom: 8rpx;
+}
+
+.nickname-input::placeholder {
+  color: var(--color-text-lighter);
+  font-weight: normal;
+}
+
+.user-stat {
+  font-size: 26rpx;
+  color: var(--color-text-light);
+}
+
+.stat-num {
+  color: var(--color-primary);
+  font-weight: 600;
+}
+
+/* 菜单区域 */
+.menu-section {
+  padding: 0;
+}
+
+.menu-item {
+  display: flex;
+  align-items: center;
+  padding: 32rpx 30rpx;
+  border-bottom: 2rpx solid var(--color-border);
+}
+
+.menu-item:last-child {
+  border-bottom: none;
+}
+
+.menu-item.share-item {
+  background: transparent;
+  border: none;
+  border-bottom: 2rpx solid var(--color-border);
+  border-radius: 0;
+  margin: 0;
+  padding: 32rpx 30rpx;
+  text-align: left;
+  line-height: 1;
+}
+
+.menu-item.share-item::after {
+  border: none;
+}
+
+.menu-icon {
+  font-size: 36rpx;
+  margin-right: 20rpx;
+}
+
+.menu-text {
+  flex: 1;
+  font-size: 30rpx;
+  color: var(--color-text);
+}
+
+.menu-arrow {
+  font-size: 32rpx;
+  color: var(--color-text-lighter);
+}
+
+.menu-item.danger .menu-text {
+  color: var(--color-error);
+}
+
+/* 底部说明 */
+.footer {
+  text-align: center;
+  padding: 60rpx 30rpx;
+}
+
+.footer-text {
+  font-size: 24rpx;
+  color: var(--color-text-lighter);
+  margin-bottom: 8rpx;
+}

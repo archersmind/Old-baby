@@ -1,0 +1,9 @@
+<!-- SVG placeholder for empty pet state -->
+<svg xmlns="http://www.w3.org/2000/svg" width="240" height="240" viewBox="0 0 240 240">
+  <rect fill="#F5F1E8" width="240" height="240"/>
+  <circle fill="#E8E4DB" cx="120" cy="100" r="60"/>
+  <circle fill="#8FB996" opacity="0.5" cx="120" cy="100" r="45"/>
+  <ellipse fill="#8FB996" opacity="0.5" cx="85" cy="65" rx="12" ry="16"/>
+  <ellipse fill="#8FB996" opacity="0.5" cx="155" cy="65" rx="12" ry="16"/>
+  <text x="120" y="200" text-anchor="middle" fill="#999" font-size="14">添加你的第一只宠物</text>
+</svg>

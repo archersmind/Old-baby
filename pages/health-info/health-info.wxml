@@ -1,0 +1,134 @@
+<!--pages/health-info/health-info.wxml-->
+<view class="container">
+  <view class="page-hint" wx:if="{{petName}}">
+    正在为 <text class="pet-name">{{petName}}</text> 填写健康信息
+  </view>
+
+  <!-- 健康状况 -->
+  <view class="section card">
+    <view class="section-title">健康状况</view>
+    <view class="section-desc">选择已确诊的疾病（可多选）</view>
+    
+    <view class="disease-category" wx:for="{{diseaseCategories}}" wx:key="*this" wx:for-item="category">
+      <view class="category-name">{{category}}</view>
+      <view class="disease-tags">
+        <view 
+          wx:for="{{diseases}}" 
+          wx:key="id"
+          wx:if="{{item.category === category}}"
+          class="disease-tag {{selectedDiseases.indexOf(item.id) > -1 ? 'active' : ''}}"
+          data-id="{{item.id}}"
+          bindtap="toggleDisease"
+        >
+          {{item.name}}
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 用药情况 -->
+  <view class="section card">
+    <view class="section-title">用药情况</view>
+    <textarea 
+      class="form-textarea" 
+      placeholder="请填写目前正在服用的药物（选填）"
+      value="{{medications}}"
+      data-field="medications"
+      bindinput="onInputChange"
+    />
+  </view>
+
+  <!-- 活动能力 -->
+  <view class="section card">
+    <view class="section-title">活动能力</view>
+    <view class="activity-options">
+      <view 
+        wx:for="{{activityOptions}}" 
+        wx:key="value"
+        class="activity-option {{activityLevel === item.value ? 'active' : ''}}"
+        data-value="{{item.value}}"
+        bindtap="onActivityChange"
+      >
+        <view class="activity-label">{{item.label}}</view>
+        <view class="activity-desc">{{item.desc}}</view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 饮食信息 -->
+  <view class="section card">
+    <view class="section-title">饮食偏好</view>
+    
+    <view class="subsection">
+      <view class="subsection-title">过敏原（选择需要避免的食材）</view>
+      <view class="allergen-tags">
+        <view 
+          wx:for="{{allergens}}" 
+          wx:key="id"
+          class="allergen-tag {{selectedAllergens.indexOf(item.id) > -1 ? 'active' : ''}}"
+          data-id="{{item.id}}"
+          bindtap="toggleAllergen"
+        >
+          {{item.name}}
+        </view>
+      </view>
+    </view>
+
+    <view class="subsection">
+      <view class="subsection-title">口味偏好（选填）</view>
+      <input 
+        class="form-input" 
+        placeholder="如：喜欢鸡肉、不爱吃蔬菜等"
+        value="{{preferences}}"
+        data-field="preferences"
+        bindinput="onInputChange"
+      />
+    </view>
+
+    <view class="subsection">
+      <view class="subsection-title">当前饮食方式（选填）</view>
+      <input 
+        class="form-input" 
+        placeholder="如：吃狗粮、自制、混合等"
+        value="{{currentDiet}}"
+        data-field="currentDiet"
+        bindinput="onInputChange"
+      />
+    </view>
+  </view>
+
+  <!-- 体检报告 -->
+  <view class="section card">
+    <view class="section-title">体检报告</view>
+    <view class="section-desc">上传体检报告图片，便于更精准的食谱推荐</view>
+    
+    <view class="report-grid">
+      <view 
+        class="report-item" 
+        wx:for="{{reports}}" 
+        wx:key="id"
+      >
+        <image 
+          class="report-image" 
+          src="{{item.path}}" 
+          mode="aspectFill"
+          bindtap="onPreviewReport"
+          data-index="{{index}}"
+        />
+        <view class="report-delete" catchtap="onDeleteReport" data-index="{{index}}">✕</view>
+      </view>
+      <view class="report-add" bindtap="onUploadReport" wx:if="{{reports.length < 9}}">
+        <text class="add-icon">+</text>
+        <text class="add-text">添加图片</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 操作按钮 -->
+  <view class="action-buttons safe-bottom">
+    <button class="btn-primary" bindtap="onSave">保存健康信息</button>
+    <button class="btn-secondary mt-20" bindtap="onViewRecipes">
+      保存并查看推荐食谱 →
+    </button>
+  </view>
+</view>

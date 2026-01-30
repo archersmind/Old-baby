@@ -1,0 +1,40 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/pet-profile/pet-profile",
+    "pages/health-info/health-info",
+    "pages/recipe-list/recipe-list",
+    "pages/recipe-detail/recipe-detail",
+    "pages/my/my"
+  ],
+  "window": {
+    "backgroundTextStyle": "dark",
+    "navigationBarBackgroundColor": "#4A7C59",
+    "navigationBarTitleText": "老宝贝护理",
+    "navigationBarTextStyle": "white",
+    "backgroundColor": "#F5F1E8"
+  },
+  "tabBar": {
+    "custom": true,
+    "color": "#999999",
+    "selectedColor": "#4A7C59",
+    "backgroundColor": "#FFFFFF",
+    "borderStyle": "white",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "我的宝贝"
+      },
+      {
+        "pagePath": "pages/recipe-list/recipe-list",
+        "text": "食谱"
+      },
+      {
+        "pagePath": "pages/my/my",
+        "text": "我的"
+      }
+    ]
+  },
+  "sitemapLocation": "sitemap.json",
+  "style": "v2"
+}

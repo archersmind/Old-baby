@@ -1,0 +1,111 @@
+<!--pages/recipe-list/recipe-list.wxml-->
+<view class="container">
+  <!-- 当前宠物提示 -->
+  <view class="pet-banner" wx:if="{{currentPet}}" bindtap="onChangePet">
+    <view class="pet-mini-avatar-wrap">
+      <image class="pet-mini-avatar" src="{{currentPet.avatar}}" mode="aspectFill" wx:if="{{currentPet.avatar}}"/>
+      <view class="pet-mini-avatar-placeholder" wx:else>🐕</view>
+    </view>
+    <view class="pet-banner-info">
+      <text class="pet-banner-name">{{currentPet.name}}</text>
+      <text class="pet-banner-hint">的专属食谱推荐</text>
+    </view>
+    <text class="change-pet">切换 ›</text>
+  </view>
+  <view class="pet-banner empty" wx:else bindtap="onChangePet">
+    <text>选择宠物获取个性化推荐</text>
+    <text class="change-pet">去选择 ›</text>
+  </view>
+
+  <!-- 搜索和筛选 -->
+  <view class="search-bar">
+    <view class="search-input-wrap">
+      <text class="search-icon">🔍</text>
+      <input 
+        class="search-input" 
+        placeholder="搜索食谱" 
+        value="{{searchKey}}"
+        bindinput="onSearch"
+      />
+    </view>
+    <view class="filter-btn {{filterDisease ? 'active' : ''}}" bindtap="toggleFilter">
+      筛选
+    </view>
+  </view>
+
+  <!-- 筛选标签 -->
+  <view class="active-filter" wx:if="{{filterDisease}}">
+    <text>当前筛选：</text>
+    <view class="filter-tag">
+      {{diseases.find(d => d.id === filterDisease).name}}
+      <text class="tag-close" catchtap="clearFilter">✕</text>
+    </view>
+  </view>
+
+  <!-- 食谱列表 -->
+  <view class="recipe-list">
+    <view 
+      class="recipe-card" 
+      wx:for="{{recipes}}" 
+      wx:key="id"
+      data-id="{{item.id}}"
+      bindtap="onRecipeTap"
+    >
+      <view class="recipe-image-wrap">
+        <image 
+          class="recipe-image" 
+          src="{{item.image}}" 
+          mode="aspectFill"
+          wx:if="{{item.image}}"
+        />
+        <view class="recipe-image-placeholder" wx:else>🍲</view>
+      </view>
+      <view class="recipe-info">
+        <view class="recipe-name">{{item.name}}</view>
+        <view class="recipe-desc">{{item.description}}</view>
+        <view class="recipe-meta">
+          <text class="meta-item">⏱ {{item.prepTime}}</text>
+          <text class="meta-item">📊 {{item.difficulty}}</text>
+        </view>
+        <!-- 匹配标签 -->
+        <view class="match-tags" wx:if="{{item.matchedDiseases && item.matchedDiseases.length > 0}}">
+          <view class="match-tag" wx:for="{{item.matchedDiseases}}" wx:for-item="disease" wx:key="*this">
+            适合{{disease}}
+          </view>
+        </view>
+      </view>
+      <view class="recipe-arrow">›</view>
+    </view>
+
+    <!-- 空状态 -->
+    <view class="empty-state" wx:if="{{recipes.length === 0}}">
+      <view class="empty-text">没有找到匹配的食谱</view>
+      <button class="btn-secondary" bindtap="clearFilter">清除筛选</button>
+    </view>
+  </view>
+</view>
+
+<!-- 筛选弹窗 -->
+<view class="filter-mask {{showFilter ? 'show' : ''}}" bindtap="toggleFilter">
+  <view class="filter-panel" catchtap="preventTap">
+    <view class="filter-header">
+      <text class="filter-title">按疾病筛选</text>
+      <text class="filter-close" bindtap="toggleFilter">✕</text>
+    </view>
+    <scroll-view class="filter-content" scroll-y>
+      <view 
+        class="filter-item {{filterDisease === item.id ? 'active' : ''}}"
+        wx:for="{{diseases}}"
+        wx:key="id"
+        data-id="{{item.id}}"
+        bindtap="onFilterByDisease"
+      >
+        <text>{{item.name}}</text>
+        <text class="filter-check" wx:if="{{filterDisease === item.id}}">✓</text>
+      </view>
+    </scroll-view>
+    <view class="filter-footer">
+      <button class="btn-secondary" bindtap="clearFilter">清除筛选</button>
+    </view>
+  </view>
+</view>
