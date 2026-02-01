@@ -7,16 +7,16 @@ module.exports = [
     "avoidFor": ["chicken"],
     "difficulty": "简单",
     "prepTime": "30分钟",
-    "servings": "中型犬2-3天量",
+    "servings": "15kg犬2天量",
     "calories": "约120kcal/100g",
-    "image": "",
+    "image": "/images/recipes/chicken-pumpkin.png",
     "ingredients": [
-      { "name": "鸡胸肉", "amount": "300g", "note": "去皮去骨" },
-      { "name": "南瓜", "amount": "200g", "note": "去皮切块" },
-      { "name": "胡萝卜", "amount": "100g", "note": "切小块" },
-      { "name": "西兰花", "amount": "50g", "note": "切小朵" },
-      { "name": "三文鱼油", "amount": "1茶匙", "note": "富含Omega-3" },
-      { "name": "糙米", "amount": "100g", "note": "提前浸泡" }
+      { "name": "鸡胸肉", "amount": "420g", "note": "去皮去骨" },
+      { "name": "南瓜", "amount": "280g", "note": "去皮切块" },
+      { "name": "胡萝卜", "amount": "140g", "note": "切小块" },
+      { "name": "西兰花", "amount": "70g", "note": "切小朵" },
+      { "name": "三文鱼油", "amount": "1.5茶匙", "note": "富含Omega-3" },
+      { "name": "糙米", "amount": "140g", "note": "提前浸泡" }
     ],
     "steps": [
       "糙米提前浸泡2小时，煮熟备用",
@@ -51,16 +51,16 @@ module.exports = [
     "avoidFor": ["beef"],
     "difficulty": "中等",
     "prepTime": "45分钟",
-    "servings": "中型犬2-3天量",
+    "servings": "15kg犬2天量",
     "calories": "约130kcal/100g",
-    "image": "",
+    "image": "/images/recipes/beef-heart.png",
     "ingredients": [
-      { "name": "牛心", "amount": "200g", "note": "富含牛磺酸" },
-      { "name": "瘦牛肉", "amount": "150g", "note": "切小块" },
-      { "name": "红薯", "amount": "150g", "note": "去皮切块" },
-      { "name": "菠菜", "amount": "50g", "note": "焯水后切碎" },
-      { "name": "蓝莓", "amount": "30g", "note": "抗氧化" },
-      { "name": "亚麻籽油", "amount": "1茶匙", "note": "" }
+      { "name": "牛心", "amount": "280g", "note": "富含牛磺酸" },
+      { "name": "瘦牛肉", "amount": "210g", "note": "切小块" },
+      { "name": "红薯", "amount": "210g", "note": "去皮切块" },
+      { "name": "菠菜", "amount": "70g", "note": "焯水后切碎" },
+      { "name": "蓝莓", "amount": "42g", "note": "抗氧化" },
+      { "name": "亚麻籽油", "amount": "1.5茶匙", "note": "" }
     ],
     "steps": [
       "牛心和牛肉切小块，水煮至全熟（约25分钟）",
@@ -94,16 +94,16 @@ module.exports = [
     "avoidFor": ["fish"],
     "difficulty": "中等",
     "prepTime": "40分钟",
-    "servings": "中型犬2天量",
+    "servings": "15kg犬2天量",
     "calories": "约110kcal/100g",
-    "image": "",
+    "image": "/images/recipes/fish-kidney.png",
     "ingredients": [
-      { "name": "鳕鱼", "amount": "150g", "note": "去骨去刺" },
-      { "name": "蛋白", "amount": "2个", "note": "只用蛋白不用蛋黄" },
-      { "name": "白米饭", "amount": "200g", "note": "煮软烂" },
-      { "name": "黄瓜", "amount": "100g", "note": "去皮切碎" },
-      { "name": "苹果", "amount": "50g", "note": "去皮去核切碎" },
-      { "name": "椰子油", "amount": "1茶匙", "note": "" }
+      { "name": "鳕鱼", "amount": "225g", "note": "去骨去刺" },
+      { "name": "蛋白", "amount": "3个", "note": "只用蛋白不用蛋黄" },
+      { "name": "白米饭", "amount": "300g", "note": "煮软烂" },
+      { "name": "黄瓜", "amount": "150g", "note": "去皮切碎" },
+      { "name": "苹果", "amount": "75g", "note": "去皮去核切碎" },
+      { "name": "椰子油", "amount": "1.5茶匙", "note": "" }
     ],
     "steps": [
       "鳕鱼蒸熟（约15分钟），检查并去除所有鱼刺",
@@ -137,15 +137,15 @@ module.exports = [
     "avoidFor": ["chicken"],
     "difficulty": "简单",
     "prepTime": "35分钟",
-    "servings": "中型犬2天量",
+    "servings": "15kg犬2天量",
     "calories": "约100kcal/100g",
-    "image": "",
+    "image": "/images/recipes/chicken-diabetes.png",
     "ingredients": [
-      { "name": "鸡胸肉", "amount": "250g", "note": "去皮" },
-      { "name": "四季豆", "amount": "150g", "note": "切小段" },
-      { "name": "西葫芦", "amount": "100g", "note": "切小块" },
-      { "name": "燕麦", "amount": "50g", "note": "低升糖碳水" },
-      { "name": "亚麻籽粉", "amount": "1汤匙", "note": "增加纤维" }
+      { "name": "鸡胸肉", "amount": "375g", "note": "去皮" },
+      { "name": "四季豆", "amount": "225g", "note": "切小段" },
+      { "name": "西葫芦", "amount": "150g", "note": "切小块" },
+      { "name": "燕麦", "amount": "75g", "note": "低升糖碳水" },
+      { "name": "亚麻籽粉", "amount": "1.5汤匙", "note": "增加纤维" }
     ],
     "steps": [
       "燕麦加水煮成糊状",
@@ -179,14 +179,14 @@ module.exports = [
     "avoidFor": ["lamb"],
     "difficulty": "简单",
     "prepTime": "40分钟",
-    "servings": "中型犬2天量",
+    "servings": "15kg犬2天量",
     "calories": "约115kcal/100g",
-    "image": "",
+    "image": "/images/recipes/lamb-digestive.png",
     "ingredients": [
-      { "name": "羊腿肉", "amount": "200g", "note": "去肥肉" },
-      { "name": "土豆", "amount": "150g", "note": "去皮切块" },
-      { "name": "胡萝卜", "amount": "100g", "note": "切碎" },
-      { "name": "南瓜", "amount": "100g", "note": "蒸熟压泥" },
+      { "name": "羊腿肉", "amount": "300g", "note": "去肥肉" },
+      { "name": "土豆", "amount": "225g", "note": "去皮切块" },
+      { "name": "胡萝卜", "amount": "150g", "note": "切碎" },
+      { "name": "南瓜", "amount": "150g", "note": "蒸熟压泥" },
       { "name": "益生菌粉", "amount": "适量", "note": "喂食前加入" }
     ],
     "steps": [
@@ -221,15 +221,15 @@ module.exports = [
     "avoidFor": ["chicken"],
     "difficulty": "简单",
     "prepTime": "30分钟",
-    "servings": "中型犬2天量",
+    "servings": "15kg犬2天量",
     "calories": "约85kcal/100g",
-    "image": "",
+    "image": "/images/recipes/lowfat-chicken.png",
     "ingredients": [
-      { "name": "鸡胸肉", "amount": "300g", "note": "去皮去脂肪" },
-      { "name": "白米饭", "amount": "150g", "note": "煮软" },
-      { "name": "南瓜", "amount": "150g", "note": "蒸熟" },
-      { "name": "胡萝卜", "amount": "100g", "note": "蒸熟切碎" },
-      { "name": "西葫芦", "amount": "100g", "note": "蒸熟" }
+      { "name": "鸡胸肉", "amount": "450g", "note": "去皮去脂肪" },
+      { "name": "白米饭", "amount": "225g", "note": "煮软" },
+      { "name": "南瓜", "amount": "225g", "note": "蒸熟" },
+      { "name": "胡萝卜", "amount": "150g", "note": "蒸熟切碎" },
+      { "name": "西葫芦", "amount": "150g", "note": "蒸熟" }
     ],
     "steps": [
       "鸡胸肉水煮，撇去表面浮油",
@@ -263,14 +263,14 @@ module.exports = [
     "avoidFor": ["beef"],
     "difficulty": "简单",
     "prepTime": "45分钟",
-    "servings": "中型犬2天量",
+    "servings": "15kg犬2天量",
     "calories": "约120kcal/100g",
-    "image": "",
+    "image": "/images/recipes/beef-puree.png",
     "ingredients": [
-      { "name": "牛腱肉", "amount": "250g", "note": "炖烂" },
-      { "name": "土豆", "amount": "150g", "note": "压成泥" },
-      { "name": "胡萝卜", "amount": "100g", "note": "煮软压泥" },
-      { "name": "西兰花", "amount": "50g", "note": "蒸熟切碎" },
+      { "name": "牛腱肉", "amount": "375g", "note": "炖烂" },
+      { "name": "土豆", "amount": "225g", "note": "压成泥" },
+      { "name": "胡萝卜", "amount": "150g", "note": "煮软压泥" },
+      { "name": "西兰花", "amount": "75g", "note": "蒸熟切碎" },
       { "name": "肉汤", "amount": "适量", "note": "炖牛肉的汤" }
     ],
     "steps": [
@@ -305,16 +305,16 @@ module.exports = [
     "avoidFor": ["duck"],
     "difficulty": "中等",
     "prepTime": "40分钟",
-    "servings": "中型犬2天量",
+    "servings": "15kg犬2天量",
     "calories": "约135kcal/100g",
-    "image": "",
+    "image": "/images/recipes/duck-berry.png",
     "ingredients": [
-      { "name": "鸭胸肉", "amount": "250g", "note": "去皮去脂" },
-      { "name": "蓝莓", "amount": "50g", "note": "抗氧化" },
-      { "name": "西兰花", "amount": "100g", "note": "抗癌蔬菜" },
-      { "name": "菠菜", "amount": "50g", "note": "富含叶酸" },
-      { "name": "红薯", "amount": "150g", "note": "复合碳水" },
-      { "name": "鱼油", "amount": "1茶匙", "note": "Omega-3" }
+      { "name": "鸭胸肉", "amount": "375g", "note": "去皮去脂" },
+      { "name": "蓝莓", "amount": "75g", "note": "抗氧化" },
+      { "name": "西兰花", "amount": "150g", "note": "抗癌蔬菜" },
+      { "name": "菠菜", "amount": "75g", "note": "富含叶酸" },
+      { "name": "红薯", "amount": "225g", "note": "复合碳水" },
+      { "name": "鱼油", "amount": "1.5茶匙", "note": "Omega-3" }
     ],
     "steps": [
       "鸭胸肉水煮至熟（约20分钟）",
@@ -348,15 +348,15 @@ module.exports = [
     "avoidFor": ["fish"],
     "difficulty": "中等",
     "prepTime": "35分钟",
-    "servings": "中型犬2天量",
+    "servings": "15kg犬2天量",
     "calories": "约125kcal/100g",
-    "image": "",
+    "image": "/images/recipes/fish-brain.png",
     "ingredients": [
-      { "name": "三文鱼", "amount": "200g", "note": "去骨去刺" },
-      { "name": "鸡蛋", "amount": "2个", "note": "全蛋" },
-      { "name": "紫薯", "amount": "150g", "note": "花青素" },
-      { "name": "蓝莓", "amount": "40g", "note": "抗氧化" },
-      { "name": "核桃", "amount": "20g", "note": "去壳碾碎" }
+      { "name": "三文鱼", "amount": "300g", "note": "去骨去刺" },
+      { "name": "鸡蛋", "amount": "3个", "note": "全蛋" },
+      { "name": "紫薯", "amount": "225g", "note": "花青素" },
+      { "name": "蓝莓", "amount": "60g", "note": "抗氧化" },
+      { "name": "核桃", "amount": "30g", "note": "去壳碾碎" }
     ],
     "steps": [
       "三文鱼蒸熟（约15分钟），仔细去除鱼刺",
@@ -390,14 +390,14 @@ module.exports = [
     "avoidFor": [],
     "difficulty": "中等",
     "prepTime": "45分钟",
-    "servings": "中型犬2天量",
+    "servings": "15kg犬2天量",
     "calories": "约118kcal/100g",
-    "image": "",
+    "image": "/images/recipes/venison-allergy.png",
     "ingredients": [
-      { "name": "鹿肉", "amount": "300g", "note": "新型蛋白" },
-      { "name": "红薯", "amount": "200g", "note": "低敏碳水" },
-      { "name": "南瓜", "amount": "100g", "note": "助消化" },
-      { "name": "椰子油", "amount": "1茶匙", "note": "皮肤健康" }
+      { "name": "鹿肉", "amount": "450g", "note": "新型蛋白" },
+      { "name": "红薯", "amount": "300g", "note": "低敏碳水" },
+      { "name": "南瓜", "amount": "150g", "note": "助消化" },
+      { "name": "椰子油", "amount": "1.5茶匙", "note": "皮肤健康" }
     ],
     "steps": [
       "鹿肉切块水煮至熟（约25分钟）",
@@ -431,14 +431,14 @@ module.exports = [
     "avoidFor": ["chicken"],
     "difficulty": "中等",
     "prepTime": "35分钟",
-    "servings": "中型犬2天量",
+    "servings": "15kg犬2天量",
     "calories": "约110kcal/100g",
-    "image": "",
+    "image": "/images/recipes/chicken-liver.png",
     "ingredients": [
-      { "name": "鸡胸肉", "amount": "250g", "note": "低铜蛋白" },
-      { "name": "白米饭", "amount": "150g", "note": "易消化碳水" },
-      { "name": "西葫芦", "amount": "150g", "note": "低铜蔬菜" },
-      { "name": "胡萝卜", "amount": "80g", "note": "维生素A" },
+      { "name": "鸡胸肉", "amount": "375g", "note": "低铜蛋白" },
+      { "name": "白米饭", "amount": "225g", "note": "易消化碳水" },
+      { "name": "西葫芦", "amount": "225g", "note": "低铜蔬菜" },
+      { "name": "胡萝卜", "amount": "120g", "note": "维生素A" },
       { "name": "维生素E", "amount": "适量", "note": "保护肝脏（遵医嘱）" }
     ],
     "steps": [
@@ -473,18 +473,18 @@ module.exports = [
     "avoidFor": [],
     "difficulty": "简单",
     "prepTime": "40分钟",
-    "servings": "中型犬3天量",
+    "servings": "15kg犬2天量",
     "calories": "约125kcal/100g",
-    "image": "",
+    "image": "/images/recipes/daily-balanced.png",
     "ingredients": [
-      { "name": "鸡胸肉", "amount": "200g", "note": "" },
-      { "name": "牛肉", "amount": "100g", "note": "" },
-      { "name": "糙米", "amount": "100g", "note": "" },
-      { "name": "胡萝卜", "amount": "80g", "note": "" },
-      { "name": "西兰花", "amount": "60g", "note": "" },
-      { "name": "南瓜", "amount": "80g", "note": "" },
-      { "name": "鸡蛋", "amount": "1个", "note": "" },
-      { "name": "三文鱼油", "amount": "1茶匙", "note": "" }
+      { "name": "鸡胸肉", "amount": "280g", "note": "" },
+      { "name": "牛肉", "amount": "140g", "note": "" },
+      { "name": "糙米", "amount": "140g", "note": "" },
+      { "name": "胡萝卜", "amount": "112g", "note": "" },
+      { "name": "西兰花", "amount": "84g", "note": "" },
+      { "name": "南瓜", "amount": "112g", "note": "" },
+      { "name": "鸡蛋", "amount": "2个", "note": "" },
+      { "name": "三文鱼油", "amount": "1.5茶匙", "note": "" }
     ],
     "steps": [
       "糙米提前浸泡，煮熟",
