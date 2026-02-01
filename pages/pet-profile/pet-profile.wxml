@@ -1,5 +1,17 @@
 <!--pages/pet-profile/pet-profile.wxml-->
 <view class="container">
+  <view class="enroll-steps" wx:if="{{!isEdit}}">
+    <view class="step-item active">
+      <view class="step-num">1</view>
+      <view class="step-text">基本资料</view>
+    </view>
+    <view class="step-line"></view>
+    <view class="step-item">
+      <view class="step-num">2</view>
+      <view class="step-text">健康体征</view>
+    </view>
+  </view>
+
   <!-- 头像 -->
   <view class="avatar-section" bindtap="onChooseAvatar">
     <image
@@ -33,9 +45,7 @@
     <view class="form-group">
       <view class="form-label">犬种</view>
       <view class="form-picker" bindtap="showBreedSelector">
-        <text class="{{form.breedName ? '' : 'placeholder'}}">
-          {{form.breedName || '选择犬种'}}
-        </text>
+        <text class="breed-name-display {{form.breedName ? '' : 'placeholder'}}">{{form.breedName || '选择犬种'}}</text>
         <text class="picker-arrow">›</text>
       </view>
     </view>
@@ -89,19 +99,27 @@
 
     <view class="form-group row">
       <view class="form-label">是否绝育</view>
-      <switch
-        checked="{{form.neutered}}"
-        bindchange="onNeuteredChange"
-        color="#22d3ee"
-      />
+      <view class="switch-wrap">
+        <text class="switch-label {{!form.neutered ? 'active' : ''}}">No</text>
+        <switch
+          checked="{{form.neutered}}"
+          bindchange="onNeuteredChange"
+          color="#22d3ee"
+        />
+        <text class="switch-label {{form.neutered ? 'active' : ''}}">Yes</text>
+      </view>
     </view>
   </view>
 
   <!-- 操作按钮 -->
   <view class="action-buttons">
-    <button class="btn-primary" bindtap="onSave">保存资料</button>
-    <button class="btn-secondary mt-20" bindtap="onContinueHealth" wx:if="{{!isEdit}}">
-      保存并记录健康信息 →
+    <button class="btn-primary" bindtap="onContinueHealth" wx:if="{{!isEdit}}">
+      下一步：记录健康信息 →
+    </button>
+    <button class="btn-primary" bindtap="onSave" wx:else>保存修改</button>
+
+    <button class="btn-secondary mt-20" bindtap="onSave" wx:if="{{!isEdit}}">
+      仅保存基本资料
     </button>
     <button class="btn-delete mt-30" bindtap="onDelete" wx:if="{{isEdit}}">删除档案</button>
   </view>
@@ -130,7 +148,7 @@
         data-breed="{{item}}"
         bindtap="onSelectBreed"
       >
-        <text>{{item.name}}</text>
+        <text class="breed-name">{{item.name}}</text>
         <text class="breed-size">{{item.size === 'small' ? '小型' : item.size === 'medium' ? '中型' : item.size === 'large' ? '大型' : '巨型'}}</text>
       </view>
       <view class="empty-tip" wx:if="{{filteredBreeds.length === 0}}">

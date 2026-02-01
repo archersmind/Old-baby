@@ -33,6 +33,12 @@
       <view class="menu-arrow">›</view>
     </view>
 
+    <view class="menu-item" bindtap="onAddPet">
+      <view class="menu-icon">➕</view>
+      <view class="menu-text">接纳新宝贝</view>
+      <view class="menu-arrow">›</view>
+    </view>
+
     <view class="menu-item" bindtap="onAbout">
       <view class="menu-icon">ℹ️</view>
       <view class="menu-text">系统信息</view>

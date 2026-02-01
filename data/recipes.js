@@ -9,7 +9,7 @@ module.exports = [
     "prepTime": "30分钟",
     "servings": "15kg犬2天量",
     "calories": "约120kcal/100g",
-    "image": "/images/recipes/chicken-pumpkin.png",
+    "image": "",
     "ingredients": [
       { "name": "鸡胸肉", "amount": "420g", "note": "去皮去骨" },
       { "name": "南瓜", "amount": "280g", "note": "去皮切块" },
@@ -53,7 +53,7 @@ module.exports = [
     "prepTime": "45分钟",
     "servings": "15kg犬2天量",
     "calories": "约130kcal/100g",
-    "image": "/images/recipes/beef-heart.png",
+    "image": "",
     "ingredients": [
       { "name": "牛心", "amount": "280g", "note": "富含牛磺酸" },
       { "name": "瘦牛肉", "amount": "210g", "note": "切小块" },
@@ -96,7 +96,7 @@ module.exports = [
     "prepTime": "40分钟",
     "servings": "15kg犬2天量",
     "calories": "约110kcal/100g",
-    "image": "/images/recipes/fish-kidney.png",
+    "image": "",
     "ingredients": [
       { "name": "鳕鱼", "amount": "225g", "note": "去骨去刺" },
       { "name": "蛋白", "amount": "3个", "note": "只用蛋白不用蛋黄" },
@@ -139,7 +139,7 @@ module.exports = [
     "prepTime": "35分钟",
     "servings": "15kg犬2天量",
     "calories": "约100kcal/100g",
-    "image": "/images/recipes/chicken-diabetes.png",
+    "image": "",
     "ingredients": [
       { "name": "鸡胸肉", "amount": "375g", "note": "去皮" },
       { "name": "四季豆", "amount": "225g", "note": "切小段" },
@@ -181,7 +181,7 @@ module.exports = [
     "prepTime": "40分钟",
     "servings": "15kg犬2天量",
     "calories": "约115kcal/100g",
-    "image": "/images/recipes/lamb-digestive.png",
+    "image": "",
     "ingredients": [
       { "name": "羊腿肉", "amount": "300g", "note": "去肥肉" },
       { "name": "土豆", "amount": "225g", "note": "去皮切块" },
@@ -223,7 +223,7 @@ module.exports = [
     "prepTime": "30分钟",
     "servings": "15kg犬2天量",
     "calories": "约85kcal/100g",
-    "image": "/images/recipes/lowfat-chicken.png",
+    "image": "",
     "ingredients": [
       { "name": "鸡胸肉", "amount": "450g", "note": "去皮去脂肪" },
       { "name": "白米饭", "amount": "225g", "note": "煮软" },
@@ -265,7 +265,7 @@ module.exports = [
     "prepTime": "45分钟",
     "servings": "15kg犬2天量",
     "calories": "约120kcal/100g",
-    "image": "/images/recipes/beef-puree.png",
+    "image": "",
     "ingredients": [
       { "name": "牛腱肉", "amount": "375g", "note": "炖烂" },
       { "name": "土豆", "amount": "225g", "note": "压成泥" },
@@ -307,7 +307,7 @@ module.exports = [
     "prepTime": "40分钟",
     "servings": "15kg犬2天量",
     "calories": "约135kcal/100g",
-    "image": "/images/recipes/duck-berry.png",
+    "image": "",
     "ingredients": [
       { "name": "鸭胸肉", "amount": "375g", "note": "去皮去脂" },
       { "name": "蓝莓", "amount": "75g", "note": "抗氧化" },
@@ -350,7 +350,7 @@ module.exports = [
     "prepTime": "35分钟",
     "servings": "15kg犬2天量",
     "calories": "约125kcal/100g",
-    "image": "/images/recipes/fish-brain.png",
+    "image": "",
     "ingredients": [
       { "name": "三文鱼", "amount": "300g", "note": "去骨去刺" },
       { "name": "鸡蛋", "amount": "3个", "note": "全蛋" },
@@ -392,7 +392,7 @@ module.exports = [
     "prepTime": "45分钟",
     "servings": "15kg犬2天量",
     "calories": "约118kcal/100g",
-    "image": "/images/recipes/venison-allergy.png",
+    "image": "",
     "ingredients": [
       { "name": "鹿肉", "amount": "450g", "note": "新型蛋白" },
       { "name": "红薯", "amount": "300g", "note": "低敏碳水" },
@@ -433,7 +433,7 @@ module.exports = [
     "prepTime": "35分钟",
     "servings": "15kg犬2天量",
     "calories": "约110kcal/100g",
-    "image": "/images/recipes/chicken-liver.png",
+    "image": "",
     "ingredients": [
       { "name": "鸡胸肉", "amount": "375g", "note": "低铜蛋白" },
       { "name": "白米饭", "amount": "225g", "note": "易消化碳水" },
@@ -475,7 +475,7 @@ module.exports = [
     "prepTime": "40分钟",
     "servings": "15kg犬2天量",
     "calories": "约125kcal/100g",
-    "image": "/images/recipes/daily-balanced.png",
+    "image": "",
     "ingredients": [
       { "name": "鸡胸肉", "amount": "280g", "note": "" },
       { "name": "牛肉", "amount": "140g", "note": "" },

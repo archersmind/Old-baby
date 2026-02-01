@@ -66,6 +66,13 @@ Page({
     })
   },
 
+  // 添加新宠物
+  onAddPet() {
+    wx.navigateTo({
+      url: '/pages/pet-profile/pet-profile'
+    })
+  },
+
   // 关于我们
   onAbout() {
     wx.showModal({

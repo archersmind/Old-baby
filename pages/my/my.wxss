@@ -102,7 +102,10 @@
   margin: 0;
   padding: 32rpx 30rpx;
   text-align: left;
-  line-height: 1;
+  line-height: 1.6;
+  width: 100% !important;
+  display: flex;
+  align-items: center;
 }
 
 .menu-item.share-item::after {

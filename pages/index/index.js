@@ -1,15 +1,26 @@
 // pages/index/index.js
 const storage = require('../../utils/storage')
 const util = require('../../utils/util')
+const diseasesData = require('../../data/diseases.js')
 
 Page({
   data: {
     pets: [],
-    isEmpty: true
+    isEmpty: true,
+    diseaseMap: {}
   },
 
   onLoad() {
+    this.initDiseaseMap()
     this.loadPets()
+  },
+
+  initDiseaseMap() {
+    const map = {}
+    diseasesData.forEach(d => {
+      map[d.id] = d.name
+    })
+    this.setData({ diseaseMap: map })
   },
 
   onShow() {
@@ -23,7 +34,20 @@ Page({
   },
 
   loadPets() {
-    const pets = storage.getPets()
+    const pets = storage.getPets().map(pet => {
+      // 翻译疾病名称
+      const diseaseNames = (pet.diseases || []).map(id => this.data.diseaseMap[id] || id)
+
+      // 检查资料完整度
+      const isHealthComplete = (pet.diseases && pet.diseases.length > 0) || pet.medications || (pet.reports && pet.reports.length > 0)
+
+      return {
+        ...pet,
+        diseaseNames,
+        isHealthComplete
+      }
+    })
+
     this.setData({
       pets,
       isEmpty: pets.length === 0

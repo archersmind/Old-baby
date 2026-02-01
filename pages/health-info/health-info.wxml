@@ -1,5 +1,17 @@
 <!--pages/health-info/health-info.wxml-->
 <view class="container">
+  <view class="enroll-steps" wx:if="{{!isEdit}}">
+    <view class="step-item active">
+      <view class="step-num">1</view>
+      <view class="step-text">基本资料</view>
+    </view>
+    <view class="step-line active"></view>
+    <view class="step-item active">
+      <view class="step-num">2</view>
+      <view class="step-text">健康体征</view>
+    </view>
+  </view>
+
   <view class="page-hint" wx:if="{{petName}}">
     正在为 <text class="pet-name">{{petName}}</text> 记录健康信息
   </view>

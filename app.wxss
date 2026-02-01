@@ -253,6 +253,68 @@ page {
 .ml-20 { margin-left: 20rpx; }
 .mr-20 { margin-right: 20rpx; }
 
+/* 注册进度条 */
+.enroll-steps {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40rpx 0 60rpx;
+  position: relative;
+}
+
+.step-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 2;
+}
+
+.step-num {
+  width: 44rpx;
+  height: 44rpx;
+  border-radius: 50%;
+  background-color: var(--color-background);
+  border: 2rpx solid var(--color-text-lighter);
+  color: var(--color-text-lighter);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24rpx;
+  font-weight: 700;
+  margin-bottom: 12rpx;
+  transition: all 0.3s ease;
+}
+
+.step-text {
+  font-size: 22rpx;
+  color: var(--color-text-lighter);
+  font-weight: 500;
+}
+
+.step-line {
+  width: 120rpx;
+  height: 4rpx;
+  background-color: var(--color-border);
+  margin: -34rpx 20rpx 0;
+  z-index: 1;
+}
+
+.step-item.active .step-num {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+  box-shadow: 0 0 15rpx var(--color-glow-cyan);
+}
+
+.step-item.active .step-text {
+  color: var(--color-primary);
+  text-shadow: 0 0 8rpx rgba(34, 211, 238, 0.4);
+}
+
+.step-line.active {
+  background-color: var(--color-primary);
+  box-shadow: 0 0 8rpx var(--color-glow-cyan);
+}
+
 /* 霓虹发光效果 */
 .glow-cyan {
   box-shadow: 0 0 20rpx var(--color-glow-cyan), inset 0 0 20rpx rgba(34, 211, 238, 0.1);

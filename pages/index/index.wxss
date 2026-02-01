@@ -142,6 +142,13 @@
   border-color: rgba(34, 211, 238, 0.4);
 }
 
+.health-tag.warning {
+  background-color: rgba(236, 72, 153, 0.1);
+  color: #ff9800;
+  border-color: rgba(255, 152, 0, 0.4);
+  font-style: italic;
+}
+
 /* 操作按钮 */
 .pet-actions {
   display: flex;
@@ -214,13 +221,13 @@
 /* 添加按钮 */
 .add-btn-wrap {
   position: fixed;
-  bottom: 0;
+  bottom: calc(100rpx + env(safe-area-inset-bottom));
   left: 0;
   right: 0;
   padding: 20rpx 30rpx;
-  padding-bottom: calc(20rpx + env(safe-area-inset-bottom));
-  background: linear-gradient(to top, rgba(10, 47, 79, 0.98) 60%, transparent);
+  background: linear-gradient(to top, rgba(10, 47, 79, 0.98) 20%, transparent);
   backdrop-filter: blur(8rpx);
+  z-index: 99;
 }
 
 .add-btn {

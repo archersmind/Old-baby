@@ -8,6 +8,7 @@ Page({
   data: {
     petId: null,
     petName: '',
+    isEdit: false,
     // 疾病数据
     diseases: diseasesData,
     diseaseCategories: [],
@@ -35,6 +36,16 @@ Page({
       this.setData({ petId: options.id })
       this.loadPetData(options.id)
     }
+
+    // 检查是否从添加页面跳转过来
+    const pages = getCurrentPages()
+    const prevPage = pages[pages.length - 2]
+    if (prevPage && prevPage.route === 'pages/pet-profile/pet-profile' && !prevPage.data.isEdit) {
+      this.setData({ isEdit: false })
+    } else {
+      this.setData({ isEdit: true })
+    }
+
     this.initDiseaseCategories()
   },
 
