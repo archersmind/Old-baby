@@ -64,7 +64,10 @@
   <view class="tab-content card" wx:if="{{activeTab === 'ingredients'}}">
     <view class="ingredient-list">
       <view class="ingredient-item" wx:for="{{recipe.ingredients}}" wx:key="name">
-        <view class="ingredient-name">{{item.name}}</view>
+        <view class="ingredient-name">
+          {{item.name}}
+          <text class="original-amount" wx:if="{{item.originalAmount && item.originalAmount !== item.amount}}"> (基准: {{item.originalAmount}})</text>
+        </view>
         <view class="ingredient-right">
           <text class="ingredient-amount">{{item.amount}}</text>
           <text class="ingredient-note" wx:if="{{item.note}}">{{item.note}}</text>
@@ -72,7 +75,9 @@
       </view>
     </view>
     <view class="servings-note">
-      份量参数：{{recipe.servings}}
+      <view>份量参数：{{recipe.servings}}</view>
+      <view class="servings-hint">注：指单次制作的总量，建议按每日2餐分份喂食。</view>
+      <view class="weight-hint" wx:if="{{currentPet && currentPet.weight}}">已根据 {{currentPet.name}} 的体重 ({{currentPet.weight}}kg) 自动调整比例。</view>
     </view>
   </view>
 

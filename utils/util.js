@@ -54,6 +54,32 @@ function calculateDailyFood(weight, activityLevel = 'normal') {
 }
 
 /**
+ * 根据宠物体重缩放食材用量
+ * @param {string} amountStr - 原始用量字符串 (例: "300g")
+ * @param {number} petWeight - 宠物体重(kg)
+ * @param {number} baseWeight - 食谱基准体重(kg)，默认为15kg (中型犬)
+ */
+function scaleAmount(amountStr, petWeight, baseWeight = 15) {
+  if (!petWeight || !amountStr) return amountStr
+
+  // 匹配数字和单位 (例: 300, g, 1汤匙, 1茶匙)
+  const match = amountStr.match(/^(\d+(\.\d+)?)([a-zA-Z\u4e00-\u9fa5]*)$/)
+  if (!match) return amountStr
+
+  const value = parseFloat(match[1])
+  const unit = match[3]
+
+  // 计算缩放比例 (线性缩放)
+  const ratio = petWeight / baseWeight
+  const scaledValue = Math.round(value * ratio)
+
+  // 如果缩放后为0，则保留原值或至少为1
+  const finalValue = scaledValue > 0 ? scaledValue : (value > 0 ? 1 : 0)
+
+  return `${finalValue}${unit}`
+}
+
+/**
  * 防抖函数
  */
 function debounce(fn, delay = 300) {
@@ -114,6 +140,7 @@ module.exports = {
   formatNumber,
   getAgeDescription,
   calculateDailyFood,
+  scaleAmount,
   debounce,
   showLoading,
   hideLoading,

@@ -78,13 +78,6 @@ module.exports = [
     "dietTips": "控制热量，避免十字花科蔬菜"
   },
   {
-    "id": "cushings",
-    "name": "库欣综合征",
-    "category": "内分泌",
-    "description": "皮质醇分泌过多",
-    "dietTips": "低脂肪、适度蛋白质饮食"
-  },
-  {
     "id": "cognitive",
     "name": "认知障碍/老年痴呆",
     "category": "神经",

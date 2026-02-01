@@ -191,6 +191,26 @@
   border-top: 2rpx dashed rgba(34, 211, 238, 0.2);
 }
 
+.servings-hint, .weight-hint {
+  font-size: 22rpx;
+  margin-top: 8rpx;
+  color: var(--color-text-lighter);
+  font-style: italic;
+}
+
+.weight-hint {
+  color: var(--color-primary);
+  font-weight: 500;
+  font-style: normal;
+}
+
+.original-amount {
+  font-size: 22rpx;
+  color: var(--color-text-lighter);
+  font-weight: normal;
+  margin-left: 8rpx;
+}
+
 /* 制作步骤 */
 .step-list {
   padding: 0;

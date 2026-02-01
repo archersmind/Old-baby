@@ -1,17 +1,34 @@
 // pages/recipe-detail/recipe-detail.js
 const recommend = require('../../utils/recommend')
+const storage = require('../../utils/storage')
+const util = require('../../utils/util')
 
 Page({
   data: {
     recipe: null,
-    activeTab: 'ingredients'
+    activeTab: 'ingredients',
+    currentPet: null
   },
 
   onLoad(options) {
     if (options.id) {
       const recipe = recommend.getRecipeById(options.id)
+      const currentPet = storage.getCurrentPet()
+
       if (recipe) {
-        this.setData({ recipe })
+        // 如果有当前宠物，且有体重，则缩放食材用量
+        if (currentPet && currentPet.weight) {
+          recipe.ingredients = recipe.ingredients.map(ing => ({
+            ...ing,
+            originalAmount: ing.amount,
+            amount: util.scaleAmount(ing.amount, currentPet.weight)
+          }))
+        }
+
+        this.setData({
+          recipe,
+          currentPet
+        })
         wx.setNavigationBarTitle({ title: recipe.name })
       }
     }
