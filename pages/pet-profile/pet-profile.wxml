@@ -2,9 +2,9 @@
 <view class="container">
   <!-- 头像 -->
   <view class="avatar-section" bindtap="onChooseAvatar">
-    <image 
-      class="avatar-image" 
-      src="{{form.avatar}}" 
+    <image
+      class="avatar-image"
+      src="{{form.avatar}}"
       mode="aspectFill"
       wx:if="{{form.avatar}}"
     />
@@ -18,12 +18,12 @@
   <!-- 基本信息 -->
   <view class="section card">
     <view class="section-title">基本信息</view>
-    
+
     <view class="form-group">
-      <view class="form-label">宠物名字 <text class="required">*</text></view>
-      <input 
-        class="form-input" 
-        placeholder="给它取个名字吧" 
+      <view class="form-label">TA 叫什么名字？ <text class="required">*</text></view>
+      <input
+        class="form-input"
+        placeholder="给你的老宝贝取个名字"
         value="{{form.name}}"
         data-field="name"
         bindinput="onInputChange"
@@ -31,10 +31,10 @@
     </view>
 
     <view class="form-group">
-      <view class="form-label">品种</view>
+      <view class="form-label">犬种</view>
       <view class="form-picker" bindtap="showBreedSelector">
         <text class="{{form.breedName ? '' : 'placeholder'}}">
-          {{form.breedName || '选择品种'}}
+          {{form.breedName || '选择犬种'}}
         </text>
         <text class="picker-arrow">›</text>
       </view>
@@ -44,10 +44,10 @@
       <view class="form-group half">
         <view class="form-label">年龄 <text class="required">*</text></view>
         <view class="input-with-unit">
-          <input 
-            class="form-input" 
+          <input
+            class="form-input"
             type="digit"
-            placeholder="输入年龄" 
+            placeholder="几岁了"
             value="{{form.age}}"
             data-field="age"
             bindinput="onInputChange"
@@ -55,14 +55,14 @@
           <text class="unit">岁</text>
         </view>
       </view>
-      
+
       <view class="form-group half">
         <view class="form-label">体重 <text class="required">*</text></view>
         <view class="input-with-unit">
-          <input 
-            class="form-input" 
+          <input
+            class="form-input"
             type="digit"
-            placeholder="输入体重" 
+            placeholder="多重"
             value="{{form.weight}}"
             data-field="weight"
             bindinput="onInputChange"
@@ -75,8 +75,8 @@
     <view class="form-group">
       <view class="form-label">性别</view>
       <view class="gender-options">
-        <view 
-          wx:for="{{genderOptions}}" 
+        <view
+          wx:for="{{genderOptions}}"
           wx:key="value"
           class="gender-option {{form.gender === item.value ? 'active' : ''}}"
           data-value="{{item.value}}"
@@ -89,21 +89,21 @@
 
     <view class="form-group row">
       <view class="form-label">是否绝育</view>
-      <switch 
-        checked="{{form.neutered}}" 
+      <switch
+        checked="{{form.neutered}}"
         bindchange="onNeuteredChange"
-        color="#4A7C59"
+        color="#22d3ee"
       />
     </view>
   </view>
 
   <!-- 操作按钮 -->
   <view class="action-buttons">
-    <button class="btn-primary" bindtap="onSave">保存基本信息</button>
+    <button class="btn-primary" bindtap="onSave">保存资料</button>
     <button class="btn-secondary mt-20" bindtap="onContinueHealth" wx:if="{{!isEdit}}">
-      保存并填写健康信息 →
+      保存并记录健康信息 →
     </button>
-    <button class="btn-delete mt-30" bindtap="onDelete" wx:if="{{isEdit}}">删除宠物</button>
+    <button class="btn-delete mt-30" bindtap="onDelete" wx:if="{{isEdit}}">删除档案</button>
   </view>
 </view>
 
@@ -111,21 +111,21 @@
 <view class="breed-picker-mask {{showBreedPicker ? 'show' : ''}}" bindtap="hideBreedSelector">
   <view class="breed-picker-content" catchtap="preventTap">
     <view class="picker-header">
-      <text class="picker-title">选择品种</text>
+      <text class="picker-title">选择犬种</text>
       <text class="picker-close" bindtap="hideBreedSelector">✕</text>
     </view>
     <view class="picker-search">
-      <input 
-        class="search-input" 
-        placeholder="搜索品种" 
+      <input
+        class="search-input"
+        placeholder="搜索犬种"
         value="{{breedSearchKey}}"
         bindinput="onBreedSearch"
       />
     </view>
     <scroll-view class="breed-list" scroll-y>
-      <view 
+      <view
         class="breed-item {{form.breed === item.id ? 'selected' : ''}}"
-        wx:for="{{filteredBreeds}}" 
+        wx:for="{{filteredBreeds}}"
         wx:key="id"
         data-breed="{{item}}"
         bindtap="onSelectBreed"
@@ -134,7 +134,7 @@
         <text class="breed-size">{{item.size === 'small' ? '小型' : item.size === 'medium' ? '中型' : item.size === 'large' ? '大型' : '巨型'}}</text>
       </view>
       <view class="empty-tip" wx:if="{{filteredBreeds.length === 0}}">
-        没有找到匹配的品种
+        未找到匹配的犬种
       </view>
     </scroll-view>
   </view>

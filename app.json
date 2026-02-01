@@ -8,18 +8,18 @@
     "pages/my/my"
   ],
   "window": {
-    "backgroundTextStyle": "dark",
-    "navigationBarBackgroundColor": "#4A7C59",
-    "navigationBarTitleText": "老宝贝护理",
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#1a2555",
+    "navigationBarTitleText": "我的老Baby",
     "navigationBarTextStyle": "white",
-    "backgroundColor": "#F5F1E8"
+    "backgroundColor": "#0a2f4f"
   },
   "tabBar": {
     "custom": true,
-    "color": "#999999",
-    "selectedColor": "#4A7C59",
-    "backgroundColor": "#FFFFFF",
-    "borderStyle": "white",
+    "color": "#666688",
+    "selectedColor": "#22d3ee",
+    "backgroundColor": "#1a1a3e",
+    "borderStyle": "black",
     "list": [
       {
         "pagePath": "pages/index/index",
@@ -27,7 +27,7 @@
       },
       {
         "pagePath": "pages/recipe-list/recipe-list",
-        "text": "食谱"
+        "text": "鲜粮食谱"
       },
       {
         "pagePath": "pages/my/my",

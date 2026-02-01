@@ -1,7 +1,7 @@
 // pages/recipe-list/recipe-list.js
 const storage = require('../../utils/storage')
 const recommend = require('../../utils/recommend')
-const diseasesData = require('../../data/diseases.json')
+const diseasesData = require('../../data/diseases.js')
 
 Page({
   data: {
@@ -10,6 +10,7 @@ Page({
     allRecipes: [],
     searchKey: '',
     filterDisease: '',
+    filterDiseaseName: '',
     diseases: diseasesData,
     showFilter: false
   },
@@ -64,8 +65,15 @@ Page({
   // 按疾病筛选
   onFilterByDisease(e) {
     const diseaseId = e.currentTarget.dataset.id
+    const isSelected = this.data.filterDisease === diseaseId
+
+    // 找到疾病名称
+    const disease = this.data.diseases.find(d => d.id === diseaseId)
+    const diseaseName = disease ? disease.name : ''
+
     this.setData({
-      filterDisease: this.data.filterDisease === diseaseId ? '' : diseaseId,
+      filterDisease: isSelected ? '' : diseaseId,
+      filterDiseaseName: isSelected ? '' : diseaseName,
       showFilter: false
     })
     this.filterRecipes()
@@ -75,6 +83,7 @@ Page({
   clearFilter() {
     this.setData({
       filterDisease: '',
+      filterDiseaseName: '',
       searchKey: '',
       showFilter: false
     })

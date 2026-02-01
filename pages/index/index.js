@@ -13,13 +13,13 @@ Page({
   },
 
   onShow() {
-    this.loadPets()
     // 如果是tabBar页面，需要手动设置选中状态
     if (typeof this.getTabBar === 'function' && this.getTabBar()) {
       this.getTabBar().setData({
         selected: 0
       })
     }
+    this.loadPets()
   },
 
   loadPets() {
@@ -68,7 +68,7 @@ Page({
     const petId = e.currentTarget.dataset.id
     const pet = storage.getPetById(petId)
     
-    const confirmed = await util.showConfirm(`确定要删除 ${pet.name || '这只宠物'} 吗？此操作不可恢复。`)
+    const confirmed = await util.showConfirm(`确定要删除 ${pet.name || '该宠物'} 的档案吗？数据将被永久清除。`)
     
     if (confirmed) {
       storage.deletePet(petId)

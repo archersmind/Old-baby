@@ -9,7 +9,8 @@
 
 .pet-name {
   color: var(--color-primary);
-  font-weight: 500;
+  font-weight: 600;
+  text-shadow: 0 0 10rpx rgba(34, 211, 238, 0.3);
 }
 
 .section {
@@ -17,12 +18,14 @@
 }
 
 .section-title {
-  font-size: 32rpx;
-  font-weight: 600;
-  color: var(--color-text);
+  font-size: 34rpx;
+  font-weight: 700;
+  color: var(--color-primary);
   margin-bottom: 12rpx;
-  padding-left: 16rpx;
-  border-left: 6rpx solid var(--color-primary);
+  padding-left: 20rpx;
+  border-left: 6rpx solid;
+  border-image: linear-gradient(to bottom, var(--color-primary), var(--color-accent)) 1;
+  text-shadow: 0 0 10rpx rgba(34, 211, 238, 0.3);
 }
 
 .section-desc {
@@ -40,7 +43,7 @@
   font-size: 26rpx;
   color: var(--color-text-light);
   margin-bottom: 12rpx;
-  font-weight: 500;
+  font-weight: 600;
 }
 
 .disease-tags {
@@ -51,17 +54,24 @@
 
 .disease-tag {
   padding: 14rpx 24rpx;
-  background-color: var(--color-background);
-  border: 2rpx solid var(--color-border);
+  background: rgba(31, 41, 55, 0.5);
+  border: 2rpx solid rgba(34, 211, 238, 0.3);
   border-radius: 30rpx;
   font-size: 26rpx;
   color: var(--color-text);
+  transition: all 0.3s ease;
+}
+
+.disease-tag:active {
+  transform: scale(0.95);
 }
 
 .disease-tag.active {
-  background-color: rgba(224, 122, 95, 0.15);
-  border-color: var(--color-error);
-  color: var(--color-error);
+  background: linear-gradient(135deg, rgba(236, 72, 153, 0.3), rgba(236, 72, 153, 0.2));
+  border-color: var(--color-accent);
+  color: var(--color-accent);
+  font-weight: 600;
+  box-shadow: 0 0 15rpx rgba(236, 72, 153, 0.3);
 }
 
 /* 活动能力选项 */
@@ -73,26 +83,33 @@
 .activity-option {
   flex: 1;
   padding: 20rpx;
-  background-color: var(--color-background);
-  border: 2rpx solid var(--color-border);
+  background: rgba(31, 41, 55, 0.5);
+  border: 2rpx solid rgba(34, 211, 238, 0.3);
   border-radius: 16rpx;
   text-align: center;
+  transition: all 0.3s ease;
+}
+
+.activity-option:active {
+  transform: scale(0.98);
 }
 
 .activity-option.active {
-  background-color: rgba(74, 124, 89, 0.1);
+  background: linear-gradient(135deg, rgba(6, 182, 212, 0.3), rgba(34, 211, 238, 0.2));
   border-color: var(--color-primary);
+  box-shadow: 0 0 20rpx rgba(34, 211, 238, 0.3);
 }
 
 .activity-label {
   font-size: 28rpx;
-  font-weight: 500;
+  font-weight: 600;
   color: var(--color-text);
   margin-bottom: 6rpx;
 }
 
 .activity-option.active .activity-label {
   color: var(--color-primary);
+  text-shadow: 0 0 8rpx rgba(34, 211, 238, 0.3);
 }
 
 .activity-desc {
@@ -113,7 +130,7 @@
   font-size: 28rpx;
   color: var(--color-text);
   margin-bottom: 16rpx;
-  font-weight: 500;
+  font-weight: 600;
 }
 
 /* 过敏原标签 */
@@ -125,17 +142,24 @@
 
 .allergen-tag {
   padding: 12rpx 24rpx;
-  background-color: var(--color-background);
-  border: 2rpx solid var(--color-border);
+  background: rgba(31, 41, 55, 0.5);
+  border: 2rpx solid rgba(34, 211, 238, 0.3);
   border-radius: 30rpx;
   font-size: 26rpx;
   color: var(--color-text);
+  transition: all 0.3s ease;
+}
+
+.allergen-tag:active {
+  transform: scale(0.95);
 }
 
 .allergen-tag.active {
-  background-color: rgba(212, 165, 116, 0.2);
-  border-color: var(--color-accent);
-  color: var(--color-accent);
+  background: linear-gradient(135deg, rgba(251, 191, 36, 0.3), rgba(251, 191, 36, 0.2));
+  border-color: #fbbf24;
+  color: #fbbf24;
+  font-weight: 600;
+  box-shadow: 0 0 15rpx rgba(251, 191, 36, 0.3);
 }
 
 /* 体检报告 */
@@ -155,44 +179,57 @@
   width: 100%;
   height: 100%;
   border-radius: 16rpx;
+  border: 2rpx solid var(--color-primary);
+  box-shadow: 0 0 15rpx rgba(34, 211, 238, 0.2);
 }
 
 .report-delete {
   position: absolute;
   top: -10rpx;
   right: -10rpx;
-  width: 40rpx;
-  height: 40rpx;
-  background-color: var(--color-error);
-  color: var(--color-white);
+  width: 44rpx;
+  height: 44rpx;
+  background: linear-gradient(135deg, #ef4444, #dc2626);
+  color: #fff;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 24rpx;
+  font-weight: 700;
+  box-shadow: 0 4rpx 12rpx rgba(239, 68, 68, 0.4);
+  border: 2rpx solid #fff;
 }
 
 .report-add {
   width: 200rpx;
   height: 200rpx;
-  background-color: var(--color-background);
-  border: 2rpx dashed var(--color-border);
+  background: rgba(31, 41, 55, 0.5);
+  border: 2rpx dashed rgba(34, 211, 238, 0.4);
   border-radius: 16rpx;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.report-add:active {
+  border-color: var(--color-primary);
+  background: rgba(34, 211, 238, 0.1);
+  box-shadow: 0 0 15rpx rgba(34, 211, 238, 0.2);
 }
 
 .report-add .add-icon {
   font-size: 48rpx;
-  color: var(--color-text-lighter);
+  color: var(--color-primary);
   margin-bottom: 8rpx;
 }
 
 .report-add .add-text {
   font-size: 24rpx;
-  color: var(--color-text-lighter);
+  color: var(--color-text-light);
+  font-weight: 500;
 }
 
 /* 操作按钮 */

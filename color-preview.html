@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>赛博宠物 - 色调方案预览</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: -apple-system, 'SF Pro Display', 'PingFang SC', sans-serif; background: #111; color: #eee; padding: 40px 20px; }
+h1 { text-align: center; font-size: 28px; margin-bottom: 10px; }
+.subtitle { text-align: center; color: #888; margin-bottom: 50px; font-size: 14px; }
+.schemes { display: flex; gap: 24px; justify-content: center; flex-wrap: wrap; max-width: 1600px; margin: 0 auto; }
+
+.scheme { width: 370px; border-radius: 20px; overflow: hidden; }
+.scheme-title { text-align: center; padding: 18px; font-size: 18px; font-weight: 700; letter-spacing: 2px; }
+
+.phone { border-radius: 16px; margin: 0 auto; width: 350px; overflow: hidden; }
+.phone-header { padding: 14px 18px; text-align: center; font-size: 15px; font-weight: 600; }
+.phone-body { padding: 14px; min-height: 480px; }
+
+.card { border-radius: 12px; padding: 14px; margin-bottom: 10px; }
+.card-title { font-size: 15px; font-weight: 600; margin-bottom: 6px; }
+.card-desc { font-size: 11px; opacity: 0.7; margin-bottom: 10px; }
+.tags { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 10px; }
+.tag { padding: 3px 10px; border-radius: 20px; font-size: 10px; font-weight: 500; }
+.btn { padding: 9px 20px; border-radius: 25px; font-size: 12px; font-weight: 600; text-align: center; border: none; cursor: pointer; width: 100%; margin-bottom: 7px; }
+.btn-outline { background: transparent; }
+.input-mock { padding: 9px 12px; border-radius: 10px; font-size: 11px; margin-bottom: 9px; }
+.tab-bar { display: flex; justify-content: space-around; padding: 10px 0 7px; border-radius: 0 0 16px 16px; }
+.tab-item { text-align: center; font-size: 9px; }
+.tab-icon { font-size: 20px; margin-bottom: 2px; }
+.section-title { font-size: 13px; font-weight: 600; margin-bottom: 8px; display: flex; align-items: center; gap: 8px; }
+.section-bar { width: 4px; height: 16px; border-radius: 2px; }
+.stat-row { display: flex; gap: 8px; margin-bottom: 10px; }
+.stat-box { flex: 1; padding: 8px; border-radius: 10px; text-align: center; }
+.stat-value { font-size: 16px; font-weight: 700; }
+.stat-label { font-size: 9px; opacity: 0.6; margin-top: 2px; }
+
+/* ========== S1: 青蓝+粉 (Cyberpunk City) ========== */
+.s1 { border: 1px solid rgba(0,220,255,0.4); }
+.s1 .scheme-title { background: #151528; color: #00DCFF; text-shadow: 0 0 20px rgba(0,220,255,0.6); }
+.s1 .phone-header { background: linear-gradient(135deg, #1A2040, #152035); color: #00DCFF; text-shadow: 0 0 10px rgba(0,220,255,0.5); border-bottom: 1px solid rgba(0,220,255,0.25); }
+.s1 .phone-body { background: #151528; }
+.s1 .card { background: #1E2042; border: 1px solid rgba(0,220,255,0.15); box-shadow: 0 0 15px rgba(0,220,255,0.06); }
+.s1 .card-title { color: #F0F5FF; }
+.s1 .card-desc { color: #8899BB; }
+.s1 .tag { background: rgba(0,220,255,0.15); color: #60E8FF; border: 1px solid rgba(0,220,255,0.3); }
+.s1 .tag.accent { background: rgba(255,80,150,0.15); color: #FF6EA0; border-color: rgba(255,80,150,0.3); }
+.s1 .tag.warn { background: rgba(255,100,80,0.15); color: #FF8060; border-color: rgba(255,100,80,0.3); }
+.s1 .btn { background: linear-gradient(135deg, #00BBDD, #0088CC); color: #fff; box-shadow: 0 0 22px rgba(0,220,255,0.3); }
+.s1 .btn-outline { background: transparent; border: 1px solid #FF6EA0; color: #FF6EA0; box-shadow: 0 0 10px rgba(255,80,150,0.15); }
+.s1 .input-mock { background: rgba(0,220,255,0.05); border: 1px solid rgba(0,220,255,0.2); color: #8899BB; }
+.s1 .tab-bar { background: #181835; border-top: 1px solid rgba(0,220,255,0.2); }
+.s1 .tab-item { color: #556688; }
+.s1 .tab-item.active { color: #00DCFF; text-shadow: 0 0 8px rgba(0,220,255,0.6); }
+.s1 .section-bar { background: linear-gradient(to bottom, #00DCFF, #FF6EA0); box-shadow: 0 0 6px rgba(0,220,255,0.5); }
+.s1 .section-title { color: #F0F5FF; }
+.s1 .stat-box { background: rgba(0,220,255,0.08); border: 1px solid rgba(0,220,255,0.2); }
+.s1 .stat-value { color: #00DCFF; text-shadow: 0 0 8px rgba(0,220,255,0.4); }
+.s1 .stat-label { color: #8899BB; }
+
+/* ========== S2: 橙金+青 (Blade Runner) ========== */
+.s2 { border: 1px solid rgba(255,180,50,0.4); }
+.s2 .scheme-title { background: #18150E; color: #FFB432; text-shadow: 0 0 20px rgba(255,180,50,0.5); }
+.s2 .phone-header { background: linear-gradient(135deg, #22200A, #1A1812); color: #FFB432; text-shadow: 0 0 10px rgba(255,180,50,0.5); border-bottom: 1px solid rgba(255,180,50,0.25); }
+.s2 .phone-body { background: #18150E; }
+.s2 .card { background: #252218; border: 1px solid rgba(255,180,50,0.15); box-shadow: 0 0 15px rgba(255,180,50,0.06); }
+.s2 .card-title { color: #FFF5E0; }
+.s2 .card-desc { color: #AA9977; }
+.s2 .tag { background: rgba(255,180,50,0.15); color: #FFC860; border: 1px solid rgba(255,180,50,0.3); }
+.s2 .tag.accent { background: rgba(0,200,200,0.15); color: #40D8D8; border-color: rgba(0,200,200,0.3); }
+.s2 .tag.warn { background: rgba(255,80,60,0.15); color: #FF6050; border-color: rgba(255,80,60,0.3); }
+.s2 .btn { background: linear-gradient(135deg, #FFB432, #E09020); color: #18150E; font-weight: 700; box-shadow: 0 0 22px rgba(255,180,50,0.3); }
+.s2 .btn-outline { background: transparent; border: 1px solid #40D8D8; color: #40D8D8; box-shadow: 0 0 10px rgba(0,200,200,0.15); }
+.s2 .input-mock { background: rgba(255,180,50,0.04); border: 1px solid rgba(255,180,50,0.18); color: #AA9977; }
+.s2 .tab-bar { background: #1C1A12; border-top: 1px solid rgba(255,180,50,0.2); }
+.s2 .tab-item { color: #665530; }
+.s2 .tab-item.active { color: #FFB432; text-shadow: 0 0 8px rgba(255,180,50,0.5); }
+.s2 .section-bar { background: linear-gradient(to bottom, #FFB432, #40D8D8); box-shadow: 0 0 6px rgba(255,180,50,0.5); }
+.s2 .section-title { color: #FFF5E0; }
+.s2 .stat-box { background: rgba(255,180,50,0.08); border: 1px solid rgba(255,180,50,0.18); }
+.s2 .stat-value { color: #FFB432; text-shadow: 0 0 8px rgba(255,180,50,0.4); }
+.s2 .stat-label { color: #AA9977; }
+
+/* ========== S3: 红+深灰 (Red Alert) ========== */
+.s3 { border: 1px solid rgba(255,50,80,0.4); }
+.s3 .scheme-title { background: #1A1218; color: #FF3250; text-shadow: 0 0 20px rgba(255,50,80,0.5); }
+.s3 .phone-header { background: linear-gradient(135deg, #251520, #201520); color: #FF3250; text-shadow: 0 0 10px rgba(255,50,80,0.5); border-bottom: 1px solid rgba(255,50,80,0.25); }
+.s3 .phone-body { background: #1A1218; }
+.s3 .card { background: #282028; border: 1px solid rgba(255,50,80,0.15); box-shadow: 0 0 15px rgba(255,50,80,0.06); }
+.s3 .card-title { color: #FFE8EC; }
+.s3 .card-desc { color: #AA8899; }
+.s3 .tag { background: rgba(255,50,80,0.15); color: #FF6888; border: 1px solid rgba(255,50,80,0.3); }
+.s3 .tag.accent { background: rgba(180,180,200,0.12); color: #C0C0DD; border-color: rgba(180,180,200,0.3); }
+.s3 .tag.warn { background: rgba(255,200,50,0.15); color: #FFD040; border-color: rgba(255,200,50,0.3); }
+.s3 .btn { background: linear-gradient(135deg, #FF3250, #CC2040); color: #fff; box-shadow: 0 0 22px rgba(255,50,80,0.3); }
+.s3 .btn-outline { background: transparent; border: 1px solid #C0C0DD; color: #C0C0DD; box-shadow: 0 0 10px rgba(180,180,200,0.1); }
+.s3 .input-mock { background: rgba(255,50,80,0.04); border: 1px solid rgba(255,50,80,0.18); color: #AA8899; }
+.s3 .tab-bar { background: #1E161C; border-top: 1px solid rgba(255,50,80,0.2); }
+.s3 .tab-item { color: #664455; }
+.s3 .tab-item.active { color: #FF3250; text-shadow: 0 0 8px rgba(255,50,80,0.6); }
+.s3 .section-bar { background: linear-gradient(to bottom, #FF3250, #C0C0DD); box-shadow: 0 0 6px rgba(255,50,80,0.5); }
+.s3 .section-title { color: #FFE8EC; }
+.s3 .stat-box { background: rgba(255,50,80,0.08); border: 1px solid rgba(255,50,80,0.18); }
+.s3 .stat-value { color: #FF3250; text-shadow: 0 0 8px rgba(255,50,80,0.4); }
+.s3 .stat-label { color: #AA8899; }
+
+/* ========== S4: 绿+青 (Matrix Bio) ========== */
+.s4 { border: 1px solid rgba(0,230,160,0.4); }
+.s4 .scheme-title { background: #0E1A18; color: #00E6A0; text-shadow: 0 0 20px rgba(0,230,160,0.5); }
+.s4 .phone-header { background: linear-gradient(135deg, #102520, #0E1E20); color: #00E6A0; text-shadow: 0 0 10px rgba(0,230,160,0.5); border-bottom: 1px solid rgba(0,230,160,0.25); }
+.s4 .phone-body { background: #0E1A18; }
+.s4 .card { background: #182828; border: 1px solid rgba(0,230,160,0.15); box-shadow: 0 0 15px rgba(0,230,160,0.06); }
+.s4 .card-title { color: #E0FFF5; }
+.s4 .card-desc { color: #70AA99; }
+.s4 .tag { background: rgba(0,230,160,0.12); color: #50FFB8; border: 1px solid rgba(0,230,160,0.3); }
+.s4 .tag.accent { background: rgba(0,180,255,0.15); color: #50C8FF; border-color: rgba(0,180,255,0.3); }
+.s4 .tag.warn { background: rgba(255,180,50,0.15); color: #FFC050; border-color: rgba(255,180,50,0.3); }
+.s4 .btn { background: linear-gradient(135deg, #00CC90, #00AA78); color: #0E1A18; font-weight: 700; box-shadow: 0 0 22px rgba(0,230,160,0.3); }
+.s4 .btn-outline { background: transparent; border: 1px solid #50C8FF; color: #50C8FF; box-shadow: 0 0 10px rgba(0,180,255,0.15); }
+.s4 .input-mock { background: rgba(0,230,160,0.04); border: 1px solid rgba(0,230,160,0.18); color: #70AA99; }
+.s4 .tab-bar { background: #121E1C; border-top: 1px solid rgba(0,230,160,0.2); }
+.s4 .tab-item { color: #306655; }
+.s4 .tab-item.active { color: #00E6A0; text-shadow: 0 0 8px rgba(0,230,160,0.6); }
+.s4 .section-bar { background: linear-gradient(to bottom, #00E6A0, #50C8FF); box-shadow: 0 0 6px rgba(0,230,160,0.5); }
+.s4 .section-title { color: #E0FFF5; }
+.s4 .stat-box { background: rgba(0,230,160,0.06); border: 1px solid rgba(0,230,160,0.18); }
+.s4 .stat-value { color: #00E6A0; text-shadow: 0 0 8px rgba(0,230,160,0.4); }
+.s4 .stat-label { color: #70AA99; }
+</style>
+</head>
+<body>
+
+<h1>赛博宠物 · 基础色选择</h1>
+<p class="subtitle">四种不同主色调，均为中等亮度暗色背景 · 请选择你喜欢的基础色</p>
+
+<div class="schemes">
+
+<!-- S1: 青蓝+粉 -->
+<div class="scheme s1">
+  <div class="scheme-title">S1 · 青蓝+粉</div>
+  <div class="phone">
+    <div class="phone-header">⚡ 赛博宠物</div>
+    <div class="phone-body">
+      <div class="section-title"><div class="section-bar"></div>生物体档案</div>
+      <div class="card">
+        <div class="card-title">🐕 旺财 · 柴犬</div>
+        <div class="card-desc">生命周期: 12岁 · 体质量: 8.5kg</div>
+        <div class="tags">
+          <span class="tag">关节退化</span>
+          <span class="tag accent">能量适中</span>
+          <span class="tag warn">过敏:鸡肉</span>
+        </div>
+      </div>
+      <div class="section-title"><div class="section-bar"></div>能量补给方案</div>
+      <div class="card">
+        <div class="card-title">护关节鸡肉南瓜餐</div>
+        <div class="card-desc">修复协议 · 关节强化 · 30分钟</div>
+        <div class="stat-row">
+          <div class="stat-box"><div class="stat-value">120</div><div class="stat-label">kcal/100g</div></div>
+          <div class="stat-box"><div class="stat-value">92%</div><div class="stat-label">匹配度</div></div>
+        </div>
+      </div>
+      <div class="input-mock">🔍 扫描能量补给数据库...</div>
+      <div class="btn">启动智能推荐</div>
+      <div class="btn btn-outline">查看全部方案</div>
+    </div>
+    <div class="tab-bar">
+      <div class="tab-item active"><div class="tab-icon">🐕</div>生物体</div>
+      <div class="tab-item"><div class="tab-icon">⚡</div>补给</div>
+      <div class="tab-item"><div class="tab-icon">👤</div>控制台</div>
+    </div>
+  </div>
+</div>
+
+<!-- S2: 橙金+青 -->
+<div class="scheme s2">
+  <div class="scheme-title">S2 · 橙金+青</div>
+  <div class="phone">
+    <div class="phone-header">⚡ 赛博宠物</div>
+    <div class="phone-body">
+      <div class="section-title"><div class="section-bar"></div>生物体档案</div>
+      <div class="card">
+        <div class="card-title">🐕 旺财 · 柴犬</div>
+        <div class="card-desc">生命周期: 12岁 · 体质量: 8.5kg</div>
+        <div class="tags">
+          <span class="tag">关节退化</span>
+          <span class="tag accent">能量适中</span>
+          <span class="tag warn">过敏:鸡肉</span>
+        </div>
+      </div>
+      <div class="section-title"><div class="section-bar"></div>能量补给方案</div>
+      <div class="card">
+        <div class="card-title">护关节鸡肉南瓜餐</div>
+        <div class="card-desc">修复协议 · 关节强化 · 30分钟</div>
+        <div class="stat-row">
+          <div class="stat-box"><div class="stat-value">120</div><div class="stat-label">kcal/100g</div></div>
+          <div class="stat-box"><div class="stat-value">92%</div><div class="stat-label">匹配度</div></div>
+        </div>
+      </div>
+      <div class="input-mock">🔍 扫描能量补给数据库...</div>
+      <div class="btn">启动智能推荐</div>
+      <div class="btn btn-outline">查看全部方案</div>
+    </div>
+    <div class="tab-bar">
+      <div class="tab-item active"><div class="tab-icon">🐕</div>生物体</div>
+      <div class="tab-item"><div class="tab-icon">⚡</div>补给</div>
+      <div class="tab-item"><div class="tab-icon">👤</div>控制台</div>
+    </div>
+  </div>
+</div>
+
+<!-- S3: 红+深灰 -->
+<div class="scheme s3">
+  <div class="scheme-title">S3 · 红+深灰</div>
+  <div class="phone">
+    <div class="phone-header">⚡ 赛博宠物</div>
+    <div class="phone-body">
+      <div class="section-title"><div class="section-bar"></div>生物体档案</div>
+      <div class="card">
+        <div class="card-title">🐕 旺财 · 柴犬</div>
+        <div class="card-desc">生命周期: 12岁 · 体质量: 8.5kg</div>
+        <div class="tags">
+          <span class="tag">关节退化</span>
+          <span class="tag accent">能量适中</span>
+          <span class="tag warn">过敏:鸡肉</span>
+        </div>
+      </div>
+      <div class="section-title"><div class="section-bar"></div>能量补给方案</div>
+      <div class="card">
+        <div class="card-title">护关节鸡肉南瓜餐</div>
+        <div class="card-desc">修复协议 · 关节强化 · 30分钟</div>
+        <div class="stat-row">
+          <div class="stat-box"><div class="stat-value">120</div><div class="stat-label">kcal/100g</div></div>
+          <div class="stat-box"><div class="stat-value">92%</div><div class="stat-label">匹配度</div></div>
+        </div>
+      </div>
+      <div class="input-mock">🔍 扫描能量补给数据库...</div>
+      <div class="btn">启动智能推荐</div>
+      <div class="btn btn-outline">查看全部方案</div>
+    </div>
+    <div class="tab-bar">
+      <div class="tab-item active"><div class="tab-icon">🐕</div>生物体</div>
+      <div class="tab-item"><div class="tab-icon">⚡</div>补给</div>
+      <div class="tab-item"><div class="tab-icon">👤</div>控制台</div>
+    </div>
+  </div>
+</div>
+
+<!-- S4: 绿+青 -->
+<div class="scheme s4">
+  <div class="scheme-title">S4 · 绿+青</div>
+  <div class="phone">
+    <div class="phone-header">⚡ 赛博宠物</div>
+    <div class="phone-body">
+      <div class="section-title"><div class="section-bar"></div>生物体档案</div>
+      <div class="card">
+        <div class="card-title">🐕 旺财 · 柴犬</div>
+        <div class="card-desc">生命周期: 12岁 · 体质量: 8.5kg</div>
+        <div class="tags">
+          <span class="tag">关节退化</span>
+          <span class="tag accent">能量适中</span>
+          <span class="tag warn">过敏:鸡肉</span>
+        </div>
+      </div>
+      <div class="section-title"><div class="section-bar"></div>能量补给方案</div>
+      <div class="card">
+        <div class="card-title">护关节鸡肉南瓜餐</div>
+        <div class="card-desc">修复协议 · 关节强化 · 30分钟</div>
+        <div class="stat-row">
+          <div class="stat-box"><div class="stat-value">120</div><div class="stat-label">kcal/100g</div></div>
+          <div class="stat-box"><div class="stat-value">92%</div><div class="stat-label">匹配度</div></div>
+        </div>
+      </div>
+      <div class="input-mock">🔍 扫描能量补给数据库...</div>
+      <div class="btn">启动智能推荐</div>
+      <div class="btn btn-outline">查看全部方案</div>
+    </div>
+    <div class="tab-bar">
+      <div class="tab-item active"><div class="tab-icon">🐕</div>生物体</div>
+      <div class="tab-item"><div class="tab-icon">⚡</div>补给</div>
+      <div class="tab-item"><div class="tab-icon">👤</div>控制台</div>
+    </div>
+  </div>
+</div>
+
+</div>
+
+</body>
+</html>

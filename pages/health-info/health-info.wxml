@@ -1,19 +1,19 @@
 <!--pages/health-info/health-info.wxml-->
 <view class="container">
   <view class="page-hint" wx:if="{{petName}}">
-    正在为 <text class="pet-name">{{petName}}</text> 填写健康信息
+    正在为 <text class="pet-name">{{petName}}</text> 记录健康信息
   </view>
 
   <!-- 健康状况 -->
   <view class="section card">
     <view class="section-title">健康状况</view>
     <view class="section-desc">选择已确诊的疾病（可多选）</view>
-    
+
     <view class="disease-category" wx:for="{{diseaseCategories}}" wx:key="*this" wx:for-item="category">
       <view class="category-name">{{category}}</view>
       <view class="disease-tags">
-        <view 
-          wx:for="{{diseases}}" 
+        <view
+          wx:for="{{diseases}}"
           wx:key="id"
           wx:if="{{item.category === category}}"
           class="disease-tag {{selectedDiseases.indexOf(item.id) > -1 ? 'active' : ''}}"
@@ -28,10 +28,10 @@
 
   <!-- 用药情况 -->
   <view class="section card">
-    <view class="section-title">用药情况</view>
-    <textarea 
-      class="form-textarea" 
-      placeholder="请填写目前正在服用的药物（选填）"
+    <view class="section-title">药物协议</view>
+    <textarea
+      class="form-textarea"
+      placeholder="填写当前服用的药物（选填）"
       value="{{medications}}"
       data-field="medications"
       bindinput="onInputChange"
@@ -40,10 +40,10 @@
 
   <!-- 活动能力 -->
   <view class="section card">
-    <view class="section-title">活动能力</view>
+    <view class="section-title">能量等级</view>
     <view class="activity-options">
-      <view 
-        wx:for="{{activityOptions}}" 
+      <view
+        wx:for="{{activityOptions}}"
         wx:key="value"
         class="activity-option {{activityLevel === item.value ? 'active' : ''}}"
         data-value="{{item.value}}"
@@ -57,13 +57,13 @@
 
   <!-- 饮食信息 -->
   <view class="section card">
-    <view class="section-title">饮食偏好</view>
-    
+    <view class="section-title">补给偏好</view>
+
     <view class="subsection">
-      <view class="subsection-title">过敏原（选择需要避免的食材）</view>
+      <view class="subsection-title">过敏原（选择需要规避的原料）</view>
       <view class="allergen-tags">
-        <view 
-          wx:for="{{allergens}}" 
+        <view
+          wx:for="{{allergens}}"
           wx:key="id"
           class="allergen-tag {{selectedAllergens.indexOf(item.id) > -1 ? 'active' : ''}}"
           data-id="{{item.id}}"
@@ -76,9 +76,9 @@
 
     <view class="subsection">
       <view class="subsection-title">口味偏好（选填）</view>
-      <input 
-        class="form-input" 
-        placeholder="如：喜欢鸡肉、不爱吃蔬菜等"
+      <input
+        class="form-input"
+        placeholder="如：偏好鸡肉、排斥蔬菜等"
         value="{{preferences}}"
         data-field="preferences"
         bindinput="onInputChange"
@@ -86,10 +86,10 @@
     </view>
 
     <view class="subsection">
-      <view class="subsection-title">当前饮食方式（选填）</view>
-      <input 
-        class="form-input" 
-        placeholder="如：吃狗粮、自制、混合等"
+      <view class="subsection-title">当前补给方式（选填）</view>
+      <input
+        class="form-input"
+        placeholder="如：狗粮、自制、混合等"
         value="{{currentDiet}}"
         data-field="currentDiet"
         bindinput="onInputChange"
@@ -99,18 +99,18 @@
 
   <!-- 体检报告 -->
   <view class="section card">
-    <view class="section-title">体检报告</view>
-    <view class="section-desc">上传体检报告图片，便于更精准的食谱推荐</view>
-    
+    <view class="section-title">诊断报告</view>
+    <view class="section-desc">上传诊断报告图片，优化补给方案精准度</view>
+
     <view class="report-grid">
-      <view 
-        class="report-item" 
-        wx:for="{{reports}}" 
+      <view
+        class="report-item"
+        wx:for="{{reports}}"
         wx:key="id"
       >
-        <image 
-          class="report-image" 
-          src="{{item.path}}" 
+        <image
+          class="report-image"
+          src="{{item.path}}"
           mode="aspectFill"
           bindtap="onPreviewReport"
           data-index="{{index}}"
@@ -126,9 +126,9 @@
 
   <!-- 操作按钮 -->
   <view class="action-buttons safe-bottom">
-    <button class="btn-primary" bindtap="onSave">保存健康信息</button>
+    <button class="btn-primary" bindtap="onSave">写入体征数据</button>
     <button class="btn-secondary mt-20" bindtap="onViewRecipes">
-      保存并查看推荐食谱 →
+      写入并查看推荐补给 →
     </button>
   </view>
 </view>

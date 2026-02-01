@@ -1,7 +1,7 @@
 // pages/pet-profile/pet-profile.js
 const storage = require('../../utils/storage')
 const util = require('../../utils/util')
-const breedsData = require('../../data/breeds.json')
+const breedsData = require('../../data/breeds.js')
 
 Page({
   data: {
@@ -38,9 +38,9 @@ Page({
         petId: options.id 
       })
       this.loadPetData(options.id)
-      wx.setNavigationBarTitle({ title: '编辑宠物资料' })
+      wx.setNavigationBarTitle({ title: '编辑宠物档案' })
     } else {
-      wx.setNavigationBarTitle({ title: '添加新宠物' })
+      wx.setNavigationBarTitle({ title: '添加宠物档案' })
     }
   },
 
@@ -147,7 +147,7 @@ Page({
 
     // 验证必填项
     if (!form.name.trim()) {
-      util.showToast('请输入宠物名字')
+      util.showToast('请输入宝贝的名字')
       return
     }
 
@@ -203,7 +203,7 @@ Page({
 
   // 删除宠物
   async onDelete() {
-    const confirmed = await util.showConfirm('确定要删除这只宠物吗？此操作不可恢复。')
+    const confirmed = await util.showConfirm('确定要删除这个档案吗？数据将被永久清除。')
     if (confirmed) {
       storage.deletePet(this.data.petId)
       util.showToast('已删除')

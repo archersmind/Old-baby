@@ -1,8 +1,8 @@
 // pages/health-info/health-info.js
 const storage = require('../../utils/storage')
 const util = require('../../utils/util')
-const diseasesData = require('../../data/diseases.json')
-const allergensData = require('../../data/allergens.json')
+const diseasesData = require('../../data/diseases.js')
+const allergensData = require('../../data/allergens.js')
 
 Page({
   data: {
@@ -24,9 +24,9 @@ Page({
     reports: [],
     // 活动水平选项
     activityOptions: [
-      { value: 'normal', label: '正常', desc: '能自如活动' },
-      { value: 'low', label: '轻度受限', desc: '走路较慢' },
-      { value: 'very_low', label: '重度受限', desc: '很少活动' }
+      { value: 'normal', label: '正常', desc: '能自如运作' },
+      { value: 'low', label: '轻度受限', desc: '运动缓慢' },
+      { value: 'very_low', label: '重度受限', desc: '低功耗模式' }
     ]
   },
 
@@ -160,19 +160,19 @@ Page({
       reports
     }
 
-    util.showLoading('保存中...')
+    util.showLoading('写入数据...')
 
     try {
       storage.updatePet(petId, updateData)
       util.hideLoading()
-      util.showToast('保存成功', 'success')
+      util.showToast('数据写入成功', 'success')
       
       setTimeout(() => {
         wx.navigateBack()
       }, 1000)
     } catch (e) {
       util.hideLoading()
-      util.showToast('保存失败')
+      util.showToast('数据写入失败')
     }
   },
 

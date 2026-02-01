@@ -69,8 +69,8 @@ Page({
   // 关于我们
   onAbout() {
     wx.showModal({
-      title: '老宝贝护理',
-      content: '专为老年犬主人设计的自制狗粮指南小程序。\n\n版本：1.0.0\n\n用爱守护每一天 🐕',
+      title: '赛博宠物',
+      content: '赛博宠物护理系统\n专为老年犬主人设计的智能补给方案。\n\n版本：1.0.0\n\nCYBER PET CARE SYSTEM',
       showCancel: false
     })
   },
@@ -78,15 +78,15 @@ Page({
   // 意见反馈
   onFeedback() {
     wx.showModal({
-      title: '意见反馈',
-      content: '您可以通过以下方式联系我们：\n\n邮箱：feedback@example.com',
+      title: '数据上报',
+      content: '请通过以下通道上报数据：\n\n邮箱：feedback@example.com',
       showCancel: false
     })
   },
 
   // 清除缓存
   async onClearCache() {
-    const confirmed = await util.showConfirm('确定要清除所有本地数据吗？包括宠物信息和食谱收藏。此操作不可恢复。')
+    const confirmed = await util.showConfirm('确定要格式化所有本地存储吗？包括生物体数据和收藏协议。此操作不可逆。')
     if (confirmed) {
       try {
         wx.clearStorageSync()
@@ -95,9 +95,9 @@ Page({
           hasUserInfo: false,
           petsCount: 0
         })
-        util.showToast('清除成功', 'success')
+        util.showToast('格式化完成', 'success')
       } catch (e) {
-        util.showToast('清除失败')
+        util.showToast('格式化失败')
       }
     }
   },
@@ -105,7 +105,7 @@ Page({
   // 分享小程序
   onShareAppMessage() {
     return {
-      title: '老宝贝护理 - 老年犬自制狗粮指南',
+      title: '赛博宠物 - 老年犬智能补给方案',
       path: '/pages/index/index'
     }
   }

@@ -1,0 +1,730 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>老年犬护理助手 - 赛博朋克版预览</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Microsoft YaHei', sans-serif;
+            background: linear-gradient(135deg, #6d1b1b 0%, #3d1a5f 25%, #1a2555 75%, #0a2f4f 100%);
+            background-attachment: fixed;
+            min-height: 100vh;
+            color: #ffffff;
+            overflow-x: hidden;
+        }
+
+        .phone-container {
+            max-width: 375px;
+            margin: 20px auto;
+            background: linear-gradient(135deg, #6d1b1b 0%, #3d1a5f 25%, #1a2555 75%, #0a2f4f 100%);
+            border-radius: 30px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8);
+            border: 3px solid rgba(34, 211, 238, 0.3);
+        }
+
+        .screen {
+            display: none;
+            min-height: 667px;
+            padding: 20px 20px 100px 20px;
+            animation: fadeIn 0.3s ease-in;
+        }
+
+        .screen.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* 页面标题 */
+        .page-header {
+            text-align: center;
+            padding: 30px 0;
+            margin-bottom: 20px;
+        }
+
+        .header-title {
+            font-size: 36px;
+            font-weight: 700;
+            background: linear-gradient(135deg, #22d3ee, #ec4899);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 0 0 30px rgba(34, 211, 238, 0.3);
+            margin-bottom: 8px;
+        }
+
+        .header-subtitle {
+            font-size: 12px;
+            color: rgba(168, 85, 247, 0.8);
+            letter-spacing: 4px;
+            font-weight: 500;
+        }
+
+        /* 宠物卡片 */
+        .pet-card {
+            background: linear-gradient(135deg, rgba(31, 41, 55, 0.5), rgba(61, 26, 95, 0.5));
+            border-radius: 16px;
+            padding: 20px;
+            margin-bottom: 16px;
+            border: 2px solid rgba(168, 85, 247, 0.3);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            display: flex;
+            align-items: flex-start;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .pet-card:hover {
+            transform: translateY(-4px);
+            border-color: #22d3ee;
+            box-shadow: 0 0 30px rgba(34, 211, 238, 0.4);
+        }
+
+        .pet-avatar {
+            width: 80px;
+            height: 80px;
+            border-radius: 12px;
+            background: linear-gradient(135deg, rgba(168, 85, 247, 0.4), rgba(34, 211, 238, 0.4));
+            border: 2px solid #22d3ee;
+            box-shadow: 0 0 20px rgba(34, 211, 238, 0.4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 40px;
+            margin-right: 16px;
+            position: relative;
+        }
+
+        .pet-age-tag {
+            position: absolute;
+            bottom: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(135deg, #06b6d4, #ec4899);
+            color: #fff;
+            font-size: 11px;
+            padding: 4px 12px;
+            border-radius: 12px;
+            white-space: nowrap;
+            font-weight: 600;
+            box-shadow: 0 0 10px rgba(236, 72, 153, 0.5);
+        }
+
+        .pet-info {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .pet-name {
+            font-size: 20px;
+            font-weight: 700;
+            color: #22d3ee;
+            margin-bottom: 6px;
+            text-shadow: 0 0 10px rgba(34, 211, 238, 0.3);
+        }
+
+        .pet-breed {
+            font-size: 14px;
+            color: #d1d5db;
+            margin-bottom: 4px;
+        }
+
+        .pet-weight {
+            font-size: 12px;
+            color: #9ca3af;
+            margin-bottom: 8px;
+        }
+
+        .health-tag {
+            display: inline-block;
+            font-size: 11px;
+            padding: 4px 10px;
+            background-color: rgba(236, 72, 153, 0.2);
+            color: #ec4899;
+            border: 2px solid rgba(236, 72, 153, 0.5);
+            border-radius: 12px;
+            margin-right: 6px;
+        }
+
+        .health-tag.healthy {
+            background-color: rgba(52, 211, 153, 0.2);
+            color: #34d399;
+            border-color: rgba(52, 211, 153, 0.5);
+        }
+
+        /* 按钮 */
+        .btn-primary {
+            background: linear-gradient(135deg, #06b6d4, #ec4899);
+            color: #fff;
+            border: 2px solid #22d3ee;
+            border-radius: 50px;
+            padding: 16px 32px;
+            font-size: 16px;
+            font-weight: 600;
+            text-align: center;
+            cursor: pointer;
+            box-shadow: 0 0 30px rgba(34, 211, 238, 0.5);
+            transition: all 0.3s ease;
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 0 40px rgba(34, 211, 238, 0.6);
+        }
+
+        /* 食谱卡片 */
+        .recipe-card {
+            display: flex;
+            align-items: center;
+            background: linear-gradient(135deg, rgba(31, 41, 55, 0.5), rgba(61, 26, 95, 0.5));
+            border: 2px solid rgba(168, 85, 247, 0.3);
+            border-radius: 16px;
+            padding: 16px;
+            margin-bottom: 16px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .recipe-card:hover {
+            transform: translateY(-4px);
+            border-color: #22d3ee;
+            box-shadow: 0 0 30px rgba(34, 211, 238, 0.4);
+        }
+
+        .recipe-image {
+            width: 100px;
+            height: 100px;
+            border-radius: 12px;
+            background: linear-gradient(135deg, rgba(168, 85, 247, 0.4), rgba(34, 211, 238, 0.4));
+            border: 2px solid #22d3ee;
+            box-shadow: 0 0 15px rgba(34, 211, 238, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 50px;
+            margin-right: 16px;
+            flex-shrink: 0;
+        }
+
+        .recipe-info {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .recipe-name {
+            font-size: 18px;
+            font-weight: 700;
+            color: #22d3ee;
+            margin-bottom: 6px;
+        }
+
+        .recipe-desc {
+            font-size: 14px;
+            color: #d1d5db;
+            margin-bottom: 8px;
+        }
+
+        .recipe-meta {
+            display: flex;
+            gap: 12px;
+            font-size: 12px;
+            color: #9ca3af;
+        }
+
+        .match-tag {
+            display: inline-block;
+            font-size: 11px;
+            padding: 3px 10px;
+            background-color: rgba(52, 211, 153, 0.2);
+            color: #34d399;
+            border: 2px solid rgba(52, 211, 153, 0.5);
+            border-radius: 10px;
+            margin-top: 6px;
+            font-weight: 500;
+        }
+
+        /* 搜索栏 */
+        .search-bar {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+
+        .search-input-wrap {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            background: rgba(31, 41, 55, 0.5);
+            border: 2px solid rgba(34, 211, 238, 0.3);
+            border-radius: 30px;
+            padding: 12px 16px;
+            box-shadow: 0 0 10px rgba(34, 211, 238, 0.1);
+        }
+
+        .search-input {
+            flex: 1;
+            background: transparent;
+            border: none;
+            color: #fff;
+            font-size: 14px;
+            outline: none;
+            margin-left: 8px;
+        }
+
+        .filter-btn {
+            padding: 12px 20px;
+            background: linear-gradient(135deg, #06b6d4, #ec4899);
+            border: 2px solid #22d3ee;
+            border-radius: 30px;
+            color: #fff;
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            box-shadow: 0 0 20px rgba(34, 211, 238, 0.4);
+            transition: all 0.3s ease;
+        }
+
+        .filter-btn:hover {
+            box-shadow: 0 0 30px rgba(34, 211, 238, 0.6);
+        }
+
+        /* 表单 */
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-label {
+            display: block;
+            font-size: 14px;
+            color: #fff;
+            margin-bottom: 10px;
+            font-weight: 500;
+        }
+
+        .form-input {
+            width: 100%;
+            height: 44px;
+            background: rgba(31, 41, 55, 0.5);
+            border: 2px solid rgba(34, 211, 238, 0.3);
+            border-radius: 12px;
+            padding: 0 16px;
+            font-size: 15px;
+            color: #fff;
+            transition: all 0.3s ease;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: #22d3ee;
+            box-shadow: 0 0 15px rgba(34, 211, 238, 0.3);
+        }
+
+        /* 底部导航 */
+        .tab-bar {
+            position: fixed;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            max-width: 375px;
+            width: 100%;
+            height: 60px;
+            background: linear-gradient(to top, rgba(10, 47, 79, 0.98), rgba(61, 26, 95, 0.9));
+            display: flex;
+            border-top: 2px solid rgba(34, 211, 238, 0.3);
+            backdrop-filter: blur(16px);
+            box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.3);
+            border-radius: 0 0 30px 30px;
+        }
+
+        .tab-item {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .tab-item:active {
+            transform: scale(0.95);
+        }
+
+        .tab-icon {
+            font-size: 28px;
+            margin-bottom: 2px;
+            opacity: 0.5;
+            transition: all 0.3s ease;
+        }
+
+        .tab-item.active .tab-icon {
+            opacity: 1;
+            transform: scale(1.15);
+            filter: drop-shadow(0 0 12px rgba(34, 211, 238, 0.6));
+        }
+
+        .tab-text {
+            font-size: 11px;
+            font-weight: 600;
+            color: rgba(255, 255, 255, 0.6);
+            transition: all 0.3s ease;
+        }
+
+        .tab-item.active .tab-text {
+            color: #22d3ee;
+            text-shadow: 0 0 8px rgba(34, 211, 238, 0.5);
+        }
+
+        /* 空状态 */
+        .empty-state {
+            text-align: center;
+            padding: 60px 40px;
+        }
+
+        .empty-icon {
+            font-size: 80px;
+            margin-bottom: 20px;
+            opacity: 0.7;
+            filter: drop-shadow(0 0 20px rgba(34, 211, 238, 0.3));
+        }
+
+        .empty-text {
+            font-size: 18px;
+            color: #fff;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+
+        .empty-hint {
+            font-size: 14px;
+            color: #9ca3af;
+            line-height: 1.8;
+        }
+
+        /* 用户信息 */
+        .user-section {
+            display: flex;
+            align-items: center;
+            padding: 30px 0;
+            margin-bottom: 20px;
+        }
+
+        .user-avatar {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, rgba(168, 85, 247, 0.4), rgba(34, 211, 238, 0.4));
+            border: 2px solid #22d3ee;
+            box-shadow: 0 0 25px rgba(34, 211, 238, 0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 40px;
+            margin-right: 16px;
+        }
+
+        .user-info {
+            flex: 1;
+        }
+
+        .user-name {
+            font-size: 22px;
+            font-weight: 700;
+            color: #22d3ee;
+            margin-bottom: 6px;
+            text-shadow: 0 0 10px rgba(34, 211, 238, 0.3);
+        }
+
+        .user-stat {
+            font-size: 14px;
+            color: #d1d5db;
+        }
+
+        .stat-num {
+            color: #ec4899;
+            font-weight: 700;
+            text-shadow: 0 0 8px rgba(236, 72, 153, 0.3);
+        }
+
+        /* 菜单项 */
+        .menu-item {
+            display: flex;
+            align-items: center;
+            padding: 20px;
+            border-bottom: 2px solid rgba(34, 211, 238, 0.1);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .menu-item:hover {
+            background-color: rgba(34, 211, 238, 0.1);
+        }
+
+        .menu-icon {
+            font-size: 24px;
+            margin-right: 16px;
+        }
+
+        .menu-text {
+            flex: 1;
+            font-size: 16px;
+            color: #fff;
+            font-weight: 500;
+        }
+
+        .menu-arrow {
+            font-size: 18px;
+            color: #22d3ee;
+        }
+
+        /* 宠物横幅 */
+        .pet-banner {
+            display: flex;
+            align-items: center;
+            background: linear-gradient(135deg, rgba(168, 85, 247, 0.25), rgba(34, 211, 238, 0.25));
+            border: 2px solid rgba(168, 85, 247, 0.4);
+            padding: 12px 16px;
+            border-radius: 12px;
+            margin-bottom: 16px;
+            box-shadow: 0 4px 20px rgba(168, 85, 247, 0.2);
+        }
+
+        .pet-mini-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 8px;
+            background: linear-gradient(135deg, rgba(168, 85, 247, 0.4), rgba(34, 211, 238, 0.4));
+            border: 2px solid #22d3ee;
+            box-shadow: 0 0 10px rgba(34, 211, 238, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            margin-right: 12px;
+        }
+
+        .pet-banner-name {
+            font-size: 16px;
+            font-weight: 600;
+            color: #22d3ee;
+            margin-right: 4px;
+        }
+
+        .pet-banner-hint {
+            font-size: 14px;
+            color: #d1d5db;
+            flex: 1;
+        }
+
+        .change-pet {
+            font-size: 14px;
+            color: #ec4899;
+            font-weight: 500;
+        }
+    </style>
+</head>
+<body>
+    <div class="phone-container">
+        <!-- 首页 -->
+        <div id="home" class="screen active">
+            <div class="page-header">
+                <div class="header-title">我的赛博宠物</div>
+                <div class="header-subtitle">CYBER PET CARE SYSTEM</div>
+            </div>
+
+            <div class="pet-card">
+                <div class="pet-avatar">
+                    🐕
+                    <div class="pet-age-tag">12岁</div>
+                </div>
+                <div class="pet-info">
+                    <div class="pet-name">旺财</div>
+                    <div class="pet-breed">金毛寻回犬</div>
+                    <div class="pet-weight">32kg · 公</div>
+                    <div>
+                        <span class="health-tag">关节炎</span>
+                        <span class="health-tag">心脏病</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pet-card">
+                <div class="pet-avatar">
+                    🐕
+                    <div class="pet-age-tag">9岁</div>
+                </div>
+                <div class="pet-info">
+                    <div class="pet-name">小白</div>
+                    <div class="pet-breed">泰迪犬</div>
+                    <div class="pet-weight">5kg · 母</div>
+                    <div>
+                        <span class="health-tag healthy">生命体征正常</span>
+                    </div>
+                </div>
+            </div>
+
+            <button class="btn-primary">➕ 注册生物体</button>
+        </div>
+
+        <!-- 食谱列表 -->
+        <div id="recipes" class="screen">
+            <div class="page-header">
+                <div class="header-title">🍽️ 食疗食谱库</div>
+            </div>
+
+            <div class="pet-banner">
+                <div class="pet-mini-avatar">🐕</div>
+                <span class="pet-banner-name">旺财</span>
+                <span class="pet-banner-hint">的专属补给方案</span>
+                <span class="change-pet">切换 ›</span>
+            </div>
+
+            <div class="search-bar">
+                <div class="search-input-wrap">
+                    <span>🔍</span>
+                    <input type="text" class="search-input" placeholder="扫描补给方案">
+                </div>
+                <button class="filter-btn">筛选</button>
+            </div>
+
+            <div class="recipe-card">
+                <div class="recipe-image">🍲</div>
+                <div class="recipe-info">
+                    <div class="recipe-name">鸡肉蔬菜粥</div>
+                    <div class="recipe-desc">高蛋白，易消化</div>
+                    <div class="recipe-meta">
+                        <span>⏱ 30分钟</span>
+                        <span>📊 简单</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="recipe-card">
+                <div class="recipe-image">🐟</div>
+                <div class="recipe-info">
+                    <div class="recipe-name">三文鱼奶油餐</div>
+                    <div class="recipe-desc">关节护理，Omega-3</div>
+                    <div class="recipe-meta">
+                        <span>⏱ 45分钟</span>
+                        <span>📊 中等</span>
+                    </div>
+                    <span class="match-tag">适合关节炎</span>
+                </div>
+            </div>
+
+            <div class="recipe-card">
+                <div class="recipe-image">🥩</div>
+                <div class="recipe-info">
+                    <div class="recipe-name">牛肉骨汤面</div>
+                    <div class="recipe-desc">补钙强骨，增强免疫</div>
+                    <div class="recipe-meta">
+                        <span>⏱ 120分钟</span>
+                        <span>📊 困难</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 我的页面 -->
+        <div id="my" class="screen">
+            <div class="page-header">
+                <div class="header-title">个人中心</div>
+                <div class="header-subtitle">PERSONAL CENTER</div>
+            </div>
+
+            <div class="user-section">
+                <div class="user-avatar">👤</div>
+                <div class="user-info">
+                    <div class="user-name">铲屎官</div>
+                    <div class="user-stat">已养护 <span class="stat-num">2</span> 只赛博宠物</div>
+                </div>
+            </div>
+
+            <div class="menu-item">
+                <span class="menu-icon">📱</span>
+                <span class="menu-text">关于我们</span>
+                <span class="menu-arrow">›</span>
+            </div>
+
+            <div class="menu-item">
+                <span class="menu-icon">⚙️</span>
+                <span class="menu-text">设置</span>
+                <span class="menu-arrow">›</span>
+            </div>
+
+            <div class="menu-item">
+                <span class="menu-icon">📤</span>
+                <span class="menu-text">分享小程序</span>
+                <span class="menu-arrow">›</span>
+            </div>
+
+            <div class="menu-item">
+                <span class="menu-icon">🗑️</span>
+                <span class="menu-text">清空所有数据</span>
+                <span class="menu-arrow">›</span>
+            </div>
+        </div>
+
+        <!-- 底部导航栏 -->
+        <div class="tab-bar">
+            <div class="tab-item active" onclick="switchTab('home')">
+                <div class="tab-icon">🏠</div>
+                <div class="tab-text">首页</div>
+            </div>
+            <div class="tab-item" onclick="switchTab('recipes')">
+                <div class="tab-icon">📚</div>
+                <div class="tab-text">食谱</div>
+            </div>
+            <div class="tab-item" onclick="switchTab('my')">
+                <div class="tab-icon">👤</div>
+                <div class="tab-text">我的</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function switchTab(tabName) {
+            // 隐藏所有屏幕
+            document.querySelectorAll('.screen').forEach(screen => {
+                screen.classList.remove('active');
+            });
+
+            // 显示选中的屏幕
+            document.getElementById(tabName).classList.add('active');
+
+            // 更新底部导航栏状态
+            document.querySelectorAll('.tab-item').forEach((item, index) => {
+                item.classList.remove('active');
+            });
+
+            const tabIndex = {
+                'home': 0,
+                'recipes': 1,
+                'my': 2
+            };
+
+            document.querySelectorAll('.tab-item')[tabIndex[tabName]].classList.add('active');
+        }
+    </script>
+</body>
+</html>

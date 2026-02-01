@@ -2,13 +2,13 @@
 <view class="container" wx:if="{{recipe}}">
   <!-- 头部图片 -->
   <view class="header-image-wrap">
-    <image 
-      class="header-image" 
-      src="{{recipe.image}}" 
+    <image
+      class="header-image"
+      src="{{recipe.image}}"
       mode="aspectFill"
       wx:if="{{recipe.image}}"
     />
-    <view class="header-image-placeholder" wx:else>🍲</view>
+    <view class="header-image-placeholder" wx:else>⚡</view>
     <view class="header-overlay">
       <view class="recipe-title">{{recipe.name}}</view>
       <view class="recipe-subtitle">{{recipe.description}}</view>
@@ -19,23 +19,23 @@
   <view class="info-cards">
     <view class="info-card">
       <view class="info-value">{{recipe.prepTime}}</view>
-      <view class="info-label">制作时间</view>
+      <view class="info-label">制备时间</view>
     </view>
     <view class="info-card">
       <view class="info-value">{{recipe.difficulty}}</view>
-      <view class="info-label">难度</view>
+      <view class="info-label">复杂度</view>
     </view>
     <view class="info-card">
       <view class="info-value">{{recipe.calories}}</view>
-      <view class="info-label">热量</view>
+      <view class="info-label">能量值</view>
     </view>
   </view>
 
   <!-- 适用说明 -->
-  <view class="suitable-section card" wx:if="{{recipe.suitableFor.length > 0}}">
-    <view class="suitable-title">适用于</view>
+  <view class="suitable-section card" wx:if="{{recipe.suitableNames.length > 0}}">
+    <view class="suitable-title">适用体征</view>
     <view class="suitable-tags">
-      <view class="suitable-tag" wx:for="{{recipe.suitableFor}}" wx:key="*this">
+      <view class="suitable-tag" wx:for="{{recipe.suitableNames}}" wx:key="*this">
         {{item}}
       </view>
     </view>
@@ -43,21 +43,21 @@
 
   <!-- 标签页 -->
   <view class="tabs">
-    <view 
-      class="tab {{activeTab === 'ingredients' ? 'active' : ''}}" 
+    <view
+      class="tab {{activeTab === 'ingredients' ? 'active' : ''}}"
       data-tab="ingredients"
       bindtap="onTabChange"
-    >食材清单</view>
-    <view 
-      class="tab {{activeTab === 'steps' ? 'active' : ''}}" 
+    >原料模块</view>
+    <view
+      class="tab {{activeTab === 'steps' ? 'active' : ''}}"
       data-tab="steps"
       bindtap="onTabChange"
-    >制作步骤</view>
-    <view 
-      class="tab {{activeTab === 'nutrition' ? 'active' : ''}}" 
+    >执行流程</view>
+    <view
+      class="tab {{activeTab === 'nutrition' ? 'active' : ''}}"
       data-tab="nutrition"
       bindtap="onTabChange"
-    >营养说明</view>
+    >能量分析</view>
   </view>
 
   <!-- 食材清单 -->
@@ -72,7 +72,7 @@
       </view>
     </view>
     <view class="servings-note">
-      份量说明：{{recipe.servings}}
+      份量参数：{{recipe.servings}}
     </view>
   </view>
 
@@ -103,7 +103,7 @@
       </view>
     </view>
     <view class="nutrition-special" wx:if="{{recipe.nutrition.special}}">
-      <view class="special-title">特别说明</view>
+      <view class="special-title">补充说明</view>
       <view class="special-content">{{recipe.nutrition.special}}</view>
     </view>
   </view>
@@ -112,7 +112,7 @@
   <view class="tips-section card" wx:if="{{recipe.tips.length > 0}}">
     <view class="section-title tips-title">
       <text class="tips-icon">💡</text>
-      <text>小贴士</text>
+      <text>优化提示</text>
     </view>
     <view class="tips-list">
       <view class="tip-item" wx:for="{{recipe.tips}}" wx:key="*this">
@@ -125,7 +125,7 @@
   <view class="warnings-section card" wx:if="{{recipe.warnings.length > 0}}">
     <view class="section-title warnings-title">
       <text class="warnings-icon">⚠️</text>
-      <text>注意事项</text>
+      <text>风险提示</text>
     </view>
     <view class="warnings-list">
       <view class="warning-item" wx:for="{{recipe.warnings}}" wx:key="*this">
@@ -149,5 +149,5 @@
 
 <!-- 加载状态 -->
 <view class="loading-state" wx:if="{{!recipe}}">
-  <text>加载中...</text>
+  <text>数据加载中...</text>
 </view>

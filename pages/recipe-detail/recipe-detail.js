@@ -27,7 +27,7 @@ Page({
   onShareAppMessage() {
     const { recipe } = this.data
     return {
-      title: `${recipe.name} - 老年犬自制粮食谱`,
+      title: `${recipe.name} - 赛博宠物能量补给`,
       path: `/pages/recipe-detail/recipe-detail?id=${recipe.id}`
     }
   },
@@ -35,7 +35,7 @@ Page({
   // 收藏
   onCollect() {
     wx.showToast({
-      title: '收藏功能开发中',
+      title: '收藏协议开发中',
       icon: 'none'
     })
   }
