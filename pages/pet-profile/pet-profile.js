@@ -142,23 +142,24 @@ Page({
   preventTap() {},
 
   // 保存
-  async onSave() {
+  async onSave(options = {}) {
+    const { silent = false } = options
     const { form, isEdit, petId } = this.data
 
     // 验证必填项
     if (!form.name.trim()) {
       util.showToast('请输入宝贝的名字')
-      return
+      return false
     }
 
     if (!form.age || isNaN(Number(form.age))) {
       util.showToast('请输入正确的年龄')
-      return
+      return false
     }
 
     if (!form.weight || isNaN(Number(form.weight))) {
       util.showToast('请输入正确的体重')
-      return
+      return false
     }
 
     const petData = {
@@ -178,27 +179,33 @@ Page({
       }
 
       util.hideLoading()
-      util.showToast('保存成功', 'success')
       
-      setTimeout(() => {
-        wx.navigateBack()
-      }, 1000)
+      if (!silent) {
+        util.showToast('保存成功', 'success')
+        setTimeout(() => {
+          wx.navigateBack()
+        }, 1000)
+      }
+
+      return true
     } catch (e) {
       util.hideLoading()
       util.showToast('保存失败')
+      return false
     }
   },
 
   // 继续填写健康信息
-  onContinueHealth() {
-    this.onSave().then(() => {
+  async onContinueHealth() {
+    const success = await this.onSave({ silent: true })
+    if (success) {
       const petId = this.data.petId || storage.getCurrentPetId()
       if (petId) {
         wx.redirectTo({
           url: `/pages/health-info/health-info?id=${petId}`
         })
       }
-    })
+    }
   },
 
   // 删除宠物
