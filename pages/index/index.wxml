@@ -36,7 +36,7 @@
         </view>
         <view class="pet-tags" wx:else>
           <view class="health-tag healthy" wx:if="{{item.isHealthComplete}}">身体状态良好</view>
-          <view class="health-tag warning" wx:else>待补充健康体征</view>
+          <view class="health-tag warning" wx:else catchtap="onEditHealth" data-id="{{item.id}}">待补充健康信息</view>
         </view>
       </view>
 
@@ -60,15 +60,15 @@
     <view class="empty-text">记录你的老宝贝</view>
     <view class="empty-hint">让数字技术帮助你，为步入老年的伴侣犬提供最细致的鲜粮养护</view>
     <button class="btn-primary mt-30" bindtap="onAddPet">
-      + 我的老 Baby
+      ✨ 添加老 Baby
     </button>
   </view>
 
   <!-- 添加按钮 -->
   <view class="add-btn-wrap" wx:if="{{!isEmpty}}">
     <button class="add-btn" bindtap="onAddPet">
-      <text class="add-icon">＋</text>
-      <text>接纳老宝贝</text>
+      <text class="add-icon">✨</text>
+      <text>添加老 Baby</text>
     </button>
   </view>
 </view>

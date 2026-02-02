@@ -12,10 +12,10 @@ Page({
     // 疾病数据
     diseases: diseasesData,
     diseaseCategories: [],
-    selectedDiseases: [],
+    selectedDiseases: {}, // 使用对象存储，便于 WXML 判断选中态
     // 过敏原数据
     allergens: allergensData,
-    selectedAllergens: [],
+    selectedAllergens: {}, // 使用对象存储
     // 表单数据
     medications: '',
     activityLevel: 'normal',
@@ -57,10 +57,25 @@ Page({
   loadPetData(petId) {
     const pet = storage.getPetById(petId)
     if (pet) {
+      // 将数组转换为对象以便 WXML 判断
+      const diseaseObj = {}
+      if (pet.diseases) {
+        pet.diseases.forEach(id => {
+          diseaseObj[id] = true
+        })
+      }
+
+      const allergenObj = {}
+      if (pet.allergens) {
+        pet.allergens.forEach(id => {
+          allergenObj[id] = true
+        })
+      }
+
       this.setData({
         petName: pet.name,
-        selectedDiseases: pet.diseases || [],
-        selectedAllergens: pet.allergens || [],
+        selectedDiseases: diseaseObj,
+        selectedAllergens: allergenObj,
         medications: pet.medications || '',
         activityLevel: pet.activityLevel || 'normal',
         preferences: pet.preferences || '',
@@ -73,13 +88,12 @@ Page({
   // 切换疾病选择
   toggleDisease(e) {
     const diseaseId = e.currentTarget.dataset.id
-    let selected = [...this.data.selectedDiseases]
+    const selected = { ...this.data.selectedDiseases }
     
-    const index = selected.indexOf(diseaseId)
-    if (index > -1) {
-      selected.splice(index, 1)
+    if (selected[diseaseId]) {
+      delete selected[diseaseId]
     } else {
-      selected.push(diseaseId)
+      selected[diseaseId] = true
     }
     
     this.setData({ selectedDiseases: selected })
@@ -88,13 +102,12 @@ Page({
   // 切换过敏原选择
   toggleAllergen(e) {
     const allergenId = e.currentTarget.dataset.id
-    let selected = [...this.data.selectedAllergens]
+    const selected = { ...this.data.selectedAllergens }
     
-    const index = selected.indexOf(allergenId)
-    if (index > -1) {
-      selected.splice(index, 1)
+    if (selected[allergenId]) {
+      delete selected[allergenId]
     } else {
-      selected.push(allergenId)
+      selected[allergenId] = true
     }
     
     this.setData({ selectedAllergens: selected })
@@ -155,15 +168,9 @@ Page({
   onSave() {
     const { petId, selectedDiseases, selectedAllergens, medications, activityLevel, preferences, currentDiet, reports } = this.data
 
-    // 获取疾病名称用于显示
-    const diseaseNames = selectedDiseases.map(id => {
-      const disease = diseasesData.find(d => d.id === id)
-      return disease ? disease.name : id
-    })
-
     const updateData = {
-      diseases: diseaseNames,
-      allergens: selectedAllergens,
+      diseases: Object.keys(selectedDiseases), // 存回数组格式
+      allergens: Object.keys(selectedAllergens),
       medications,
       activityLevel,
       preferences,

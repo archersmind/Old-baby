@@ -28,7 +28,7 @@
           wx:for="{{diseases}}"
           wx:key="id"
           wx:if="{{item.category === category}}"
-          class="disease-tag {{selectedDiseases.indexOf(item.id) > -1 ? 'active' : ''}}"
+          class="disease-tag {{selectedDiseases[item.id] ? 'active' : ''}}"
           data-id="{{item.id}}"
           bindtap="toggleDisease"
         >
@@ -77,7 +77,7 @@
         <view
           wx:for="{{allergens}}"
           wx:key="id"
-          class="allergen-tag {{selectedAllergens.indexOf(item.id) > -1 ? 'active' : ''}}"
+          class="allergen-tag {{selectedAllergens[item.id] ? 'active' : ''}}"
           data-id="{{item.id}}"
           bindtap="toggleAllergen"
         >

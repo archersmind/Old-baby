@@ -67,11 +67,18 @@
 }
 
 .disease-tag.active {
-  background: linear-gradient(135deg, rgba(236, 72, 153, 0.3), rgba(236, 72, 153, 0.2));
+  background: linear-gradient(135deg, rgba(236, 72, 153, 0.4), rgba(236, 72, 153, 0.2));
   border-color: var(--color-accent);
   color: var(--color-accent);
   font-weight: 600;
-  box-shadow: 0 0 15rpx rgba(236, 72, 153, 0.3);
+  box-shadow: 0 0 20rpx rgba(236, 72, 153, 0.4);
+  transform: scale(1.05);
+}
+
+.disease-tag.active::after {
+  content: '✓';
+  margin-left: 8rpx;
+  font-size: 22rpx;
 }
 
 /* 活动能力选项 */
@@ -95,9 +102,10 @@
 }
 
 .activity-option.active {
-  background: linear-gradient(135deg, rgba(6, 182, 212, 0.3), rgba(34, 211, 238, 0.2));
+  background: linear-gradient(135deg, rgba(6, 182, 212, 0.4), rgba(34, 211, 238, 0.2));
   border-color: var(--color-primary);
-  box-shadow: 0 0 20rpx rgba(34, 211, 238, 0.3);
+  box-shadow: 0 0 25rpx rgba(34, 211, 238, 0.4);
+  transform: translateY(-5rpx);
 }
 
 .activity-label {
@@ -155,11 +163,18 @@
 }
 
 .allergen-tag.active {
-  background: linear-gradient(135deg, rgba(251, 191, 36, 0.3), rgba(251, 191, 36, 0.2));
+  background: linear-gradient(135deg, rgba(251, 191, 36, 0.4), rgba(251, 191, 36, 0.2));
   border-color: #fbbf24;
   color: #fbbf24;
   font-weight: 600;
-  box-shadow: 0 0 15rpx rgba(251, 191, 36, 0.3);
+  box-shadow: 0 0 20rpx rgba(251, 191, 36, 0.4);
+  transform: scale(1.05);
+}
+
+.allergen-tag.active::after {
+  content: '✕'; /* For allergens we use cross to indicate exclusion */
+  margin-left: 8rpx;
+  font-size: 22rpx;
 }
 
 /* 体检报告 */

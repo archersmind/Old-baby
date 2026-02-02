@@ -65,6 +65,7 @@ Page({
   onPetTap(e) {
     const petId = e.currentTarget.dataset.id
     storage.setCurrentPetId(petId)
+    // 恢复为默认进入基本资料编辑页
     wx.navigateTo({
       url: `/pages/pet-profile/pet-profile?id=${petId}`
     })

@@ -168,7 +168,9 @@ Page({
       weight: Number(form.weight)
     }
 
-    util.showLoading('保存中...')
+    if (!silent) {
+      util.showLoading('保存中...')
+    }
 
     try {
       if (isEdit) {
@@ -178,9 +180,8 @@ Page({
         storage.setCurrentPetId(newPet.id)
       }
 
-      util.hideLoading()
-      
       if (!silent) {
+        util.hideLoading()
         util.showToast('保存成功', 'success')
         setTimeout(() => {
           wx.navigateBack()
@@ -197,11 +198,28 @@ Page({
 
   // 继续填写健康信息
   async onContinueHealth() {
+    // 1. 验证必填项
+    const { form } = this.data
+    if (!form.name.trim()) {
+      util.showToast('请输入宝贝的名字')
+      return
+    }
+    if (!form.age || isNaN(Number(form.age))) {
+      util.showToast('请输入正确的年龄')
+      return
+    }
+    if (!form.weight || isNaN(Number(form.weight))) {
+      util.showToast('请输入正确的体重')
+      return
+    }
+
+    // 2. 静默保存并使用原生动画跳转
     const success = await this.onSave({ silent: true })
     if (success) {
       const petId = this.data.petId || storage.getCurrentPetId()
       if (petId) {
-        wx.redirectTo({
+        // 使用 navigateTo 触发微信原生的右侧推入动画
+        wx.navigateTo({
           url: `/pages/health-info/health-info?id=${petId}`
         })
       }
