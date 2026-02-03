@@ -24,7 +24,7 @@
   align-items: center;
   justify-content: center;
   font-size: 120rpx;
-  background: linear-gradient(135deg, rgba(168, 85, 247, 0.5), rgba(34, 211, 238, 0.5));
+  background: linear-gradient(135deg, var(--color-gradient-start), var(--color-gradient-end));
 }
 
 .header-overlay {
@@ -33,15 +33,13 @@
   left: 0;
   right: 0;
   padding: 40rpx 30rpx;
-  background: linear-gradient(to top, rgba(0, 0, 0, 0.85), transparent);
-  backdrop-filter: blur(4rpx);
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.6), transparent);
 }
 
 .recipe-title {
   font-size: 42rpx;
   font-weight: 700;
-  color: var(--color-primary);
-  text-shadow: 0 0 20rpx rgba(34, 211, 238, 0.6);
+  color: var(--color-white);
   margin-bottom: 8rpx;
 }
 
@@ -61,13 +59,13 @@
 
 .info-card {
   flex: 1;
-  background: linear-gradient(135deg, rgba(31, 41, 55, 0.8), rgba(61, 26, 95, 0.6));
-  border: 2rpx solid var(--color-primary);
+  background: var(--color-card);
+  border: none;
   border-radius: 16rpx;
   padding: 20rpx;
   text-align: center;
   margin: 0 8rpx;
-  box-shadow: 0 4rpx 20rpx rgba(0, 0, 0, 0.4), 0 0 15rpx rgba(34, 211, 238, 0.2);
+  box-shadow: 0 2rpx 12rpx rgba(0, 0, 0, 0.08);
 }
 
 .info-value {
@@ -75,7 +73,6 @@
   font-weight: 700;
   color: var(--color-primary);
   margin-bottom: 4rpx;
-  text-shadow: 0 0 8rpx rgba(34, 211, 238, 0.3);
 }
 
 .info-label {
@@ -103,9 +100,9 @@
 
 .suitable-tag {
   padding: 8rpx 20rpx;
-  background-color: rgba(52, 211, 153, 0.2);
+  background-color: rgba(82, 196, 26, 0.1);
   color: var(--color-success);
-  border: 2rpx solid rgba(52, 211, 153, 0.5);
+  border: none;
   border-radius: 20rpx;
   font-size: 26rpx;
   font-weight: 600;
@@ -114,8 +111,8 @@
 /* 标签页 */
 .tabs {
   display: flex;
-  background: linear-gradient(135deg, rgba(31, 41, 55, 0.5), rgba(61, 26, 95, 0.5));
-  border: 2rpx solid var(--color-card-border);
+  background: var(--color-input-bg);
+  border: none;
   margin: 0 30rpx;
   border-radius: 16rpx;
   padding: 8rpx;
@@ -133,10 +130,9 @@
 }
 
 .tab.active {
-  background: linear-gradient(135deg, #06b6d4, #ec4899);
+  background: linear-gradient(135deg, var(--color-gradient-start), var(--color-gradient-end));
   color: #fff;
   font-weight: 700;
-  box-shadow: 0 0 15rpx rgba(34, 211, 238, 0.4);
 }
 
 /* 标签内容 */
@@ -154,7 +150,7 @@
   align-items: center;
   justify-content: space-between;
   padding: 20rpx 0;
-  border-bottom: 2rpx solid rgba(34, 211, 238, 0.1);
+  border-bottom: 2rpx solid var(--color-border);
 }
 
 .ingredient-item:last-child {
@@ -188,7 +184,7 @@
   font-size: 26rpx;
   color: var(--color-text-lighter);
   padding-top: 16rpx;
-  border-top: 2rpx dashed rgba(34, 211, 238, 0.2);
+  border-top: 2rpx dashed var(--color-border);
 }
 
 .servings-hint, .weight-hint {
@@ -228,7 +224,7 @@
 .step-number {
   width: 48rpx;
   height: 48rpx;
-  background: linear-gradient(135deg, #06b6d4, #ec4899);
+  background: linear-gradient(135deg, var(--color-gradient-start), var(--color-gradient-end));
   color: #fff;
   border-radius: 50%;
   display: flex;
@@ -239,7 +235,6 @@
   flex-shrink: 0;
   margin-right: 16rpx;
   margin-top: 4rpx;
-  box-shadow: 0 0 15rpx rgba(34, 211, 238, 0.4);
 }
 
 .step-content {
@@ -258,8 +253,8 @@
 
 .nutrition-item {
   flex: 1;
-  background: linear-gradient(135deg, rgba(34, 211, 238, 0.1), rgba(34, 211, 238, 0.05));
-  border: 2rpx solid rgba(34, 211, 238, 0.3);
+  background: var(--color-input-bg);
+  border: none;
   border-radius: 12rpx;
   padding: 20rpx;
   text-align: center;
@@ -279,8 +274,8 @@
 }
 
 .nutrition-special {
-  background: linear-gradient(135deg, rgba(34, 211, 238, 0.08), rgba(61, 26, 95, 0.1));
-  border: 2rpx solid rgba(34, 211, 238, 0.3);
+  background: var(--color-input-bg);
+  border: none;
   border-radius: 12rpx;
   padding: 20rpx;
 }
@@ -290,7 +285,6 @@
   color: var(--color-primary);
   font-weight: 700;
   margin-bottom: 8rpx;
-  text-shadow: 0 0 8rpx rgba(34, 211, 238, 0.2);
 }
 
 .special-content {
@@ -364,10 +358,9 @@
   display: flex;
   gap: 20rpx;
   padding: 20rpx 30rpx;
-  background: linear-gradient(to top, rgba(10, 47, 79, 0.98), rgba(10, 47, 79, 0.9));
-  border-top: 2rpx solid rgba(34, 211, 238, 0.3);
-  backdrop-filter: blur(16px);
-  box-shadow: 0 -4rpx 20rpx rgba(0, 0, 0, 0.3);
+  background: linear-gradient(to top, rgba(255, 255, 255, 0.98), rgba(255, 255, 255, 0.9));
+  border-top: 2rpx solid var(--color-border);
+  box-shadow: 0 -4rpx 20rpx rgba(0, 0, 0, 0.05);
 }
 
 .action-btn {
@@ -376,8 +369,8 @@
   align-items: center;
   justify-content: center;
   height: 88rpx;
-  background: rgba(31, 41, 55, 0.6);
-  border: 2rpx solid rgba(34, 211, 238, 0.3);
+  background: var(--color-input-bg);
+  border: none;
   border-radius: 44rpx;
   font-size: 30rpx;
   font-weight: 600;
@@ -391,19 +384,18 @@
 
 .action-btn:active {
   transform: scale(0.98);
-  border-color: var(--color-primary);
-  box-shadow: 0 0 20rpx rgba(34, 211, 238, 0.3);
+  background: #E8E8EA;
 }
 
 .action-btn.share-btn {
-  background: linear-gradient(135deg, #06b6d4, #ec4899);
+  background: linear-gradient(135deg, var(--color-gradient-start), var(--color-gradient-end));
   color: #fff;
-  border-color: var(--color-primary);
-  box-shadow: 0 0 20rpx rgba(34, 211, 238, 0.4);
+  border: none;
+  box-shadow: 0 4rpx 16rpx rgba(255, 122, 0, 0.3);
 }
 
 .action-btn.share-btn:active {
-  box-shadow: 0 0 30rpx rgba(34, 211, 238, 0.6);
+  box-shadow: 0 6rpx 20rpx rgba(255, 122, 0, 0.4);
 }
 
 .btn-icon {

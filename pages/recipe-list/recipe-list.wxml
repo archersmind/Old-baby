@@ -8,12 +8,12 @@
     </view>
     <view class="pet-banner-info">
       <text class="pet-banner-name">{{currentPet.name}}</text>
-      <text class="pet-banner-hint"> 的专属鲜粮食谱</text>
+      <text class="pet-banner-hint"> 的专属食谱</text>
     </view>
     <text class="change-pet">切换 ›</text>
   </view>
   <view class="pet-banner empty" wx:else bindtap="onChangePet">
-    <text>选择你的老宝贝，获取个性化鲜粮推荐</text>
+    <text>选择你的宝贝，获取个性化食谱推荐</text>
     <text class="change-pet">去选择 ›</text>
   </view>
 
@@ -23,7 +23,7 @@
       <text class="search-icon">🔍</text>
       <input
         class="search-input"
-        placeholder="搜索鲜粮食谱"
+        placeholder="搜索食谱"
         value="{{searchKey}}"
         bindinput="onSearch"
       />
@@ -79,7 +79,7 @@
 
     <!-- 空状态 -->
     <view class="empty-state" wx:if="{{recipes.length === 0}}">
-      <view class="empty-text">未找到匹配的补给方案</view>
+      <view class="empty-text">未找到匹配的食谱</view>
       <button class="btn-secondary" bindtap="clearFilter">清除筛选</button>
     </view>
   </view>

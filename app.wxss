@@ -1,27 +1,28 @@
-/* app.wxss - 赛博宠物全局样式 */
+/* app.wxss - 宠物健康管理全局样式 */
 
-/* 赛博朋克配色变量 */
+/* 温馨简约配色变量 */
 page {
-  --color-primary: #22d3ee;
-  --color-primary-light: #06b6d4;
-  --color-primary-dark: #0891b2;
-  --color-background: #0f1629;
-  --color-accent: #ec4899;
-  --color-accent-light: rgba(236, 72, 153, 0.15);
-  --color-text: #ffffff;
-  --color-text-light: #d1d5db;
-  --color-text-lighter: #9ca3af;
+  --color-primary: #FF7A00;
+  --color-primary-light: #FF9A3D;
+  --color-primary-dark: #E56B00;
+  --color-background: #FFFFFF;
+  --color-accent: #E91E8C;
+  --color-accent-light: rgba(233, 30, 140, 0.1);
+  --color-text: #333333;
+  --color-text-light: #666666;
+  --color-text-lighter: #999999;
   --color-white: #ffffff;
-  --color-border: rgba(34, 211, 238, 0.2);
-  --color-error: #f87171;
-  --color-success: #34d399;
-  --color-card: rgba(31, 41, 55, 0.5);
-  --color-card-border: rgba(168, 85, 247, 0.3);
-  --color-glow-cyan: rgba(34, 211, 238, 0.4);
-  --color-glow-pink: rgba(236, 72, 153, 0.4);
-  --color-purple-bg: rgba(61, 26, 95, 0.5);
+  --color-border: #F0F0F0;
+  --color-error: #FF4D4F;
+  --color-success: #52C41A;
+  --color-warning: #FF7A00;
+  --color-card: #FFFFFF;
+  --color-card-border: #F5F5F5;
+  --color-input-bg: #F3F3F5;
+  --color-gradient-start: #FF7A00;
+  --color-gradient-end: #E91E8C;
 
-  background: linear-gradient(135deg, #6d1b1b 0%, #3d1a5f 25%, #1a2555 75%, #0a2f4f 100%);
+  background: var(--color-background);
   background-attachment: fixed;
   color: var(--color-text);
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Microsoft YaHei', sans-serif;
@@ -37,33 +38,33 @@ page {
   box-sizing: border-box;
 }
 
-/* 卡片样式 - 赛博风 */
+/* 卡片样式 - 温馨简约风 */
 .card {
-  background: linear-gradient(180deg, rgba(31, 41, 55, 0.5), rgba(61, 26, 95, 0.5));
+  background: var(--color-card);
   border-radius: 24rpx;
   padding: 30rpx;
   margin-bottom: 24rpx;
-  border: 2rpx solid var(--color-card-border);
-  box-shadow: 0 4rpx 20rpx rgba(0, 0, 0, 0.3);
+  border: none;
+  box-shadow: 0 2rpx 12rpx rgba(0, 0, 0, 0.08);
   transition: all 0.3s ease;
 }
 
 .card:active {
   transform: translateY(-2rpx);
-  border-color: var(--color-primary);
+  box-shadow: 0 4rpx 16rpx rgba(0, 0, 0, 0.12);
 }
 
-/* 霓虹卡片 */
-.card-neon {
-  border-color: var(--color-primary);
-  box-shadow: 0 0 20rpx var(--color-glow-cyan), inset 0 0 20rpx rgba(34, 211, 238, 0.05);
-}
-
-/* 按钮样式 - 霓虹渐变 */
-.btn-primary {
-  background: linear-gradient(135deg, #06b6d4, #ec4899);
+/* 强调卡片 */
+.card-highlight {
+  background: linear-gradient(135deg, var(--color-gradient-start), var(--color-gradient-end));
   color: var(--color-white);
-  border: 2rpx solid var(--color-primary);
+}
+
+/* 按钮样式 - 温馨渐变 */
+.btn-primary {
+  background: linear-gradient(135deg, var(--color-gradient-start), var(--color-gradient-end));
+  color: var(--color-white);
+  border: none;
   border-radius: 50rpx;
   padding: 24rpx 48rpx;
   font-size: 32rpx;
@@ -72,35 +73,34 @@ page {
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 0 20rpx var(--color-glow-cyan);
+  box-shadow: 0 4rpx 16rpx rgba(255, 122, 0, 0.3);
   transition: all 0.3s ease;
 }
 
 .btn-primary:active {
   opacity: 0.9;
   transform: scale(0.98);
-  box-shadow: 0 0 30rpx var(--color-glow-cyan);
+  box-shadow: 0 6rpx 20rpx rgba(255, 122, 0, 0.4);
 }
 
 .btn-secondary {
-  background-color: transparent;
-  color: var(--color-primary);
-  border: 2rpx solid var(--color-primary);
+  background-color: var(--color-input-bg);
+  color: var(--color-text);
+  border: none;
   border-radius: 50rpx;
   padding: 22rpx 48rpx;
   font-size: 32rpx;
   font-weight: 500;
   text-align: center;
-  box-shadow: 0 0 10rpx rgba(34, 211, 238, 0.15);
+  box-shadow: none;
   transition: all 0.3s ease;
 }
 
 .btn-secondary:active {
-  background-color: rgba(34, 211, 238, 0.1);
-  box-shadow: 0 0 20rpx rgba(34, 211, 238, 0.3);
+  background-color: #E8E8EA;
 }
 
-/* 表单样式 - 深色输入框 */
+/* 表单样式 - 浅色输入框 */
 .form-group {
   margin-bottom: 32rpx;
 }
@@ -116,9 +116,9 @@ page {
 .form-input {
   width: 100%;
   height: 88rpx;
-  background-color: rgba(34, 211, 238, 0.05);
-  border: 2rpx solid var(--color-border);
-  border-radius: 16rpx;
+  background-color: var(--color-input-bg);
+  border: none;
+  border-radius: 28rpx;
   padding: 0 24rpx;
   font-size: 30rpx;
   color: var(--color-text);
@@ -126,30 +126,29 @@ page {
 }
 
 .form-input:focus {
-  border-color: var(--color-primary);
-  box-shadow: 0 0 10rpx var(--color-glow-cyan);
+  background-color: #EAEAEC;
 }
 
 .form-textarea {
   width: 100%;
   min-height: 200rpx;
-  background-color: rgba(34, 211, 238, 0.05);
-  border: 2rpx solid var(--color-border);
-  border-radius: 16rpx;
+  background-color: var(--color-input-bg);
+  border: none;
+  border-radius: 28rpx;
   padding: 24rpx;
   font-size: 30rpx;
   color: var(--color-text);
   box-sizing: border-box;
 }
 
-/* 标签样式 - 霓虹标签 */
+/* 标签样式 - 简约标签 */
 .tag {
   display: inline-flex;
   align-items: center;
   padding: 10rpx 24rpx;
-  background-color: rgba(34, 211, 238, 0.1);
-  color: var(--color-primary);
-  border: 2rpx solid rgba(34, 211, 238, 0.3);
+  background-color: var(--color-input-bg);
+  color: var(--color-text-light);
+  border: none;
   border-radius: 30rpx;
   font-size: 24rpx;
   margin-right: 16rpx;
@@ -157,9 +156,8 @@ page {
 }
 
 .tag-active {
-  background-color: var(--color-primary);
+  background: linear-gradient(135deg, var(--color-accent), #FF6B9D);
   color: var(--color-white);
-  border-color: var(--color-primary);
 }
 
 /* 分割线 */
@@ -191,7 +189,7 @@ page {
   text-align: center;
 }
 
-/* 标题样式 - 赛博竖线 */
+/* 标题样式 - 简约风格 */
 .section-title {
   font-size: 34rpx;
   font-weight: 600;
@@ -208,7 +206,6 @@ page {
   background: linear-gradient(to bottom, var(--color-primary), var(--color-accent));
   border-radius: 4rpx;
   margin-right: 16rpx;
-  box-shadow: 0 0 8rpx var(--color-glow-cyan);
 }
 
 /* 底部安全区 */
@@ -301,35 +298,39 @@ page {
 
 .step-item.active .step-num {
   border-color: var(--color-primary);
-  color: var(--color-primary);
-  box-shadow: 0 0 15rpx var(--color-glow-cyan);
+  background-color: var(--color-primary);
+  color: var(--color-white);
 }
 
 .step-item.active .step-text {
   color: var(--color-primary);
-  text-shadow: 0 0 8rpx rgba(34, 211, 238, 0.4);
 }
 
 .step-line.active {
   background-color: var(--color-primary);
-  box-shadow: 0 0 8rpx var(--color-glow-cyan);
 }
 
-/* 霓虹发光效果 */
-.glow-cyan {
-  box-shadow: 0 0 20rpx var(--color-glow-cyan), inset 0 0 20rpx rgba(34, 211, 238, 0.1);
+/* 渐变背景 */
+.gradient-bg {
+  background: linear-gradient(135deg, var(--color-gradient-start), var(--color-gradient-end));
 }
 
-.glow-pink {
-  box-shadow: 0 0 20rpx var(--color-glow-pink), inset 0 0 20rpx rgba(236, 72, 153, 0.1);
+/* 提示卡片 */
+.tip-card {
+  background: linear-gradient(135deg, var(--color-gradient-start), var(--color-gradient-end));
+  color: var(--color-white);
+  border-radius: 24rpx;
+  padding: 30rpx;
 }
 
-/* 脉冲呼吸动画 */
-.pulse-glow {
-  animation: pulse-glow 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+.tip-card .tip-title {
+  font-size: 32rpx;
+  font-weight: 600;
+  margin-bottom: 12rpx;
 }
 
-@keyframes pulse-glow {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.7; }
+.tip-card .tip-content {
+  font-size: 26rpx;
+  opacity: 0.9;
+  line-height: 1.6;
 }

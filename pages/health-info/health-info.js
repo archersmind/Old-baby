@@ -25,9 +25,9 @@ Page({
     reports: [],
     // 活动水平选项
     activityOptions: [
-      { value: 'normal', label: '正常', desc: '能自如运作' },
-      { value: 'low', label: '轻度受限', desc: '运动缓慢' },
-      { value: 'very_low', label: '重度受限', desc: '低功耗模式' }
+      { value: 'normal', label: '正常', desc: '活动自如' },
+      { value: 'low', label: '轻度受限', desc: '行动较缓' },
+      { value: 'very_low', label: '重度受限', desc: '很少活动' }
     ]
   },
 

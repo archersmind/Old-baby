@@ -1,18 +1,18 @@
 Component({
   data: {
     selected: 0,
-    color: "#666688",
-    selectedColor: "#22d3ee",
+    color: "#999999",
+    selectedColor: "#FF7A00",
     list: [
       {
         pagePath: "/pages/index/index",
-        icon: "🏠",
+        icon: "❤️",
         text: "我的宝贝"
       },
       {
         pagePath: "/pages/recipe-list/recipe-list",
-        icon: "🍲",
-        text: "鲜粮食谱"
+        icon: "📖",
+        text: "食谱"
       },
       {
         pagePath: "/pages/my/my",

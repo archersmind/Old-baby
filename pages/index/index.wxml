@@ -2,8 +2,8 @@
 <view class="container">
   <!-- 页面标题 -->
   <view class="page-header">
-    <view class="header-title">我的老 Baby</view>
-    <view class="header-subtitle">SENIOR PET CARE SYSTEM</view>
+    <view class="header-title">我的宝贝</view>
+    <view class="header-subtitle">用爱守护每一天</view>
   </view>
 
   <!-- 宠物列表 -->
@@ -23,20 +23,19 @@
 
       <!-- 宠物信息 -->
       <view class="pet-info">
-        <view class="pet-name">{{item.name || '宝贝'}}</view>
-        <view class="pet-breed">{{item.breedName || '伴侣犬'}}</view>
-        <view class="pet-weight">{{item.weight}}kg · {{item.gender === 'male' ? '小男生' : item.gender === 'female' ? '小女生' : '未知'}}</view>
+        <view class="pet-name">{{item.name || '未命名'}}</view>
+        <view class="pet-breed">{{item.breedName || '未知品种'}}</view>
+        <view class="pet-weight">{{item.weight}}kg · {{item.gender === 'male' ? '公' : item.gender === 'female' ? '母' : '未知'}}</view>
 
         <!-- 健康标签 -->
-        <view class="pet-tags" wx:if="{{item.diseaseNames && item.diseaseNames.length > 0}}">
-          <view class="health-tag" wx:for="{{item.diseaseNames}}" wx:for-item="disease" wx:for-index="diseaseIndex" wx:key="*this" wx:if="{{diseaseIndex < 2}}">
+        <view class="pet-tags" wx:if="{{item.diseases && item.diseases.length > 0}}">
+          <view class="health-tag" wx:for="{{item.diseases}}" wx:for-item="disease" wx:key="*this" wx:if="{{index < 2}}">
             {{disease}}
           </view>
-          <view class="health-tag more" wx:if="{{item.diseaseNames.length > 2}}">+{{item.diseaseNames.length - 2}}</view>
+          <view class="health-tag more" wx:if="{{item.diseases.length > 2}}">+{{item.diseases.length - 2}}</view>
         </view>
         <view class="pet-tags" wx:else>
-          <view class="health-tag healthy" wx:if="{{item.isHealthComplete}}">身体状态良好</view>
-          <view class="health-tag warning" wx:else catchtap="onEditHealth" data-id="{{item.id}}">待补充健康信息</view>
+          <view class="health-tag healthy">健康状态良好</view>
         </view>
       </view>
 
@@ -44,11 +43,11 @@
       <view class="pet-actions" catchtap="">
         <view class="action-btn" catchtap="onViewRecipes" data-id="{{item.id}}">
           <text class="action-icon-emoji">🍲</text>
-          <text>食补</text>
+          <text>食谱</text>
         </view>
         <view class="action-btn" catchtap="onEditHealth" data-id="{{item.id}}">
-          <text class="action-icon-emoji">🏥</text>
-          <text>记录</text>
+          <text class="action-icon-emoji">💊</text>
+          <text>健康</text>
         </view>
       </view>
     </view>
@@ -57,18 +56,15 @@
   <!-- 空状态 -->
   <view class="empty-state" wx:else>
     <view class="empty-icon-emoji">🐕</view>
-    <view class="empty-text">记录你的老宝贝</view>
-    <view class="empty-hint">让数字技术帮助你，为步入老年的伴侣犬提供最细致的鲜粮养护</view>
-    <button class="btn-primary mt-30" bindtap="onAddPet">
-      ✨ 添加老 Baby
-    </button>
+    <view class="empty-text">还没有添加宠物</view>
+    <view class="empty-hint">添加你的老宝贝，获取专属食谱推荐</view>
   </view>
 
   <!-- 添加按钮 -->
-  <view class="add-btn-wrap" wx:if="{{!isEmpty}}">
+  <view class="add-btn-wrap">
     <button class="add-btn" bindtap="onAddPet">
-      <text class="add-icon">✨</text>
-      <text>添加老 Baby</text>
+      <text class="add-icon">+</text>
+      <text>添加宠物档案</text>
     </button>
   </view>
 </view>

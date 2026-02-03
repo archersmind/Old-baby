@@ -1,7 +1,7 @@
 <!--pages/my/my.wxml-->
 <view class="container">
-  <!-- 用户信息区域 -->
-  <view class="user-section card">
+  <!-- 用户信息头部 -->
+  <view class="user-header">
     <button class="avatar-btn" open-type="chooseAvatar" bindchooseavatar="onChooseAvatar">
       <image
         class="user-avatar"
@@ -9,67 +9,72 @@
         mode="aspectFill"
         wx:if="{{userInfo.avatarUrl}}"
       />
-      <view class="user-avatar-placeholder" wx:else>👤</view>
+      <view class="user-avatar-placeholder" wx:else>🐾</view>
     </button>
-    <view class="user-info">
-      <input
-        class="nickname-input"
-        type="nickname"
-        placeholder="点击设置昵称"
-        value="{{userInfo.nickName}}"
-        bindblur="onInputNickname"
-      />
-      <view class="user-stat">
-        已照护 <text class="stat-num">{{petsCount}}</text> 只老宝贝
-      </view>
+    <view class="user-header-title">宠物主人</view>
+    <view class="user-header-subtitle">用心守护，温暖相伴</view>
+  </view>
+
+  <!-- 统计卡片 -->
+  <view class="stats-card">
+    <view class="stat-item">
+      <view class="stat-num">{{petsCount}}</view>
+      <view class="stat-label">宠物档案</view>
+    </view>
+    <view class="stat-item">
+      <view class="stat-num">{{favoritesCount || 0}}</view>
+      <view class="stat-label">收藏食谱</view>
+    </view>
+    <view class="stat-item">
+      <view class="stat-num">{{useDays || 1}}</view>
+      <view class="stat-label">使用天数</view>
     </view>
   </view>
 
   <!-- 功能菜单 -->
   <view class="menu-section card">
-    <view class="menu-item" bindtap="onManagePets">
-      <view class="menu-icon">🐕</view>
-      <view class="menu-text">生物体管理</view>
+    <view class="menu-item" bindtap="onFavorites">
+      <view class="menu-icon">❤️</view>
+      <view class="menu-text">我的收藏</view>
       <view class="menu-arrow">›</view>
     </view>
 
-    <view class="menu-item" bindtap="onAddPet">
-      <view class="menu-icon">➕</view>
-      <view class="menu-text">接纳新宝贝</view>
+    <view class="menu-item" bindtap="onGuide">
+      <view class="menu-icon">📖</view>
+      <view class="menu-text">使用指南</view>
       <view class="menu-arrow">›</view>
     </view>
 
-    <view class="menu-item" bindtap="onAbout">
-      <view class="menu-icon">ℹ️</view>
-      <view class="menu-text">系统信息</view>
+    <view class="menu-item" bindtap="onReminder">
+      <view class="menu-icon">🔔</view>
+      <view class="menu-text">提醒设置</view>
       <view class="menu-arrow">›</view>
     </view>
 
-    <view class="menu-item" bindtap="onFeedback">
-      <view class="menu-icon">💬</view>
-      <view class="menu-text">数据上报</view>
+    <view class="menu-item" bindtap="onFAQ">
+      <view class="menu-icon">❓</view>
+      <view class="menu-text">常见问题</view>
       <view class="menu-arrow">›</view>
     </view>
 
-    <button class="menu-item share-item" open-type="share">
-      <view class="menu-icon">↗️</view>
-      <view class="menu-text">分享给朋友</view>
+    <view class="menu-item" bindtap="onSettings">
+      <view class="menu-icon">⚙️</view>
+      <view class="menu-text">设置</view>
       <view class="menu-arrow">›</view>
-    </button>
+    </view>
   </view>
 
-  <!-- 数据管理 -->
-  <view class="menu-section card">
-    <view class="menu-item danger" bindtap="onClearCache">
-      <view class="menu-icon">🗑️</view>
-      <view class="menu-text">格式化存储</view>
-      <view class="menu-arrow">›</view>
+  <!-- 隐私说明 -->
+  <view class="privacy-note">
+    <view class="privacy-icon">🛡️</view>
+    <view class="privacy-content">
+      <view class="privacy-title">数据本地存储</view>
+      <view class="privacy-desc">所有宠物信息都保存在您的设备上，我们重视您的隐私安全</view>
     </view>
   </view>
 
   <!-- 底部说明 -->
   <view class="footer">
-    <view class="footer-text">赛博宠物 v1.0.0</view>
-    <view class="footer-text">CYBER PET CARE SYSTEM</view>
+    <view class="footer-text">Old-baby v1.0.0</view>
   </view>
 </view>

@@ -10,7 +10,6 @@
 .pet-name {
   color: var(--color-primary);
   font-weight: 600;
-  text-shadow: 0 0 10rpx rgba(34, 211, 238, 0.3);
 }
 
 .section {
@@ -20,12 +19,11 @@
 .section-title {
   font-size: 34rpx;
   font-weight: 700;
-  color: var(--color-primary);
+  color: var(--color-text);
   margin-bottom: 12rpx;
   padding-left: 20rpx;
   border-left: 6rpx solid;
   border-image: linear-gradient(to bottom, var(--color-primary), var(--color-accent)) 1;
-  text-shadow: 0 0 10rpx rgba(34, 211, 238, 0.3);
 }
 
 .section-desc {
@@ -54,8 +52,8 @@
 
 .disease-tag {
   padding: 14rpx 24rpx;
-  background: rgba(31, 41, 55, 0.5);
-  border: 2rpx solid rgba(34, 211, 238, 0.3);
+  background: var(--color-input-bg);
+  border: none;
   border-radius: 30rpx;
   font-size: 26rpx;
   color: var(--color-text);
@@ -67,12 +65,11 @@
 }
 
 .disease-tag.active {
-  background: linear-gradient(135deg, rgba(236, 72, 153, 0.4), rgba(236, 72, 153, 0.2));
-  border-color: var(--color-accent);
+  background: linear-gradient(135deg, rgba(233, 30, 140, 0.15), rgba(233, 30, 140, 0.08));
+  border: 2rpx solid var(--color-accent);
   color: var(--color-accent);
   font-weight: 600;
-  box-shadow: 0 0 20rpx rgba(236, 72, 153, 0.4);
-  transform: scale(1.05);
+  transform: scale(1.02);
 }
 
 .disease-tag.active::after {
@@ -90,8 +87,8 @@
 .activity-option {
   flex: 1;
   padding: 20rpx;
-  background: rgba(31, 41, 55, 0.5);
-  border: 2rpx solid rgba(34, 211, 238, 0.3);
+  background: var(--color-input-bg);
+  border: none;
   border-radius: 16rpx;
   text-align: center;
   transition: all 0.3s ease;
@@ -102,9 +99,8 @@
 }
 
 .activity-option.active {
-  background: linear-gradient(135deg, rgba(6, 182, 212, 0.4), rgba(34, 211, 238, 0.2));
-  border-color: var(--color-primary);
-  box-shadow: 0 0 25rpx rgba(34, 211, 238, 0.4);
+  background: linear-gradient(135deg, rgba(255, 122, 0, 0.15), rgba(255, 122, 0, 0.08));
+  border: 2rpx solid var(--color-primary);
   transform: translateY(-5rpx);
 }
 
@@ -117,7 +113,6 @@
 
 .activity-option.active .activity-label {
   color: var(--color-primary);
-  text-shadow: 0 0 8rpx rgba(34, 211, 238, 0.3);
 }
 
 .activity-desc {
@@ -150,8 +145,8 @@
 
 .allergen-tag {
   padding: 12rpx 24rpx;
-  background: rgba(31, 41, 55, 0.5);
-  border: 2rpx solid rgba(34, 211, 238, 0.3);
+  background: var(--color-input-bg);
+  border: none;
   border-radius: 30rpx;
   font-size: 26rpx;
   color: var(--color-text);
@@ -163,12 +158,11 @@
 }
 
 .allergen-tag.active {
-  background: linear-gradient(135deg, rgba(251, 191, 36, 0.4), rgba(251, 191, 36, 0.2));
-  border-color: #fbbf24;
-  color: #fbbf24;
+  background: linear-gradient(135deg, rgba(255, 122, 0, 0.15), rgba(255, 122, 0, 0.08));
+  border: 2rpx solid var(--color-warning);
+  color: var(--color-warning);
   font-weight: 600;
-  box-shadow: 0 0 20rpx rgba(251, 191, 36, 0.4);
-  transform: scale(1.05);
+  transform: scale(1.02);
 }
 
 .allergen-tag.active::after {
@@ -194,8 +188,8 @@
   width: 100%;
   height: 100%;
   border-radius: 16rpx;
-  border: 2rpx solid var(--color-primary);
-  box-shadow: 0 0 15rpx rgba(34, 211, 238, 0.2);
+  border: none;
+  box-shadow: 0 2rpx 8rpx rgba(0, 0, 0, 0.1);
 }
 
 .report-delete {
@@ -219,8 +213,8 @@
 .report-add {
   width: 200rpx;
   height: 200rpx;
-  background: rgba(31, 41, 55, 0.5);
-  border: 2rpx dashed rgba(34, 211, 238, 0.4);
+  background: var(--color-input-bg);
+  border: 2rpx dashed var(--color-border);
   border-radius: 16rpx;
   display: flex;
   flex-direction: column;
@@ -231,8 +225,7 @@
 
 .report-add:active {
   border-color: var(--color-primary);
-  background: rgba(34, 211, 238, 0.1);
-  box-shadow: 0 0 15rpx rgba(34, 211, 238, 0.2);
+  background: rgba(255, 122, 0, 0.05);
 }
 
 .report-add .add-icon {
