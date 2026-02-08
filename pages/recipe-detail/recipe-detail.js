@@ -6,14 +6,15 @@ const util = require('../../utils/util')
 Page({
   data: {
     recipe: null,
-    activeTab: 'ingredients',
-    currentPet: null
+    currentPet: null,
+    isFavorited: false
   },
 
   onLoad(options) {
     if (options.id) {
       const recipe = recommend.getRecipeById(options.id)
       const currentPet = storage.getCurrentPet()
+      const isFavorited = storage.isFavorite(options.id)
 
       if (recipe) {
         // 如果有当前宠物，且有体重，则缩放食材用量
@@ -27,33 +28,34 @@ Page({
 
         this.setData({
           recipe,
-          currentPet
+          currentPet,
+          isFavorited
         })
         wx.setNavigationBarTitle({ title: recipe.name })
       }
     }
   },
 
-  // 切换标签
-  onTabChange(e) {
-    const tab = e.currentTarget.dataset.tab
-    this.setData({ activeTab: tab })
-  },
-
   // 分享
   onShareAppMessage() {
     const { recipe } = this.data
     return {
-      title: `${recipe.name} - 赛博宠物能量补给`,
+      title: `${recipe.name} - 宝贝护理食谱`,
       path: `/pages/recipe-detail/recipe-detail?id=${recipe.id}`
     }
   },
 
-  // 收藏
+  // 收藏/取消收藏
   onCollect() {
-    wx.showToast({
-      title: '收藏协议开发中',
-      icon: 'none'
-    })
+    const { recipe, isFavorited } = this.data
+    if (isFavorited) {
+      storage.removeFavorite(recipe.id)
+      this.setData({ isFavorited: false })
+      wx.showToast({ title: '已取消收藏', icon: 'none' })
+    } else {
+      storage.addFavorite(recipe.id)
+      this.setData({ isFavorited: true })
+      wx.showToast({ title: '已收藏', icon: 'success' })
+    }
   }
 })

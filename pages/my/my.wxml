@@ -1,80 +1,167 @@
 <!--pages/my/my.wxml-->
 <view class="container">
-  <!-- 用户信息头部 -->
+  <!-- 顶部用户信息 -->
   <view class="user-header">
-    <button class="avatar-btn" open-type="chooseAvatar" bindchooseavatar="onChooseAvatar">
-      <image
-        class="user-avatar"
-        src="{{userInfo.avatarUrl}}"
-        mode="aspectFill"
-        wx:if="{{userInfo.avatarUrl}}"
-      />
-      <view class="user-avatar-placeholder" wx:else>🐾</view>
-    </button>
-    <view class="user-header-title">宠物主人</view>
-    <view class="user-header-subtitle">用心守护，温暖相伴</view>
+    <view class="user-header-row">
+      <button class="avatar-btn" open-type="chooseAvatar" bindchooseavatar="onChooseAvatar">
+        <image
+          class="user-avatar"
+          src="{{userInfo.avatarUrl}}"
+          mode="aspectFill"
+          wx:if="{{userInfo.avatarUrl}}"
+        />
+        <view class="user-avatar-placeholder" wx:else>🐾</view>
+      </button>
+      <view class="user-text">
+        <view class="user-name">宠物主人</view>
+        <view class="user-subtitle">用心守护，温暖相伴</view>
+      </view>
+    </view>
   </view>
 
-  <!-- 统计卡片 -->
+  <!-- 数据统计 -->
   <view class="stats-card">
     <view class="stat-item">
-      <view class="stat-num">{{petsCount}}</view>
+      <view class="stat-num orange">{{petsCount}}</view>
       <view class="stat-label">宠物档案</view>
     </view>
     <view class="stat-item">
-      <view class="stat-num">{{favoritesCount || 0}}</view>
+      <view class="stat-num pink">{{favoritesCount || 0}}</view>
       <view class="stat-label">收藏食谱</view>
     </view>
     <view class="stat-item">
-      <view class="stat-num">{{useDays || 1}}</view>
+      <view class="stat-num blue">{{useDays || 1}}</view>
       <view class="stat-label">使用天数</view>
     </view>
   </view>
 
   <!-- 功能菜单 -->
-  <view class="menu-section card">
-    <view class="menu-item" bindtap="onFavorites">
-      <view class="menu-icon">❤️</view>
-      <view class="menu-text">我的收藏</view>
+  <view class="menu-list">
+    <view class="menu-card" bindtap="onFavorites">
+      <view class="menu-icon-box pink-bg">
+        <text class="menu-icon-text">❤️</text>
+      </view>
+      <view class="menu-content">
+        <view class="menu-text">我的收藏</view>
+        <view class="menu-desc">收藏的食谱</view>
+      </view>
       <view class="menu-arrow">›</view>
     </view>
 
-    <view class="menu-item" bindtap="onGuide">
-      <view class="menu-icon">📖</view>
-      <view class="menu-text">使用指南</view>
+    <view class="menu-card" bindtap="onGuide">
+      <view class="menu-icon-box blue-bg">
+        <text class="menu-icon-text">📖</text>
+      </view>
+      <view class="menu-content">
+        <view class="menu-text">使用指南</view>
+        <view class="menu-desc">了解如何使用小程序</view>
+      </view>
       <view class="menu-arrow">›</view>
     </view>
 
-    <view class="menu-item" bindtap="onReminder">
-      <view class="menu-icon">🔔</view>
-      <view class="menu-text">提醒设置</view>
+    <view class="menu-card" bindtap="onReminder">
+      <view class="menu-icon-box orange-bg">
+        <text class="menu-icon-text">🔔</text>
+      </view>
+      <view class="menu-content">
+        <view class="menu-text">提醒设置</view>
+        <view class="menu-desc">体检、用药提醒</view>
+      </view>
       <view class="menu-arrow">›</view>
     </view>
 
-    <view class="menu-item" bindtap="onFAQ">
-      <view class="menu-icon">❓</view>
-      <view class="menu-text">常见问题</view>
+    <view class="menu-card" bindtap="onFAQ">
+      <view class="menu-icon-box purple-bg">
+        <text class="menu-icon-text">❓</text>
+      </view>
+      <view class="menu-content">
+        <view class="menu-text">常见问题</view>
+        <view class="menu-desc">宠物养护知识库</view>
+      </view>
       <view class="menu-arrow">›</view>
     </view>
 
-    <view class="menu-item" bindtap="onSettings">
-      <view class="menu-icon">⚙️</view>
-      <view class="menu-text">设置</view>
+    <view class="menu-card" bindtap="onSettings">
+      <view class="menu-icon-box gray-bg">
+        <text class="menu-icon-text">🗑️</text>
+      </view>
+      <view class="menu-content">
+        <view class="menu-text">清除数据</view>
+        <view class="menu-desc">清除所有本地存储数据</view>
+      </view>
       <view class="menu-arrow">›</view>
     </view>
   </view>
 
-  <!-- 隐私说明 -->
+  <!-- 隐私和安全 -->
   <view class="privacy-note">
-    <view class="privacy-icon">🛡️</view>
+    <text class="privacy-icon">🛡️</text>
     <view class="privacy-content">
       <view class="privacy-title">数据本地存储</view>
       <view class="privacy-desc">所有宠物信息都保存在您的设备上，我们重视您的隐私安全</view>
     </view>
   </view>
 
-  <!-- 底部说明 -->
+  <!-- 版本信息 -->
   <view class="footer">
-    <view class="footer-text">Old-baby v1.0.0</view>
+    <view class="footer-text">宝贝护理 v1.0.0</view>
+  </view>
+
+  <!-- 使用指南弹窗 -->
+  <view class="guide-mask" wx:if="{{showGuide}}" bindtap="onCloseGuide">
+    <view class="guide-card" catchtap="">
+      <view class="guide-header">
+        <view class="guide-title">使用指南</view>
+        <view class="guide-close" bindtap="onCloseGuide">✕</view>
+      </view>
+      <view class="guide-steps">
+        <view class="guide-step">
+          <view class="guide-num orange">1</view>
+          <view class="guide-text">添加宠物档案并填写健康信息</view>
+        </view>
+        <view class="guide-step">
+          <view class="guide-num pink">2</view>
+          <view class="guide-text">查看为宠物定制的食谱推荐</view>
+        </view>
+        <view class="guide-step">
+          <view class="guide-num blue">3</view>
+          <view class="guide-text">根据食谱制作营养餐食</view>
+        </view>
+      </view>
+      <button class="guide-btn" bindtap="onCloseGuide">知道了</button>
+    </view>
+  </view>
+
+  <!-- 常见问题弹窗 -->
+  <view class="guide-mask" wx:if="{{showFAQ}}" bindtap="onCloseFAQ">
+    <view class="guide-card faq-card" catchtap="">
+      <view class="guide-header">
+        <view class="guide-title">常见问题</view>
+        <view class="guide-close" bindtap="onCloseFAQ">✕</view>
+      </view>
+      <view class="faq-list">
+        <view class="faq-item">
+          <view class="faq-question">
+            <text class="faq-label q">Q</text>
+            <text class="faq-text">食谱推荐的依据是什么？</text>
+          </view>
+          <view class="faq-answer">
+            <text class="faq-label a">A</text>
+            <text class="faq-text">根据宠物的年龄、体重、疾病和过敏原信息，智能推荐适合的食谱。</text>
+          </view>
+        </view>
+        <view class="faq-item">
+          <view class="faq-question">
+            <text class="faq-label q">Q</text>
+            <text class="faq-text">数据安全吗？</text>
+          </view>
+          <view class="faq-answer">
+            <text class="faq-label a">A</text>
+            <text class="faq-text">所有数据仅保存在您的设备本地，不会上传到任何服务器。</text>
+          </view>
+        </view>
+      </view>
+      <button class="guide-btn" bindtap="onCloseFAQ">知道了</button>
+    </view>
   </view>
 </view>

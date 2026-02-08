@@ -1,5 +1,5 @@
 <!--pages/pet-profile/pet-profile.wxml-->
-<view class="container">
+<view class="container page-gradient-bg">
   <view class="enroll-steps" wx:if="{{!isEdit}}">
     <view class="step-item active">
       <view class="step-num">1</view>
@@ -35,7 +35,7 @@
       <view class="form-label">TA 叫什么名字？ <text class="required">*</text></view>
       <input
         class="form-input"
-        placeholder="给你的老宝贝取个名字"
+        placeholder="名字"
         value="{{form.name}}"
         data-field="name"
         bindinput="onInputChange"
@@ -100,23 +100,23 @@
     <view class="form-group row">
       <view class="form-label">是否绝育</view>
       <view class="switch-wrap">
-        <text class="switch-label {{!form.neutered ? 'active' : ''}}">No</text>
+        <text class="switch-label {{!form.neutered ? 'active' : ''}}">否</text>
         <switch
           checked="{{form.neutered}}"
           bindchange="onNeuteredChange"
-          color="#22d3ee"
+          color="#FF7A00"
         />
-        <text class="switch-label {{form.neutered ? 'active' : ''}}">Yes</text>
+        <text class="switch-label {{form.neutered ? 'active' : ''}}">是</text>
       </view>
     </view>
   </view>
 
   <!-- 操作按钮 -->
   <view class="action-buttons">
-    <button class="btn-primary" bindtap="onContinueHealth" wx:if="{{!isEdit}}">
+    <button class="btn-primary save-btn" bindtap="onContinueHealth" wx:if="{{!isEdit}}">
       下一步：记录健康信息 →
     </button>
-    <button class="btn-primary" bindtap="onSave" wx:else>保存修改</button>
+    <button class="btn-primary save-btn" bindtap="onSave" wx:else>保存修改</button>
 
     <button class="btn-secondary mt-20" bindtap="onSave" wx:if="{{!isEdit}}">
       仅保存基本资料

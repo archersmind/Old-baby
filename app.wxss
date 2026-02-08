@@ -21,6 +21,8 @@ page {
   --color-input-bg: #F3F3F5;
   --color-gradient-start: #FF7A00;
   --color-gradient-end: #E91E8C;
+  --color-orange-50: #FFF7ED;
+  --color-pink-50: #FDF2F8;
 
   background: var(--color-background);
   background-attachment: fixed;
@@ -31,9 +33,20 @@ page {
   min-height: 100vh;
 }
 
+/* 渐变背景 - 橙粉到白 */
+.page-gradient-bg {
+  background: linear-gradient(180deg, var(--color-orange-50) 0%, #FFFFFF 40%);
+  min-height: 100vh;
+}
+
+.page-gradient-bg-pink {
+  background: linear-gradient(180deg, var(--color-pink-50) 0%, #FFFFFF 40%);
+  min-height: 100vh;
+}
+
 /* 通用容器 */
 .container {
-  padding: 30rpx;
+  padding: 0;
   min-height: 100vh;
   box-sizing: border-box;
 }
@@ -41,17 +54,17 @@ page {
 /* 卡片样式 - 温馨简约风 */
 .card {
   background: var(--color-card);
-  border-radius: 24rpx;
+  border-radius: 32rpx;
   padding: 30rpx;
   margin-bottom: 24rpx;
   border: none;
-  box-shadow: 0 2rpx 12rpx rgba(0, 0, 0, 0.08);
+  box-shadow: 0 2rpx 12rpx rgba(0, 0, 0, 0.06);
   transition: all 0.3s ease;
 }
 
 .card:active {
   transform: translateY(-2rpx);
-  box-shadow: 0 4rpx 16rpx rgba(0, 0, 0, 0.12);
+  box-shadow: 0 4rpx 16rpx rgba(0, 0, 0, 0.1);
 }
 
 /* 强调卡片 */
@@ -319,7 +332,7 @@ page {
 .tip-card {
   background: linear-gradient(135deg, var(--color-gradient-start), var(--color-gradient-end));
   color: var(--color-white);
-  border-radius: 24rpx;
+  border-radius: 32rpx;
   padding: 30rpx;
 }
 

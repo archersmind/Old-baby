@@ -9,7 +9,7 @@ module.exports = [
     "prepTime": "30分钟",
     "servings": "15kg犬2天量",
     "calories": "约120kcal/100g",
-    "image": "",
+    "image": "https://images.unsplash.com/photo-1767023023369-96a7c923be0c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxoZWFsdGh5JTIwZG9nJTIwZm9vZCUyMGJvd2x8ZW58MXx8fHwxNzcwMTE3OTQwfDA&ixlib=rb-4.1.0&q=80&w=1080",
     "ingredients": [
       { "name": "鸡胸肉", "amount": "420g", "note": "去皮去骨" },
       { "name": "南瓜", "amount": "280g", "note": "去皮切块" },
@@ -19,13 +19,13 @@ module.exports = [
       { "name": "糙米", "amount": "140g", "note": "提前浸泡" }
     ],
     "steps": [
-      "糙米提前浸泡2小时，煮熟备用",
-      "鸡胸肉切小块，水煮至全熟（约15分钟）",
-      "南瓜、胡萝卜蒸熟（约20分钟）",
-      "西兰花焯水2分钟",
-      "所有食材混合，用叉子压碎南瓜",
-      "放凉后加入三文鱼油拌匀",
-      "分装保存，冷藏可保存3天"
+      "糙米提前用清水浸泡2小时以上，然后加入约2倍水量，大火煮开后转小火焖煮25分钟至软烂，沥干水分备用",
+      "鸡胸肉洗净后切成约1.5厘米的小块，冷水下锅，大火煮开后撇去浮沫，转中火煮15分钟至完全熟透，捞出放凉后撕成细丝或切成小丁",
+      "南瓜去皮去籽切成小块，胡萝卜去皮切成薄片，一起放入蒸锅，大火蒸20分钟至软烂，用叉子可以轻松压碎即可",
+      "西兰花洗净后切成小朵，烧一锅开水，放入西兰花焯烫2分钟，捞出过凉水保持翠绿色泽，沥干切碎",
+      "将煮好的糙米、鸡肉丝、蒸好的南瓜和胡萝卜、焯好的西兰花全部放入大碗中，用叉子将南瓜压成泥状，充分混合均匀",
+      "等食材完全放凉至室温后，加入三文鱼油，再次搅拌均匀，确保油脂分布在每一处",
+      "按照每餐的份量分装到密封保鲜盒中，冷藏保存可存放3天，冷冻可保存2周，喂食前需加热至室温"
     ],
     "nutrition": {
       "protein": "高蛋白易消化",
@@ -53,7 +53,7 @@ module.exports = [
     "prepTime": "45分钟",
     "servings": "15kg犬2天量",
     "calories": "约130kcal/100g",
-    "image": "",
+    "image": "https://images.unsplash.com/photo-1760445528367-7f0fa0229d19?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxkb2clMjBudXRyaXRpb24lMjBtZWFsfGVufDF8fHx8MTc3MDExNzk0MHww&ixlib=rb-4.1.0&q=80&w=1080",
     "ingredients": [
       { "name": "牛心", "amount": "280g", "note": "富含牛磺酸" },
       { "name": "瘦牛肉", "amount": "210g", "note": "切小块" },
@@ -63,12 +63,12 @@ module.exports = [
       { "name": "亚麻籽油", "amount": "1.5茶匙", "note": "" }
     ],
     "steps": [
-      "牛心和牛肉切小块，水煮至全熟（约25分钟）",
-      "红薯蒸熟（约20分钟）",
-      "菠菜焯水1分钟，切碎",
-      "所有食材混合，红薯压成泥",
-      "放凉后加入蓝莓和亚麻籽油",
-      "充分拌匀后分装保存"
+      "牛心洗净去除表面筋膜和血管，与瘦牛肉一起切成约2厘米的小块，冷水下锅，大火煮开后撇去浮沫，转中小火煮25-30分钟至完全熟透",
+      "红薯洗净去皮，切成均匀小块，放入蒸锅大火蒸20-25分钟，用筷子能轻松穿透即可",
+      "菠菜洗净后放入沸水中焯烫1分钟去除草酸，捞出过凉水，挤干水分后切成碎末",
+      "将蒸好的红薯放入大碗中，趁热用叉子或压泥器压成细腻的泥状，牛心和牛肉切成小丁或撕成细条",
+      "将牛肉丁、红薯泥、菠菜碎放入大碗中混合，等食材放凉至室温后，加入新鲜蓝莓和亚麻籽油",
+      "用勺子将所有食材充分拌匀，按每餐份量分装到保鲜盒中，冷藏可保存3天，冷冻可保存2周"
     ],
     "nutrition": {
       "protein": "优质蛋白",
@@ -96,7 +96,7 @@ module.exports = [
     "prepTime": "40分钟",
     "servings": "15kg犬2天量",
     "calories": "约110kcal/100g",
-    "image": "",
+    "image": "https://images.unsplash.com/photo-1767023023369-96a7c923be0c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxoZWFsdGh5JTIwZG9nJTIwZm9vZCUyMGJvd2x8ZW58MXx8fHwxNzcwMTE3OTQwfDA&ixlib=rb-4.1.0&q=80&w=1080",
     "ingredients": [
       { "name": "鳕鱼", "amount": "225g", "note": "去骨去刺" },
       { "name": "蛋白", "amount": "3个", "note": "只用蛋白不用蛋黄" },
@@ -106,12 +106,12 @@ module.exports = [
       { "name": "椰子油", "amount": "1.5茶匙", "note": "" }
     ],
     "steps": [
-      "鳕鱼蒸熟（约15分钟），检查并去除所有鱼刺",
-      "蛋白煮熟切碎",
-      "白米饭煮得软烂一些",
-      "黄瓜和苹果切成小碎丁",
-      "所有食材混合，加入椰子油拌匀",
-      "分装后冷藏保存，每次喂食前加热至室温"
+      "鳕鱼解冻后用清水冲洗干净，放入蒸锅大火蒸15分钟至鱼肉变白熟透，取出后用筷子仔细检查并挑出所有鱼刺，将鱼肉拨散成小块",
+      "鸡蛋煮熟后剥壳，只取蛋白部分（蛋黄磷含量高不适合肾病犬），将蛋白切成小碎丁备用",
+      "白米淘洗干净，加入比平时多一些的水（约1:1.5的比例），大火煮开后转小火焖煮至米饭软烂黏稠",
+      "黄瓜洗净去皮，切成约0.5厘米的小丁；苹果洗净去皮去核，同样切成小丁备用",
+      "将软烂的米饭、鳕鱼肉、蛋白丁、黄瓜丁和苹果丁全部放入大碗中，加入椰子油，用勺子轻轻翻拌均匀",
+      "按每餐份量分装到密封保鲜盒中，冷藏可保存2-3天，喂食前取出放置15分钟或微波加热至室温，不要喂冷食"
     ],
     "nutrition": {
       "protein": "优质低磷蛋白",
@@ -139,7 +139,7 @@ module.exports = [
     "prepTime": "35分钟",
     "servings": "15kg犬2天量",
     "calories": "约100kcal/100g",
-    "image": "",
+    "image": "https://images.unsplash.com/photo-1760445528367-7f0fa0229d19?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxkb2clMjBudXRyaXRpb24lMjBtZWFsfGVufDF8fHx8MTc3MDExNzk0MHww&ixlib=rb-4.1.0&q=80&w=1080",
     "ingredients": [
       { "name": "鸡胸肉", "amount": "375g", "note": "去皮" },
       { "name": "四季豆", "amount": "225g", "note": "切小段" },
@@ -148,12 +148,12 @@ module.exports = [
       { "name": "亚麻籽粉", "amount": "1.5汤匙", "note": "增加纤维" }
     ],
     "steps": [
-      "燕麦加水煮成糊状",
-      "鸡胸肉水煮至熟，切成小块",
-      "四季豆和西葫芦蒸熟（约15分钟）",
-      "所有食材混合拌匀",
-      "撒入亚麻籽粉，再次搅拌",
-      "分成小份，定时定量喂食"
+      "燕麦片加入3倍清水，大火煮开后转小火，边煮边搅拌约10分钟，煮成浓稠的糊状，放置备用",
+      "鸡胸肉洗净切成小块，冷水下锅，大火煮开后撇去浮沫，转中火煮15分钟至完全熟透，捞出放凉后切成约1厘米的小丁",
+      "四季豆摘去两端老筋，切成1厘米小段；西葫芦洗净切成小块，一起放入蒸锅大火蒸15分钟至软熟",
+      "将燕麦糊、鸡肉丁、蒸好的四季豆和西葫芦全部放入大碗中，用勺子充分混合均匀",
+      "撒入亚麻籽粉，再次搅拌均匀，确保亚麻籽粉均匀分布在食材中增加纤维含量",
+      "按照糖尿病犬的每餐定量分装成小份，建议每天分4-5次喂食，每次喂食时间要固定，配合胰岛素注射时间"
     ],
     "nutrition": {
       "protein": "高蛋白",
@@ -181,7 +181,7 @@ module.exports = [
     "prepTime": "40分钟",
     "servings": "15kg犬2天量",
     "calories": "约115kcal/100g",
-    "image": "",
+    "image": "https://images.unsplash.com/photo-1767023023369-96a7c923be0c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxoZWFsdGh5JTIwZG9nJTIwZm9vZCUyMGJvd2x8ZW58MXx8fHwxNzcwMTE3OTQwfDA&ixlib=rb-4.1.0&q=80&w=1080",
     "ingredients": [
       { "name": "羊腿肉", "amount": "300g", "note": "去肥肉" },
       { "name": "土豆", "amount": "225g", "note": "去皮切块" },
@@ -190,12 +190,12 @@ module.exports = [
       { "name": "益生菌粉", "amount": "适量", "note": "喂食前加入" }
     ],
     "steps": [
-      "羊肉切小块，水煮至完全熟透（约25分钟）",
-      "土豆和胡萝卜蒸熟（约20分钟）",
-      "南瓜蒸熟压成泥",
-      "所有食材混合，土豆也压碎",
-      "放凉至室温",
-      "喂食前拌入适量益生菌粉"
+      "羊腿肉洗净，仔细剔除可见的肥肉和筋膜，切成约2厘米的小块，冷水下锅，大火煮开后撇去浮沫，转中小火煮25-30分钟至完全熟透软烂",
+      "土豆洗净去皮，切成均匀小块；胡萝卜去皮切成薄片，一起放入蒸锅大火蒸20分钟至软烂",
+      "南瓜去皮去籽切块，蒸15-20分钟至软烂，取出后用叉子压成细腻的泥状备用",
+      "将蒸好的土豆也压成泥状，与羊肉块、胡萝卜、南瓜泥一起放入大碗中，用勺子充分混合，确保质地均匀软烂",
+      "将混合好的食材放置至完全冷却至室温，肠胃敏感的狗狗不宜吃过热或过冷的食物",
+      "每次喂食前取出适量，拌入适量益生菌粉（按产品说明添加），现拌现喂以保证益生菌活性，剩余食材冷藏保存可存放3天"
     ],
     "nutrition": {
       "protein": "易消化蛋白",
@@ -223,7 +223,7 @@ module.exports = [
     "prepTime": "30分钟",
     "servings": "15kg犬2天量",
     "calories": "约85kcal/100g",
-    "image": "",
+    "image": "https://images.unsplash.com/photo-1760445528367-7f0fa0229d19?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxkb2clMjBudXRyaXRpb24lMjBtZWFsfGVufDF8fHx8MTc3MDExNzk0MHww&ixlib=rb-4.1.0&q=80&w=1080",
     "ingredients": [
       { "name": "鸡胸肉", "amount": "450g", "note": "去皮去脂肪" },
       { "name": "白米饭", "amount": "225g", "note": "煮软" },
@@ -232,12 +232,12 @@ module.exports = [
       { "name": "西葫芦", "amount": "150g", "note": "蒸熟" }
     ],
     "steps": [
-      "鸡胸肉水煮，撇去表面浮油",
-      "所有蔬菜蒸熟",
-      "鸡肉切碎或撕成丝",
-      "所有食材混合，蔬菜压碎",
-      "不添加任何油脂",
-      "少食多餐，每天分4-5次喂食"
+      "鸡胸肉洗净后仔细去除所有可见的皮和脂肪，切成小块冷水下锅，大火煮开后用勺子仔细撇去表面所有浮油和浮沫，转中火煮15分钟至完全熟透",
+      "南瓜去皮去籽切块，胡萝卜去皮切片，西葫芦切块，全部放入蒸锅大火蒸20分钟至软烂",
+      "将煮好的鸡胸肉捞出放凉，用手撕成细丝或用刀切成小碎丁，注意不要保留任何煮肉的汤汁（含有溶解的脂肪）",
+      "将蒸好的蔬菜用叉子压碎成泥状，与鸡肉丝混合在一起，用勺子充分搅拌均匀",
+      "此食谱严禁添加任何油脂，包括植物油和动物油，胰腺炎犬需要严格控制脂肪摄入在10%以下",
+      "按每日总量分成4-5份小份量，每隔3-4小时喂食一次，少食多餐有助于减轻胰腺负担，喂食前加热至室温即可"
     ],
     "nutrition": {
       "protein": "瘦肉蛋白",
@@ -265,7 +265,7 @@ module.exports = [
     "prepTime": "45分钟",
     "servings": "15kg犬2天量",
     "calories": "约120kcal/100g",
-    "image": "",
+    "image": "https://images.unsplash.com/photo-1767023023369-96a7c923be0c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxoZWFsdGh5JTIwZG9nJTIwZm9vZCUyMGJvd2x8ZW58MXx8fHwxNzcwMTE3OTQwfDA&ixlib=rb-4.1.0&q=80&w=1080",
     "ingredients": [
       { "name": "牛腱肉", "amount": "375g", "note": "炖烂" },
       { "name": "土豆", "amount": "225g", "note": "压成泥" },
@@ -274,12 +274,12 @@ module.exports = [
       { "name": "肉汤", "amount": "适量", "note": "炖牛肉的汤" }
     ],
     "steps": [
-      "牛腱肉加水炖煮1.5-2小时至软烂",
-      "保留部分肉汤备用",
-      "土豆和胡萝卜煮熟压成泥",
-      "牛肉用叉子撕成细丝或用料理机打碎",
-      "所有食材混合，加适量肉汤调节稀稠度",
-      "确保没有任何硬块"
+      "牛腱肉洗净切成大块，放入炖锅中加入没过肉的清水，大火煮开后撇去浮沫，转小火慢炖1.5-2小时，直到用筷子能轻松穿透，肉质软烂",
+      "炖好后将牛肉捞出，保留约1碗肉汤备用（撇去表面油脂），肉汤可以增加食物香味并补充水分",
+      "土豆去皮切块，胡萝卜去皮切片，放入蒸锅或煮锅中煮至软烂，约需20-25分钟，用叉子能轻松压碎即可",
+      "将软烂的牛肉用两把叉子撕成细丝状，如果狗狗牙齿很差，可以用料理机打成肉泥，确保完全没有硬块和大颗粒",
+      "将土豆和胡萝卜压成细腻的泥状，与牛肉丝混合，根据狗狗的吞咽能力加入适量肉汤调节稀稠度，做成糊状更易吞咽",
+      "用勺子反复搅拌并检查，确保食物中没有任何硬块或颗粒，质地要足够软烂，方便牙齿不好的老年犬直接吞咽"
     ],
     "nutrition": {
       "protein": "优质蛋白",
@@ -307,7 +307,7 @@ module.exports = [
     "prepTime": "40分钟",
     "servings": "15kg犬2天量",
     "calories": "约135kcal/100g",
-    "image": "",
+    "image": "https://images.unsplash.com/photo-1760445528367-7f0fa0229d19?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxkb2clMjBudXRyaXRpb24lMjBtZWFsfGVufDF8fHx8MTc3MDExNzk0MHww&ixlib=rb-4.1.0&q=80&w=1080",
     "ingredients": [
       { "name": "鸭胸肉", "amount": "375g", "note": "去皮去脂" },
       { "name": "蓝莓", "amount": "75g", "note": "抗氧化" },
@@ -317,12 +317,12 @@ module.exports = [
       { "name": "鱼油", "amount": "1.5茶匙", "note": "Omega-3" }
     ],
     "steps": [
-      "鸭胸肉水煮至熟（约20分钟）",
-      "红薯蒸熟压成泥",
-      "西兰花和菠菜蒸熟切碎",
-      "鸭肉切成小块",
-      "所有食材混合，加入蓝莓",
-      "放凉后加入鱼油拌匀"
+      "鸭胸肉洗净，仔细去除鸭皮和表面可见的脂肪层（鸭皮脂肪含量高），切成小块冷水下锅，大火煮开后撇去浮沫，转中火煮20分钟至完全熟透",
+      "红薯洗净去皮切成均匀小块，放入蒸锅大火蒸25分钟至软烂，取出后趁热用叉子压成细腻的泥状",
+      "西兰花洗净切成小朵，菠菜洗净，分别在沸水中焯烫2分钟，捞出过凉水沥干，切成碎末备用",
+      "将煮好的鸭肉捞出放凉，切成约1厘米的小丁，或根据狗狗的咀嚼能力切得更碎一些",
+      "将红薯泥、鸭肉丁、西兰花碎和菠菜碎放入大碗中混合，加入新鲜蓝莓（蓝莓不要压碎，保持完整更有营养）",
+      "等所有食材完全放凉至室温后，加入鱼油充分拌匀，分装保存，冷藏可保存3天，冷冻可保存2周"
     ],
     "nutrition": {
       "protein": "高蛋白",
@@ -350,7 +350,7 @@ module.exports = [
     "prepTime": "35分钟",
     "servings": "15kg犬2天量",
     "calories": "约125kcal/100g",
-    "image": "",
+    "image": "https://images.unsplash.com/photo-1767023023369-96a7c923be0c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxoZWFsdGh5JTIwZG9nJTIwZm9vZCUyMGJvd2x8ZW58MXx8fHwxNzcwMTE3OTQwfDA&ixlib=rb-4.1.0&q=80&w=1080",
     "ingredients": [
       { "name": "三文鱼", "amount": "300g", "note": "去骨去刺" },
       { "name": "鸡蛋", "amount": "3个", "note": "全蛋" },
@@ -359,12 +359,12 @@ module.exports = [
       { "name": "核桃", "amount": "30g", "note": "去壳碾碎" }
     ],
     "steps": [
-      "三文鱼蒸熟（约15分钟），仔细去除鱼刺",
-      "鸡蛋煮熟切碎",
-      "紫薯蒸熟压成泥",
-      "核桃碾碎成粉末状",
-      "所有食材混合拌匀",
-      "加入蓝莓轻轻拌入"
+      "新鲜三文鱼洗净，放入蒸锅大火蒸15分钟至鱼肉变色熟透，取出后用筷子仔细检查并挑出所有鱼刺，将鱼肉拨散成小块备用",
+      "鸡蛋冷水下锅，水开后煮10分钟至全熟，捞出过凉水后剥壳，将整个鸡蛋（含蛋黄，蛋黄富含卵磷脂有益大脑）切成小碎丁",
+      "紫薯洗净去皮切成小块，放入蒸锅大火蒸25分钟至软烂，取出后趁热用叉子压成细腻的紫色泥状",
+      "核桃仁放入料理机中打成细腻的粉末状，或用擀面杖碾碎，确保没有大颗粒以免噎到",
+      "将三文鱼肉、鸡蛋碎、紫薯泥和核桃粉放入大碗中，用勺子充分搅拌混合均匀",
+      "最后加入新鲜蓝莓，轻轻翻拌均匀避免压碎蓝莓，分装保存，冷藏可保存2-3天，建议尽快食用以保证DHA活性"
     ],
     "nutrition": {
       "protein": "优质蛋白",
@@ -392,7 +392,7 @@ module.exports = [
     "prepTime": "45分钟",
     "servings": "15kg犬2天量",
     "calories": "约118kcal/100g",
-    "image": "",
+    "image": "https://images.unsplash.com/photo-1760445528367-7f0fa0229d19?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxkb2clMjBudXRyaXRpb24lMjBtZWFsfGVufDF8fHx8MTc3MDExNzk0MHww&ixlib=rb-4.1.0&q=80&w=1080",
     "ingredients": [
       { "name": "鹿肉", "amount": "450g", "note": "新型蛋白" },
       { "name": "红薯", "amount": "300g", "note": "低敏碳水" },
@@ -400,12 +400,12 @@ module.exports = [
       { "name": "椰子油", "amount": "1.5茶匙", "note": "皮肤健康" }
     ],
     "steps": [
-      "鹿肉切块水煮至熟（约25分钟）",
-      "红薯和南瓜蒸熟",
-      "所有食材混合",
-      "红薯和南瓜压成泥",
-      "放凉后加入椰子油拌匀",
-      "开始喂食时观察过敏反应"
+      "鹿肉洗净切成约2厘米的小块，冷水下锅，大火煮开后撇去浮沫，转中小火煮25-30分钟至完全熟透，鹿肉较瘦需煮久一些确保软嫩",
+      "红薯洗净去皮切成均匀小块，南瓜去皮去籽切块，一起放入蒸锅大火蒸25分钟至软烂透心",
+      "将蒸好的红薯和南瓜取出，趁热用叉子或压泥器压成细腻的泥状，与煮好的鹿肉块放在一起",
+      "将鹿肉切成小丁或撕成细条，与红薯南瓜泥充分混合均匀，确保每一口都有肉和薯泥",
+      "等食材完全放凉至室温后，加入椰子油充分拌匀，椰子油有助于皮肤健康和营养吸收",
+      "首次喂食此食谱时，先给少量观察24-48小时，确认无过敏反应（如皮肤瘙痒、呕吐、腹泻等）后再正常喂食，分装冷藏可保存3天"
     ],
     "nutrition": {
       "protein": "新型蛋白",
@@ -433,7 +433,7 @@ module.exports = [
     "prepTime": "35分钟",
     "servings": "15kg犬2天量",
     "calories": "约110kcal/100g",
-    "image": "",
+    "image": "https://images.unsplash.com/photo-1767023023369-96a7c923be0c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxoZWFsdGh5JTIwZG9nJTIwZm9vZCUyMGJvd2x8ZW58MXx8fHwxNzcwMTE3OTQwfDA&ixlib=rb-4.1.0&q=80&w=1080",
     "ingredients": [
       { "name": "鸡胸肉", "amount": "375g", "note": "低铜蛋白" },
       { "name": "白米饭", "amount": "225g", "note": "易消化碳水" },
@@ -442,12 +442,12 @@ module.exports = [
       { "name": "维生素E", "amount": "适量", "note": "保护肝脏（遵医嘱）" }
     ],
     "steps": [
-      "鸡胸肉水煮至熟",
-      "白米饭煮得软烂",
-      "西葫芦和胡萝卜蒸熟",
-      "所有食材混合切碎",
-      "放凉后可加入医嘱建议的维生素补充剂",
-      "分装保存"
+      "鸡胸肉洗净切成小块，冷水下锅，大火煮开后撇去浮沫，转中火煮15分钟至完全熟透，捞出放凉后切成小丁备用",
+      "白米淘洗干净，加入较多的水（约1:1.5比例），大火煮开后转小火焖煮至米饭软烂黏稠，比平时煮得更软一些便于消化",
+      "西葫芦洗净切成小块，胡萝卜去皮切成薄片，一起放入蒸锅大火蒸15-20分钟至软熟",
+      "将所有食材放入大碗中，用勺子将蔬菜压碎，与鸡肉丁和软烂米饭充分混合均匀",
+      "等食材完全放凉至室温后，如兽医有建议，可加入适量维生素E等保肝补充剂，按医嘱剂量添加",
+      "按每餐份量分装到密封保鲜盒中，冷藏可保存3天，肝病犬饮食需清淡，避免添加任何调味料"
     ],
     "nutrition": {
       "protein": "优质低铜蛋白",
@@ -475,7 +475,7 @@ module.exports = [
     "prepTime": "40分钟",
     "servings": "15kg犬2天量",
     "calories": "约125kcal/100g",
-    "image": "",
+    "image": "https://images.unsplash.com/photo-1760445528367-7f0fa0229d19?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxkb2clMjBudXRyaXRpb24lMjBtZWFsfGVufDF8fHx8MTc3MDExNzk0MHww&ixlib=rb-4.1.0&q=80&w=1080",
     "ingredients": [
       { "name": "鸡胸肉", "amount": "280g", "note": "" },
       { "name": "牛肉", "amount": "140g", "note": "" },
@@ -487,13 +487,13 @@ module.exports = [
       { "name": "三文鱼油", "amount": "1.5茶匙", "note": "" }
     ],
     "steps": [
-      "糙米提前浸泡，煮熟",
-      "鸡肉和牛肉分别水煮至熟",
-      "所有蔬菜蒸熟",
-      "鸡蛋煮熟切碎",
-      "所有食材混合切碎",
-      "放凉后加入三文鱼油拌匀",
-      "分装冷藏保存"
+      "糙米提前用清水浸泡2小时以上软化，然后加入约2倍水量，大火煮开后转小火焖煮25-30分钟至软烂，沥干水分备用",
+      "鸡胸肉和牛肉分别洗净切成小块，分两锅冷水下锅，大火煮开后撇去浮沫，转中火各煮15-20分钟至完全熟透，捞出放凉后切成小丁",
+      "胡萝卜去皮切片，西兰花切小朵，南瓜去皮去籽切块，全部放入蒸锅大火蒸20分钟至软熟",
+      "鸡蛋冷水下锅煮10分钟至全熟，捞出过凉水剥壳，切成小碎丁备用",
+      "将糙米饭、鸡肉丁、牛肉丁、蒸好的蔬菜和鸡蛋碎全部放入大碗中，用勺子将南瓜压碎，充分混合均匀",
+      "等所有食材完全放凉至室温后，加入三文鱼油充分拌匀，三文鱼油能保持皮毛健康光亮",
+      "按每餐份量分装到密封保鲜盒中，冷藏可保存3天，冷冻可保存2周，喂食前加热至室温即可"
     ],
     "nutrition": {
       "protein": "多种蛋白质来源",

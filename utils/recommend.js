@@ -2,11 +2,18 @@
 
 const recipesData = require('../data/recipes.js')
 const diseasesData = require('../data/diseases.js')
+const allergensData = require('../data/allergens.js')
 
 // 疾病映射表 ID -> Name
 const diseaseMap = {}
 diseasesData.forEach(d => {
   diseaseMap[d.id] = d.name
+})
+
+// 过敏原映射表 ID -> Name
+const allergenMap = {}
+allergensData.forEach(a => {
+  allergenMap[a.id] = a.name
 })
 
 /**
@@ -17,13 +24,19 @@ function translateDiseases(diseaseIds) {
   return diseaseIds.map(id => diseaseMap[id] || id)
 }
 
+function translateAllergens(allergenIds) {
+  if (!allergenIds) return []
+  return allergenIds.map(id => allergenMap[id] || id)
+}
+
 /**
  * 为食谱对象添加中文体征名称
  */
 function enhanceRecipe(recipe) {
   return {
     ...recipe,
-    suitableNames: translateDiseases(recipe.suitableFor)
+    suitableNames: translateDiseases(recipe.suitableFor),
+    avoidNames: translateAllergens(recipe.avoidFor)
   }
 }
 

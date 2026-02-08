@@ -1,0 +1,167 @@
+<!--pages/reminders/reminders.wxml-->
+<view class="container">
+  <!-- 喂食提醒 -->
+  <view class="section">
+    <view class="section-header">
+      <text class="section-icon">🍽</text>
+      <text class="section-title">喂食提醒</text>
+    </view>
+    <view class="reminder-list" wx:if="{{feedingReminders.length > 0}}">
+      <view class="reminder-item" wx:for="{{feedingReminders}}" wx:key="id">
+        <view class="reminder-info">
+          <view class="reminder-time">{{item.time}}</view>
+          <view class="reminder-detail">
+            <text class="reminder-title">{{item.title}}</text>
+            <text class="reminder-pet" wx:if="{{item.petName}}">· {{item.petName}}</text>
+          </view>
+          <view class="reminder-repeat">{{item.repeat === 'daily' ? '每天' : '仅一次'}}</view>
+        </view>
+        <view class="reminder-actions">
+          <switch checked="{{item.enabled}}" bindchange="onToggle" data-id="{{item.id}}" color="#f97316" />
+          <view class="delete-btn" bindtap="onDelete" data-id="{{item.id}}">删除</view>
+        </view>
+      </view>
+    </view>
+    <view class="empty-hint" wx:else>暂无喂食提醒</view>
+  </view>
+
+  <!-- 用药提醒 -->
+  <view class="section">
+    <view class="section-header">
+      <text class="section-icon">💊</text>
+      <text class="section-title">用药提醒</text>
+    </view>
+    <view class="reminder-list" wx:if="{{medicationReminders.length > 0}}">
+      <view class="reminder-item" wx:for="{{medicationReminders}}" wx:key="id">
+        <view class="reminder-info">
+          <view class="reminder-time">{{item.time}}</view>
+          <view class="reminder-detail">
+            <text class="reminder-title">{{item.title}}</text>
+            <text class="reminder-pet" wx:if="{{item.petName}}">· {{item.petName}}</text>
+          </view>
+          <view class="reminder-repeat">{{item.repeat === 'daily' ? '每天' : '仅一次'}}</view>
+        </view>
+        <view class="reminder-actions">
+          <switch checked="{{item.enabled}}" bindchange="onToggle" data-id="{{item.id}}" color="#f97316" />
+          <view class="delete-btn" bindtap="onDelete" data-id="{{item.id}}">删除</view>
+        </view>
+      </view>
+    </view>
+    <view class="empty-hint" wx:else>暂无用药提醒</view>
+  </view>
+
+  <!-- 体检提醒 -->
+  <view class="section">
+    <view class="section-header">
+      <text class="section-icon">🏥</text>
+      <text class="section-title">体检提醒</text>
+    </view>
+    <view class="reminder-list" wx:if="{{checkupReminders.length > 0}}">
+      <view class="reminder-item" wx:for="{{checkupReminders}}" wx:key="id">
+        <view class="reminder-info">
+          <view class="reminder-time">{{item.date}} {{item.time}}</view>
+          <view class="reminder-detail">
+            <text class="reminder-title">{{item.title}}</text>
+            <text class="reminder-pet" wx:if="{{item.petName}}">· {{item.petName}}</text>
+          </view>
+        </view>
+        <view class="reminder-actions">
+          <switch checked="{{item.enabled}}" bindchange="onToggle" data-id="{{item.id}}" color="#f97316" />
+          <view class="delete-btn" bindtap="onDelete" data-id="{{item.id}}">删除</view>
+        </view>
+      </view>
+    </view>
+    <view class="empty-hint" wx:else>暂无体检提醒</view>
+  </view>
+
+  <!-- 添加按钮 -->
+  <view class="add-btn-wrap">
+    <button class="add-btn" bindtap="showAdd">+ 添加提醒</button>
+  </view>
+
+  <!-- 添加弹窗 -->
+  <view class="modal-mask" wx:if="{{showAddModal}}" catchtap="hideAdd">
+    <view class="modal-content" catchtap="stopPropagation">
+      <view class="modal-header">
+        <text class="modal-title">添加提醒</text>
+        <text class="modal-close" catchtap="hideAdd">✕</text>
+      </view>
+
+      <!-- 类型选择 -->
+      <view class="form-group">
+        <view class="form-label">提醒类型</view>
+        <view class="type-options">
+          <view
+            class="type-option {{newReminder.type === item.id ? 'active' : ''}}"
+            wx:for="{{typeOptions}}"
+            wx:key="id"
+            data-type="{{item.id}}"
+            catchtap="onTypeChange"
+          >
+            <text class="type-icon">{{item.icon}}</text>
+            <text class="type-name">{{item.name}}</text>
+          </view>
+        </view>
+      </view>
+
+      <!-- 选择宠物 -->
+      <view class="form-group" wx:if="{{pets.length > 0}}">
+        <view class="form-label">选择宠物</view>
+        <picker mode="selector" range="{{pets}}" range-key="name" bindchange="onPetChange">
+          <view class="picker-value">
+            {{selectedPetName || (pets[0] && pets[0].name) || '请选择'}}
+            <text class="picker-arrow">›</text>
+          </view>
+        </picker>
+      </view>
+
+      <!-- 提醒内容 -->
+      <view class="form-group">
+        <view class="form-label">提醒内容</view>
+        <input
+          class="form-input"
+          placeholder="如：该喂饭啦"
+          value="{{newReminder.title}}"
+          bindinput="onTitleInput"
+          catchtap="stopPropagation"
+        />
+      </view>
+
+      <!-- 日期选择（体检） -->
+      <view class="form-group" wx:if="{{newReminder.type === 'checkup'}}">
+        <view class="form-label">体检日期</view>
+        <picker mode="date" value="{{newReminder.date}}" bindchange="onDateChange">
+          <view class="picker-value">
+            {{newReminder.date}}
+            <text class="picker-arrow">›</text>
+          </view>
+        </picker>
+      </view>
+
+      <!-- 时间选择 -->
+      <view class="form-group">
+        <view class="form-label">提醒时间</view>
+        <picker mode="time" value="{{newReminder.time}}" bindchange="onTimeChange">
+          <view class="picker-value">
+            {{newReminder.time}}
+            <text class="picker-arrow">›</text>
+          </view>
+        </picker>
+      </view>
+
+      <!-- 重复（喂食/用药） -->
+      <view class="form-group" wx:if="{{newReminder.type !== 'checkup'}}">
+        <view class="form-label">重复</view>
+        <picker mode="selector" range="{{repeatOptions}}" range-key="name" bindchange="onRepeatChange">
+          <view class="picker-value">
+            {{newReminder.repeat === 'daily' ? '每天' : '仅一次'}}
+            <text class="picker-arrow">›</text>
+          </view>
+        </picker>
+      </view>
+
+      <!-- 保存按钮 -->
+      <button class="save-btn" catchtap="saveReminder">保存</button>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,52 @@
+<!--pages/favorites/favorites.wxml-->
+<view class="container">
+  <!-- 食谱列表 -->
+  <view class="recipe-list" wx:if="{{recipes.length > 0}}">
+    <view
+      class="recipe-card"
+      wx:for="{{recipes}}"
+      wx:key="id"
+      data-id="{{item.id}}"
+      bindtap="onRecipeTap"
+    >
+      <!-- 食谱图片 -->
+      <view class="recipe-image-wrap">
+        <image
+          class="recipe-image"
+          src="{{item.image}}"
+          mode="aspectFill"
+          wx:if="{{item.image}}"
+        />
+        <view class="recipe-image-placeholder" wx:else>🍲</view>
+      </view>
+
+      <!-- 食谱信息 -->
+      <view class="recipe-body">
+        <view class="recipe-title-row">
+          <view class="recipe-name">{{item.name}}</view>
+          <view class="recipe-arrow">›</view>
+        </view>
+        <view class="recipe-desc">{{item.description}}</view>
+
+        <view class="recipe-meta">
+          <view class="meta-item">
+            <text class="meta-icon">⏱</text>
+            <text>{{item.prepTime}}</text>
+          </view>
+          <view class="meta-item">
+            <text class="meta-icon">📊</text>
+            <text>{{item.difficulty}}</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 空状态 -->
+  <view class="empty-state" wx:else>
+    <view class="empty-icon">🤍</view>
+    <view class="empty-text">还没有收藏任何食谱</view>
+    <view class="empty-hint">在食谱详情页点击收藏按钮添加</view>
+    <button class="go-btn" bindtap="goRecipeList">去看看食谱</button>
+  </view>
+</view>

@@ -1,0 +1,297 @@
+/* pages/pet-detail/pet-detail.wxss */
+
+.container {
+  padding: 0;
+  padding-bottom: 60rpx;
+  background: #f9fafb;
+}
+
+/* 基本信息区域 */
+.profile-section {
+  background: #fff;
+  padding: 32rpx;
+}
+
+.profile-row {
+  display: flex;
+  align-items: flex-start;
+}
+
+.avatar-wrap {
+  flex-shrink: 0;
+}
+
+.avatar {
+  width: 192rpx;
+  height: 192rpx;
+  border-radius: 32rpx;
+}
+
+.avatar-placeholder {
+  width: 192rpx;
+  height: 192rpx;
+  border-radius: 32rpx;
+  background: #f3f4f6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 80rpx;
+}
+
+.profile-info {
+  flex: 1;
+  margin-left: 32rpx;
+}
+
+.profile-name {
+  font-size: 48rpx;
+  font-weight: 500;
+  color: #1f2937;
+  margin-bottom: 16rpx;
+}
+
+.profile-detail-text {
+  font-size: 28rpx;
+  color: #4b5563;
+  line-height: 1.6;
+}
+
+/* 健康状态标签 */
+.health-status-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 16rpx 32rpx;
+  border-radius: 40rpx;
+  font-size: 28rpx;
+  margin-top: 24rpx;
+}
+
+.health-status-badge.good {
+  background: #f0fdf4;
+  color: #16a34a;
+}
+
+.health-status-badge.warning {
+  background: #fff7ed;
+  color: #ea580c;
+}
+
+.badge-icon {
+  margin-right: 12rpx;
+  font-size: 28rpx;
+}
+
+/* 详情卡片 */
+.detail-card {
+  background: #fff;
+  margin-top: 24rpx;
+  padding: 32rpx;
+}
+
+.card-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 24rpx;
+}
+
+.card-icon-box {
+  width: 40rpx;
+  height: 40rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 16rpx;
+}
+
+.card-icon-text {
+  font-size: 32rpx;
+}
+
+.card-icon-box.red .card-icon-text { color: #ef4444; }
+.card-icon-box.orange .card-icon-text { color: #f97316; }
+.card-icon-box.blue .card-icon-text { color: #3b82f6; }
+.card-icon-box.purple .card-icon-text { color: #a855f7; }
+.card-icon-box.green .card-icon-text { color: #22c55e; }
+
+.card-header-title {
+  font-size: 32rpx;
+  color: #1f2937;
+  font-weight: 500;
+}
+
+/* 标签 */
+.tag-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16rpx;
+}
+
+.tag {
+  padding: 12rpx 24rpx;
+  border-radius: 16rpx;
+  font-size: 28rpx;
+}
+
+.tag.red {
+  background: #fef2f2;
+  color: #dc2626;
+}
+
+/* 健康状况列表 */
+.condition-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16rpx;
+}
+
+.condition-item {
+  display: flex;
+  align-items: center;
+  padding: 16rpx 24rpx;
+  background: #fff7ed;
+  border-radius: 16rpx;
+}
+
+.condition-dot {
+  width: 16rpx;
+  height: 16rpx;
+  border-radius: 50%;
+  background: #f97316;
+  margin-right: 24rpx;
+  flex-shrink: 0;
+}
+
+.condition-text {
+  font-size: 28rpx;
+  color: #374151;
+}
+
+/* 用药 */
+.med-card {
+  padding: 24rpx;
+  background: #eff6ff;
+  border-radius: 16rpx;
+}
+
+.med-text {
+  font-size: 28rpx;
+  color: #1f2937;
+  line-height: 1.6;
+}
+
+/* 体检 */
+.detail-plain-text {
+  font-size: 28rpx;
+  color: #4b5563;
+}
+
+.checkup-hint {
+  display: flex;
+  align-items: center;
+  padding: 24rpx;
+  background: #fff7ed;
+  border-radius: 16rpx;
+}
+
+.checkup-hint .hint-icon {
+  font-size: 32rpx;
+  margin-right: 16rpx;
+}
+
+.checkup-hint .hint-text {
+  font-size: 28rpx;
+  color: #ea580c;
+  line-height: 1.5;
+}
+
+.report-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16rpx;
+  margin-top: 16rpx;
+}
+
+.report-thumb {
+  width: 160rpx;
+  height: 160rpx;
+  border-radius: 16rpx;
+}
+
+/* 备注 */
+.notes-section {
+  margin-bottom: 16rpx;
+}
+
+.notes-section:last-child {
+  margin-bottom: 0;
+}
+
+.notes-label {
+  font-size: 28rpx;
+  color: #6b7280;
+}
+
+.notes-text {
+  font-size: 28rpx;
+  color: #374151;
+  line-height: 1.6;
+}
+
+/* 推荐食谱按钮 */
+.action-wrap {
+  padding: 48rpx 32rpx 0;
+}
+
+.recipe-cta {
+  display: block;
+  background: linear-gradient(135deg, #f97316, #ec4899);
+  color: #fff;
+  text-align: center;
+  padding: 32rpx;
+  border-radius: 32rpx;
+  font-size: 32rpx;
+  font-weight: 500;
+  border: none;
+  transition: opacity 0.2s;
+}
+
+.recipe-cta::after {
+  border: none;
+}
+
+.recipe-cta:active {
+  opacity: 0.9;
+}
+
+/* 编辑和删除 */
+.secondary-actions {
+  padding: 24rpx 32rpx;
+  display: flex;
+  gap: 24rpx;
+}
+
+.edit-btn {
+  flex: 1;
+  background: #f3f4f6;
+  color: #374151;
+  border: none;
+  border-radius: 24rpx;
+  height: 80rpx;
+  font-size: 28rpx;
+}
+
+.edit-btn::after {
+  border: none;
+}
+
+.delete-btn {
+  background: transparent;
+  color: #ef4444;
+  border: none;
+  font-size: 28rpx;
+  padding: 0 24rpx;
+}
+
+.delete-btn::after {
+  border: none;
+}

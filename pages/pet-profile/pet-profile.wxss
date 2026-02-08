@@ -1,6 +1,7 @@
 /* pages/pet-profile/pet-profile.wxss */
 
 .container {
+  padding: 30rpx;
   padding-bottom: 50rpx;
 }
 
@@ -15,7 +16,7 @@
 .avatar-image {
   width: 180rpx;
   height: 180rpx;
-  border-radius: 30rpx;
+  border-radius: 32rpx;
   background-color: var(--color-white);
   box-shadow: 0 4rpx 16rpx rgba(0, 0, 0, 0.1);
 }
@@ -23,7 +24,7 @@
 .avatar-placeholder {
   width: 180rpx;
   height: 180rpx;
-  border-radius: 30rpx;
+  border-radius: 32rpx;
   background: linear-gradient(135deg, var(--color-gradient-start), var(--color-gradient-end));
   box-shadow: 0 4rpx 16rpx rgba(255, 122, 0, 0.2);
   display: flex;
@@ -141,10 +142,31 @@
   font-weight: 500;
 }
 
+/* 开关 */
+.switch-wrap {
+  display: flex;
+  align-items: center;
+  gap: 12rpx;
+}
+
+.switch-label {
+  font-size: 26rpx;
+  color: var(--color-text-lighter);
+}
+
+.switch-label.active {
+  color: var(--color-primary);
+  font-weight: 500;
+}
+
 /* 操作按钮 */
 .action-buttons {
   margin-top: 40rpx;
   padding: 0 30rpx;
+}
+
+.save-btn {
+  border-radius: 32rpx;
 }
 
 .btn-delete {
@@ -183,7 +205,7 @@
   left: 0;
   right: 0;
   background-color: var(--color-white);
-  border-radius: 30rpx 30rpx 0 0;
+  border-radius: 32rpx 32rpx 0 0;
   max-height: 70vh;
   transform: translateY(100%);
   transition: transform 0.3s ease;
@@ -226,14 +248,15 @@
 
 .breed-list {
   height: 50vh;
-  padding: 0 30rpx;
+  padding: 0 40rpx 30rpx;
+  box-sizing: border-box;
 }
 
 .breed-item {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 28rpx 20rpx;
+  padding: 28rpx 0;
   border-bottom: 2rpx solid var(--color-border);
   font-size: 30rpx;
 }
@@ -243,12 +266,19 @@
   font-weight: 500;
 }
 
+.breed-name {
+  flex: 1;
+  margin-right: 24rpx;
+}
+
 .breed-size {
   font-size: 24rpx;
   color: var(--color-text-lighter);
   background-color: var(--color-input-bg);
-  padding: 6rpx 16rpx;
+  padding: 8rpx 20rpx;
   border-radius: 20rpx;
+  flex-shrink: 0;
+  white-space: nowrap;
 }
 
 .empty-tip {

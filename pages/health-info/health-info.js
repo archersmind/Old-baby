@@ -23,6 +23,9 @@ Page({
     currentDiet: '',
     // 体检报告
     reports: [],
+    // 最近体检日期
+    lastCheckupDate: '',
+    today: '',
     // 活动水平选项
     activityOptions: [
       { value: 'normal', label: '正常', desc: '活动自如' },
@@ -32,6 +35,11 @@ Page({
   },
 
   onLoad(options) {
+    // 设置今天的日期作为日期选择器的最大值
+    const now = new Date()
+    const today = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}-${String(now.getDate()).padStart(2, '0')}`
+    this.setData({ today })
+
     if (options.id) {
       this.setData({ petId: options.id })
       this.loadPetData(options.id)
@@ -80,7 +88,8 @@ Page({
         activityLevel: pet.activityLevel || 'normal',
         preferences: pet.preferences || '',
         currentDiet: pet.currentDiet || '',
-        reports: pet.reports || []
+        reports: pet.reports || [],
+        lastCheckupDate: pet.lastCheckupDate || ''
       })
     }
   },
@@ -128,6 +137,13 @@ Page({
     })
   },
 
+  // 体检日期变化
+  onCheckupDateChange(e) {
+    this.setData({
+      lastCheckupDate: e.detail.value
+    })
+  },
+
   // 上传体检报告
   onUploadReport() {
     wx.chooseMedia({
@@ -166,7 +182,7 @@ Page({
 
   // 保存
   onSave() {
-    const { petId, selectedDiseases, selectedAllergens, medications, activityLevel, preferences, currentDiet, reports } = this.data
+    const { petId, selectedDiseases, selectedAllergens, medications, activityLevel, preferences, currentDiet, reports, lastCheckupDate } = this.data
 
     const updateData = {
       diseases: Object.keys(selectedDiseases), // 存回数组格式
@@ -175,7 +191,8 @@ Page({
       activityLevel,
       preferences,
       currentDiet,
-      reports
+      reports,
+      lastCheckupDate
     }
 
     util.showLoading('写入数据...')

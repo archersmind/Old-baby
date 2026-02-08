@@ -1,23 +1,24 @@
 Component({
   data: {
     selected: 0,
-    color: "#999999",
-    selectedColor: "#FF7A00",
     list: [
       {
         pagePath: "/pages/index/index",
-        icon: "❤️",
-        text: "我的宝贝"
+        text: "我的宝贝",
+        icon: "/images/tabbar/heart.svg",
+        activeIcon: "/images/tabbar/heart-active.svg"
       },
       {
         pagePath: "/pages/recipe-list/recipe-list",
-        icon: "📖",
-        text: "食谱"
+        text: "食谱",
+        icon: "/images/tabbar/book.svg",
+        activeIcon: "/images/tabbar/book-active.svg"
       },
       {
         pagePath: "/pages/my/my",
-        icon: "👤",
-        text: "我的"
+        text: "我的",
+        icon: "/images/tabbar/user.svg",
+        activeIcon: "/images/tabbar/user-active.svg"
       }
     ]
   },

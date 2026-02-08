@@ -1,25 +1,30 @@
 {
+  "lazyCodeLoading": "requiredComponents",
+  "__usePrivacyCheck__": true,
   "pages": [
     "pages/index/index",
+    "pages/pet-detail/pet-detail",
     "pages/pet-profile/pet-profile",
     "pages/health-info/health-info",
     "pages/recipe-list/recipe-list",
     "pages/recipe-detail/recipe-detail",
+    "pages/favorites/favorites",
+    "pages/reminders/reminders",
     "pages/my/my"
   ],
   "window": {
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#1a2555",
-    "navigationBarTitleText": "我的老Baby",
-    "navigationBarTextStyle": "white",
-    "backgroundColor": "#0a2f4f"
+    "navigationBarBackgroundColor": "#FFFFFF",
+    "navigationBarTitleText": "宝贝护理",
+    "navigationBarTextStyle": "black",
+    "backgroundColor": "#FFFFFF"
   },
   "tabBar": {
     "custom": true,
-    "color": "#666688",
-    "selectedColor": "#22d3ee",
-    "backgroundColor": "#1a1a3e",
-    "borderStyle": "black",
+    "color": "#9CA3AF",
+    "selectedColor": "#f97316",
+    "backgroundColor": "#FFFFFF",
+    "borderStyle": "white",
     "list": [
       {
         "pagePath": "pages/index/index",
@@ -27,7 +32,7 @@
       },
       {
         "pagePath": "pages/recipe-list/recipe-list",
-        "text": "鲜粮食谱"
+        "text": "食谱"
       },
       {
         "pagePath": "pages/my/my",

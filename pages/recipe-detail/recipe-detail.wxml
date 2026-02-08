@@ -1,6 +1,6 @@
 <!--pages/recipe-detail/recipe-detail.wxml-->
 <view class="container" wx:if="{{recipe}}">
-  <!-- 头部图片 -->
+  <!-- 食谱图片 -->
   <view class="header-image-wrap">
     <image
       class="header-image"
@@ -8,146 +8,122 @@
       mode="aspectFill"
       wx:if="{{recipe.image}}"
     />
-    <view class="header-image-placeholder" wx:else>⚡</view>
-    <view class="header-overlay">
-      <view class="recipe-title">{{recipe.name}}</view>
-      <view class="recipe-subtitle">{{recipe.description}}</view>
-    </view>
+    <view class="header-image-placeholder" wx:else>🍲</view>
   </view>
 
   <!-- 基本信息 -->
-  <view class="info-cards">
-    <view class="info-card">
-      <view class="info-value">{{recipe.prepTime}}</view>
-      <view class="info-label">制备时间</view>
-    </view>
-    <view class="info-card">
-      <view class="info-value">{{recipe.difficulty}}</view>
-      <view class="info-label">复杂度</view>
-    </view>
-    <view class="info-card">
-      <view class="info-value">{{recipe.calories}}</view>
-      <view class="info-label">能量值</view>
-    </view>
-  </view>
-
-  <!-- 适用说明 -->
-  <view class="suitable-section card" wx:if="{{recipe.suitableNames.length > 0}}">
-    <view class="suitable-title">适用体征</view>
-    <view class="suitable-tags">
-      <view class="suitable-tag" wx:for="{{recipe.suitableNames}}" wx:key="*this">
-        {{item}}
+  <view class="info-section">
+    <view class="recipe-title">{{recipe.name}}</view>
+    <view class="recipe-desc">{{recipe.description}}</view>
+    <view class="recipe-meta-row">
+      <view class="meta-item">
+        <text class="meta-icon">⏱</text>
+        <text>{{recipe.prepTime}}</text>
+      </view>
+      <view class="meta-item">
+        <text class="meta-icon">🍽</text>
+        <text>{{recipe.servings}}</text>
+      </view>
+      <view class="meta-item">
+        <text class="meta-icon">⭐</text>
+        <text>{{recipe.difficulty}}</text>
       </view>
     </view>
   </view>
 
-  <!-- 标签页 -->
-  <view class="tabs">
-    <view
-      class="tab {{activeTab === 'ingredients' ? 'active' : ''}}"
-      data-tab="ingredients"
-      bindtap="onTabChange"
-    >原料模块</view>
-    <view
-      class="tab {{activeTab === 'steps' ? 'active' : ''}}"
-      data-tab="steps"
-      bindtap="onTabChange"
-    >执行流程</view>
-    <view
-      class="tab {{activeTab === 'nutrition' ? 'active' : ''}}"
-      data-tab="nutrition"
-      bindtap="onTabChange"
-    >能量分析</view>
+  <!-- 适用和禁忌 -->
+  <view class="detail-section" wx:if="{{recipe.suitableNames.length > 0 || recipe.avoidNames.length > 0}}">
+    <view wx:if="{{recipe.suitableNames.length > 0}}">
+      <view class="section-label">适用于</view>
+      <view class="tag-row">
+        <view class="tag-green" wx:for="{{recipe.suitableNames}}" wx:key="*this">{{item}}</view>
+      </view>
+    </view>
   </view>
 
   <!-- 食材清单 -->
-  <view class="tab-content card" wx:if="{{activeTab === 'ingredients'}}">
+  <view class="detail-section">
+    <view class="section-title-with-icon">
+      <text class="section-icon" style="color: #f97316;">🍳</text>
+      <text class="section-title">食材清单</text>
+    </view>
     <view class="ingredient-list">
       <view class="ingredient-item" wx:for="{{recipe.ingredients}}" wx:key="name">
-        <view class="ingredient-name">
-          {{item.name}}
-          <text class="original-amount" wx:if="{{item.originalAmount && item.originalAmount !== item.amount}}"> (基准: {{item.originalAmount}})</text>
-        </view>
+        <text class="ingredient-name">{{item.name}}</text>
         <view class="ingredient-right">
-          <text class="ingredient-amount">{{item.amount}}</text>
-          <text class="ingredient-note" wx:if="{{item.note}}">{{item.note}}</text>
+          <view class="ingredient-amount">{{item.amount}}</view>
+          <view class="ingredient-note" wx:if="{{item.note}}">{{item.note}}</view>
         </view>
       </view>
     </view>
-    <view class="servings-note">
-      <view>份量参数：{{recipe.servings}}</view>
-      <view class="servings-hint">注：指单次制作的总量，建议按每日2餐分份喂食。</view>
-      <view class="weight-hint" wx:if="{{currentPet && currentPet.weight}}">已根据 {{currentPet.name}} 的体重 ({{currentPet.weight}}kg) 自动调整比例。</view>
+    <view class="servings-note" wx:if="{{currentPet && currentPet.weight}}">
+      已根据 {{currentPet.name}} 的体重 ({{currentPet.weight}}kg) 自动调整比例。
     </view>
   </view>
 
   <!-- 制作步骤 -->
-  <view class="tab-content card" wx:if="{{activeTab === 'steps'}}">
+  <view class="detail-section">
+    <view class="section-title">制作步骤</view>
     <view class="step-list">
       <view class="step-item" wx:for="{{recipe.steps}}" wx:key="*this">
         <view class="step-number">{{index + 1}}</view>
-        <view class="step-content">{{item}}</view>
+        <view class="step-text">{{item}}</view>
       </view>
     </view>
   </view>
 
-  <!-- 营养说明 -->
-  <view class="tab-content card" wx:if="{{activeTab === 'nutrition'}}">
+  <!-- 营养信息 -->
+  <view class="detail-section">
+    <view class="section-title">营养信息</view>
     <view class="nutrition-grid">
-      <view class="nutrition-item">
+      <view class="nutrition-item blue">
+        <view class="nutrition-label">热量</view>
+        <view class="nutrition-value">{{recipe.calories || '-'}}</view>
+      </view>
+      <view class="nutrition-item green">
         <view class="nutrition-label">蛋白质</view>
         <view class="nutrition-value">{{recipe.nutrition.protein}}</view>
       </view>
-      <view class="nutrition-item">
+      <view class="nutrition-item orange">
         <view class="nutrition-label">脂肪</view>
         <view class="nutrition-value">{{recipe.nutrition.fat}}</view>
       </view>
-      <view class="nutrition-item">
+      <view class="nutrition-item purple">
         <view class="nutrition-label">纤维素</view>
-        <view class="nutrition-value">{{recipe.nutrition.fiber}}</view>
+        <view class="nutrition-value">{{recipe.nutrition.fiber || '-'}}</view>
       </view>
-    </view>
-    <view class="nutrition-special" wx:if="{{recipe.nutrition.special}}">
-      <view class="special-title">补充说明</view>
-      <view class="special-content">{{recipe.nutrition.special}}</view>
     </view>
   </view>
 
-  <!-- 小贴士 -->
-  <view class="tips-section card" wx:if="{{recipe.tips.length > 0}}">
-    <view class="section-title tips-title">
-      <text class="tips-icon">💡</text>
-      <text>优化提示</text>
-    </view>
+  <!-- 温馨提示 -->
+  <view class="detail-section" wx:if="{{recipe.tips.length > 0}}">
+    <view class="section-title">温馨提示</view>
     <view class="tips-list">
       <view class="tip-item" wx:for="{{recipe.tips}}" wx:key="*this">
-        {{item}}
+        <view class="tip-dot"></view>
+        <text class="tip-text">{{item}}</text>
       </view>
     </view>
   </view>
 
   <!-- 注意事项 -->
-  <view class="warnings-section card" wx:if="{{recipe.warnings.length > 0}}">
-    <view class="section-title warnings-title">
-      <text class="warnings-icon">⚠️</text>
-      <text>风险提示</text>
-    </view>
-    <view class="warnings-list">
-      <view class="warning-item" wx:for="{{recipe.warnings}}" wx:key="*this">
-        {{item}}
+  <view class="detail-section" wx:if="{{recipe.warnings.length > 0}}">
+    <view class="section-title warning">注意事项</view>
+    <view class="tips-list">
+      <view class="tip-item" wx:for="{{recipe.warnings}}" wx:key="*this">
+        <view class="tip-dot warning"></view>
+        <text class="tip-text warning">{{item}}</text>
       </view>
     </view>
   </view>
 
   <!-- 底部操作栏 -->
-  <view class="bottom-bar safe-bottom">
-    <button class="action-btn" bindtap="onCollect">
-      <text class="btn-icon">❤️</text>
-      <text>收藏</text>
+  <view class="bottom-bar">
+    <button class="action-btn collect-btn {{isFavorited ? 'collected' : ''}}" bindtap="onCollect">
+      <text>{{isFavorited ? '❤️ 已收藏' : '🤍 收藏'}}</text>
     </button>
     <button class="action-btn share-btn" open-type="share">
-      <text class="btn-icon">↗️</text>
-      <text>分享</text>
+      <text>↗️ 分享</text>
     </button>
   </view>
 </view>

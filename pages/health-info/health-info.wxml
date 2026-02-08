@@ -1,5 +1,5 @@
 <!--pages/health-info/health-info.wxml-->
-<view class="container">
+<view class="container page-gradient-bg">
   <view class="enroll-steps" wx:if="{{!isEdit}}">
     <view class="step-item active">
       <view class="step-num">1</view>
@@ -13,7 +13,7 @@
   </view>
 
   <view class="page-hint" wx:if="{{petName}}">
-    正在为 <text class="pet-name">{{petName}}</text> 记录健康信息
+    正在为 <text class="pet-name-highlight">{{petName}}</text> 记录健康信息
   </view>
 
   <!-- 健康状况 -->
@@ -109,6 +109,18 @@
     </view>
   </view>
 
+  <!-- 最近体检 -->
+  <view class="section card">
+    <view class="section-title">最近体检日期</view>
+    <view class="section-desc">记录最近一次体检时间，便于追踪健康状况</view>
+    <picker mode="date" value="{{lastCheckupDate}}" end="{{today}}" bindchange="onCheckupDateChange">
+      <view class="form-picker">
+        <text class="{{lastCheckupDate ? '' : 'placeholder'}}">{{lastCheckupDate || '选择体检日期'}}</text>
+        <text class="picker-arrow">›</text>
+      </view>
+    </picker>
+  </view>
+
   <!-- 体检报告 -->
   <view class="section card">
     <view class="section-title">体检报告</view>
@@ -138,7 +150,7 @@
 
   <!-- 操作按钮 -->
   <view class="action-buttons safe-bottom">
-    <button class="btn-primary" bindtap="onSave">保存健康信息</button>
+    <button class="btn-primary save-btn" bindtap="onSave">保存健康信息</button>
     <button class="btn-secondary mt-20" bindtap="onViewRecipes">
       保存并查看推荐食谱 →
     </button>

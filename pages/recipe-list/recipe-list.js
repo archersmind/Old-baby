@@ -9,10 +9,15 @@ Page({
     recipes: [],
     allRecipes: [],
     searchKey: '',
-    filterDisease: '',
-    filterDiseaseName: '',
-    diseases: diseasesData,
-    showFilter: false
+    activeCategory: 'all',
+    categories: [
+      { id: 'all', name: '全部' },
+      { id: 'joint', name: '关节养护' },
+      { id: 'digestive', name: '肠胃调理' },
+      { id: 'heart', name: '心脏健康' },
+      { id: 'weight', name: '体重管理' }
+    ],
+    diseases: diseasesData
   },
 
   onLoad() {
@@ -34,10 +39,8 @@ Page({
     let recipes = []
 
     if (currentPet) {
-      // 有选中的宠物，使用推荐算法
       recipes = recommend.getRecommendedRecipes(currentPet)
     } else {
-      // 没有选中宠物，显示所有食谱
       recipes = allRecipes
     }
 
@@ -55,63 +58,53 @@ Page({
     this.filterRecipes()
   },
 
-  // 切换筛选面板
-  toggleFilter() {
-    this.setData({
-      showFilter: !this.data.showFilter
-    })
-  },
-
-  // 按疾病筛选
-  onFilterByDisease(e) {
-    const diseaseId = e.currentTarget.dataset.id
-    const isSelected = this.data.filterDisease === diseaseId
-
-    // 找到疾病名称
-    const disease = this.data.diseases.find(d => d.id === diseaseId)
-    const diseaseName = disease ? disease.name : ''
-
-    this.setData({
-      filterDisease: isSelected ? '' : diseaseId,
-      filterDiseaseName: isSelected ? '' : diseaseName,
-      showFilter: false
-    })
+  // 分类标签点击
+  onCategoryTap(e) {
+    const categoryId = e.currentTarget.dataset.id
+    this.setData({ activeCategory: categoryId })
     this.filterRecipes()
   },
 
   // 清除筛选
   clearFilter() {
     this.setData({
-      filterDisease: '',
-      filterDiseaseName: '',
-      searchKey: '',
-      showFilter: false
+      activeCategory: 'all',
+      searchKey: ''
     })
     this.loadData()
   },
 
   // 筛选食谱
   filterRecipes() {
-    let recipes = this.data.currentPet 
+    let recipes = this.data.currentPet
       ? recommend.getRecommendedRecipes(this.data.currentPet)
       : this.data.allRecipes
 
-    const { searchKey, filterDisease } = this.data
+    const { searchKey, activeCategory } = this.data
 
     // 按关键词搜索
     if (searchKey) {
       const lowerKey = searchKey.toLowerCase()
-      recipes = recipes.filter(r => 
+      recipes = recipes.filter(r =>
         r.name.toLowerCase().includes(lowerKey) ||
         r.description.toLowerCase().includes(lowerKey)
       )
     }
 
-    // 按疾病筛选
-    if (filterDisease) {
-      recipes = recipes.filter(r => 
-        r.suitableFor && r.suitableFor.includes(filterDisease)
-      )
+    // 按分类筛选
+    if (activeCategory !== 'all') {
+      const categoryDiseaseMap = {
+        joint: ['arthritis'],
+        digestive: ['digestive', 'pancreatitis', 'liver_disease'],
+        heart: ['heart_disease'],
+        weight: ['obesity', 'diabetes']
+      }
+      const diseaseIds = categoryDiseaseMap[activeCategory] || []
+      if (diseaseIds.length > 0) {
+        recipes = recipes.filter(r =>
+          r.suitableFor && r.suitableFor.some(id => diseaseIds.includes(id))
+        )
+      }
     }
 
     this.setData({ recipes })
@@ -130,8 +123,5 @@ Page({
     wx.switchTab({
       url: '/pages/index/index'
     })
-  },
-
-  // 阻止冒泡
-  preventTap() {}
+  }
 })

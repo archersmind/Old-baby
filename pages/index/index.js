@@ -7,12 +7,28 @@ Page({
   data: {
     pets: [],
     isEmpty: true,
-    diseaseMap: {}
+    diseaseMap: {},
+    showWelcome: false,
+    todayReminders: []
   },
 
   onLoad() {
     this.initDiseaseMap()
     this.loadPets()
+    this.loadReminders()
+    this.checkWelcome()
+  },
+
+  checkWelcome() {
+    const hasSeenWelcome = wx.getStorageSync('hasSeenWelcome')
+    if (!hasSeenWelcome) {
+      this.setData({ showWelcome: true })
+      wx.setStorageSync('hasSeenWelcome', true)
+    }
+  },
+
+  onCloseWelcome() {
+    this.setData({ showWelcome: false })
   },
 
   initDiseaseMap() {
@@ -24,27 +40,53 @@ Page({
   },
 
   onShow() {
-    // 如果是tabBar页面，需要手动设置选中状态
     if (typeof this.getTabBar === 'function' && this.getTabBar()) {
       this.getTabBar().setData({
         selected: 0
       })
     }
     this.loadPets()
+    this.loadReminders()
+  },
+
+  loadReminders() {
+    const todayReminders = storage.getTodayReminders()
+    this.setData({ todayReminders })
+  },
+
+  // 标记提醒完成
+  onReminderDone(e) {
+    const id = e.currentTarget.dataset.id
+    storage.markReminderDone(id)
+    wx.showToast({ title: '已完成', icon: 'success' })
+    this.loadReminders()
+  },
+
+  // 跳转到提醒设置
+  goReminders() {
+    wx.navigateTo({
+      url: '/pages/reminders/reminders'
+    })
+  },
+
+  formatDate(timestamp) {
+    if (!timestamp) return ''
+    const d = new Date(timestamp)
+    const month = d.getMonth() + 1
+    const day = d.getDate()
+    return `${month}月${day}日`
   },
 
   loadPets() {
     const pets = storage.getPets().map(pet => {
-      // 翻译疾病名称
       const diseaseNames = (pet.diseases || []).map(id => this.data.diseaseMap[id] || id)
-
-      // 检查资料完整度
       const isHealthComplete = (pet.diseases && pet.diseases.length > 0) || pet.medications || (pet.reports && pet.reports.length > 0)
 
       return {
         ...pet,
         diseaseNames,
-        isHealthComplete
+        isHealthComplete,
+        lastCheckupDate: pet.lastCheckupDate || ''
       }
     })
 
@@ -61,44 +103,12 @@ Page({
     })
   },
 
-  // 点击宠物卡片
+  // 点击宠物卡片 → 进入宠物详情页
   onPetTap(e) {
     const petId = e.currentTarget.dataset.id
     storage.setCurrentPetId(petId)
-    // 恢复为默认进入基本资料编辑页
     wx.navigateTo({
-      url: `/pages/pet-profile/pet-profile?id=${petId}`
+      url: `/pages/pet-detail/pet-detail?id=${petId}`
     })
-  },
-
-  // 查看宠物的食谱推荐
-  onViewRecipes(e) {
-    const petId = e.currentTarget.dataset.id
-    storage.setCurrentPetId(petId)
-    wx.switchTab({
-      url: '/pages/recipe-list/recipe-list'
-    })
-  },
-
-  // 编辑健康信息
-  onEditHealth(e) {
-    const petId = e.currentTarget.dataset.id
-    wx.navigateTo({
-      url: `/pages/health-info/health-info?id=${petId}`
-    })
-  },
-
-  // 删除宠物
-  async onDeletePet(e) {
-    const petId = e.currentTarget.dataset.id
-    const pet = storage.getPetById(petId)
-    
-    const confirmed = await util.showConfirm(`确定要删除 ${pet.name || '该宠物'} 的档案吗？数据将被永久清除。`)
-    
-    if (confirmed) {
-      storage.deletePet(petId)
-      util.showToast('已删除')
-      this.loadPets()
-    }
   }
 })

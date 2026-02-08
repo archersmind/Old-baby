@@ -1,0 +1,124 @@
+<!--pages/pet-detail/pet-detail.wxml-->
+<view class="container" wx:if="{{pet}}">
+  <!-- 宠物基本信息 -->
+  <view class="profile-section">
+    <view class="profile-row">
+      <view class="avatar-wrap">
+        <image class="avatar" src="{{pet.avatar}}" mode="aspectFill" wx:if="{{pet.avatar}}"/>
+        <view class="avatar-placeholder" wx:else>🐕</view>
+      </view>
+      <view class="profile-info">
+        <view class="profile-name">{{pet.name}}</view>
+        <view class="profile-detail-text">{{pet.breedName || '未知品种'}}</view>
+        <view class="profile-detail-text">{{pet.age}}岁 · {{pet.gender === 'male' ? '公' : pet.gender === 'female' ? '母' : '未知'}} · {{pet.weight || '?'}}kg</view>
+      </view>
+    </view>
+
+    <!-- 健康状态标签 -->
+    <view class="health-status-badge {{diseaseNames.length > 0 ? 'warning' : 'good'}}">
+      <text class="badge-icon">♥</text>
+      <text>健康状态：{{diseaseNames.length > 0 ? '需关注' : '良好'}}</text>
+    </view>
+  </view>
+
+  <!-- 过敏史 -->
+  <view class="detail-card" wx:if="{{allergenNames.length > 0}}">
+    <view class="card-header">
+      <view class="card-icon-box red">
+        <text class="card-icon-text">⚠</text>
+      </view>
+      <text class="card-header-title">过敏史</text>
+    </view>
+    <view class="tag-wrap">
+      <view class="tag red" wx:for="{{allergenNames}}" wx:key="*this">{{item}}</view>
+    </view>
+  </view>
+
+  <!-- 健康状况 -->
+  <view class="detail-card" wx:if="{{diseaseNames.length > 0}}">
+    <view class="card-header">
+      <view class="card-icon-box orange">
+        <text class="card-icon-text">♥</text>
+      </view>
+      <text class="card-header-title">健康状况</text>
+    </view>
+    <view class="condition-list">
+      <view class="condition-item" wx:for="{{diseaseNames}}" wx:key="*this">
+        <view class="condition-dot"></view>
+        <text class="condition-text">{{item}}</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 用药情况 -->
+  <view class="detail-card" wx:if="{{pet.medications}}">
+    <view class="card-header">
+      <view class="card-icon-box blue">
+        <text class="card-icon-text">💊</text>
+      </view>
+      <text class="card-header-title">用药情况</text>
+    </view>
+    <view class="med-card">
+      <text class="med-text">{{pet.medications}}</text>
+    </view>
+  </view>
+
+  <!-- 最近体检 -->
+  <view class="detail-card">
+    <view class="card-header">
+      <view class="card-icon-box purple">
+        <text class="card-icon-text">📅</text>
+      </view>
+      <text class="card-header-title">最近体检</text>
+    </view>
+    <text class="detail-plain-text" wx:if="{{pet.lastCheckupDate}}">{{pet.lastCheckupDate}}</text>
+    <view class="checkup-hint" wx:if="{{!pet.lastCheckupDate}}">
+      <text class="hint-icon">💡</text>
+      <text class="hint-text">还没有记录体检日期，记得带TA去体检哦</text>
+    </view>
+    <view class="report-grid" wx:if="{{pet.reports && pet.reports.length > 0}}">
+      <image
+        class="report-thumb"
+        wx:for="{{pet.reports}}"
+        wx:key="id"
+        src="{{item.path}}"
+        mode="aspectFill"
+        bindtap="onPreviewReport"
+        data-index="{{index}}"
+      />
+    </view>
+  </view>
+
+  <!-- 护理备注 -->
+  <view class="detail-card" wx:if="{{pet.preferences || pet.currentDiet || pet.activityLevel}}">
+    <view class="card-header">
+      <view class="card-icon-box green">
+        <text class="card-icon-text">📝</text>
+      </view>
+      <text class="card-header-title">护理备注</text>
+    </view>
+    <view class="notes-section" wx:if="{{pet.activityLevel}}">
+      <text class="notes-label">活动能力：</text>
+      <text class="notes-text">{{activityText}}</text>
+    </view>
+    <view class="notes-section" wx:if="{{pet.preferences}}">
+      <text class="notes-label">口味偏好：</text>
+      <text class="notes-text">{{pet.preferences}}</text>
+    </view>
+    <view class="notes-section" wx:if="{{pet.currentDiet}}">
+      <text class="notes-label">当前饮食：</text>
+      <text class="notes-text">{{pet.currentDiet}}</text>
+    </view>
+  </view>
+
+  <!-- 推荐食谱按钮 -->
+  <view class="action-wrap">
+    <button class="recipe-cta" bindtap="onViewRecipes">查看推荐食谱</button>
+  </view>
+
+  <!-- 编辑和删除 -->
+  <view class="secondary-actions">
+    <button class="edit-btn" bindtap="onEdit">编辑档案</button>
+    <button class="delete-btn" bindtap="onDelete">删除档案</button>
+  </view>
+</view>
